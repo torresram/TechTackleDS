@@ -12,5 +12,10 @@ namespace dominio
         public string Modelo { get; set; }
         public int Cantidad { get; set; }
         public float Peso { get; set; }
+
+        public override string ToString()
+        {
+            return Modelo;
+        }
     }
 }

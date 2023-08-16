@@ -16,6 +16,7 @@ namespace dominio
         public Anillas AnillaPal { get; set; }
         public Carton Carton { get; set; }
         public Blister Blister { get; set; }
+        public int Cantidad { get; set; }
 
         public override string ToString()
         {

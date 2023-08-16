@@ -11,6 +11,7 @@ namespace dominio
         public int Id { get; set; }
         public int Numero { get; set; }
         public string Destino { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
         public override string ToString()
         {

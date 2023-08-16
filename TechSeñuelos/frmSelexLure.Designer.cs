@@ -38,13 +38,14 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.gpbSelexAnz = new System.Windows.Forms.GroupBox();
-            this.rbSimple = new System.Windows.Forms.RadioButton();
             this.rbTriple = new System.Windows.Forms.RadioButton();
+            this.rbSimple = new System.Windows.Forms.RadioButton();
             this.gpbSelexAnz.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboArtificialNR
             // 
+            this.cboArtificialNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboArtificialNR.FormattingEnabled = true;
             this.cboArtificialNR.Location = new System.Drawing.Point(133, 41);
             this.cboArtificialNR.Name = "cboArtificialNR";
@@ -53,6 +54,7 @@
             // 
             // cboColorNR
             // 
+            this.cboColorNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboColorNR.FormattingEnabled = true;
             this.cboColorNR.Location = new System.Drawing.Point(133, 97);
             this.cboColorNR.Name = "cboColorNR";
@@ -135,16 +137,6 @@
             this.gpbSelexAnz.TabStop = false;
             this.gpbSelexAnz.Text = "Configuración";
             // 
-            // rbSimple
-            // 
-            this.rbSimple.AutoSize = true;
-            this.rbSimple.Location = new System.Drawing.Point(45, 36);
-            this.rbSimple.Name = "rbSimple";
-            this.rbSimple.Size = new System.Drawing.Size(82, 17);
-            this.rbSimple.TabIndex = 0;
-            this.rbSimple.Text = "con Simples";
-            this.rbSimple.UseVisualStyleBackColor = true;
-            // 
             // rbTriple
             // 
             this.rbTriple.AutoSize = true;
@@ -156,6 +148,16 @@
             this.rbTriple.TabStop = true;
             this.rbTriple.Text = "con Triples";
             this.rbTriple.UseVisualStyleBackColor = true;
+            // 
+            // rbSimple
+            // 
+            this.rbSimple.AutoSize = true;
+            this.rbSimple.Location = new System.Drawing.Point(45, 36);
+            this.rbSimple.Name = "rbSimple";
+            this.rbSimple.Size = new System.Drawing.Size(82, 17);
+            this.rbSimple.TabIndex = 0;
+            this.rbSimple.Text = "con Simples";
+            this.rbSimple.UseVisualStyleBackColor = true;
             // 
             // frmSelexLure
             // 

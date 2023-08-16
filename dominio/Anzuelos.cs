@@ -12,6 +12,11 @@ namespace dominio
         public string Numero { get; set; }
         public string Descripcion { get; set; }
         public int  Cantidad { get; set; }
-        public float Peso { get; set; }        
+        public double Peso { get; set; }
+
+        public override string ToString()
+        {
+            return Numero;
+        }
     }
 }

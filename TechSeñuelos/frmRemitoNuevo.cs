@@ -47,6 +47,7 @@ namespace TechSeñuelos
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
             btnEliminarTodo.Enabled = false;
+            btnContinuar.Enabled = false;
 
             cboDestinoRem.SelectedIndex = -1;//muesta el cbo en blanco por defecto
         }
@@ -79,6 +80,7 @@ namespace TechSeñuelos
         {
             string dest = cboDestinoRem.Text;
             int num = int.Parse(lblNroRem.Text);
+            DateTime fecha = DateTime.Today;
 
             if (dest == "" || dest == null)
             {
@@ -86,7 +88,7 @@ namespace TechSeñuelos
                 return;
             }
 
-            nuevoRem.addDestiNro(dest, num);
+            nuevoRem.addDestiNro(dest, num, fecha);
 
             cboDestino();
             detalle(num);
@@ -95,9 +97,10 @@ namespace TechSeñuelos
             btnAgregar.Enabled = true;
             btnEliminar.Enabled = true;
             btnEliminarTodo.Enabled = true;
+            btnContinuar.Enabled = true;
         }
 
-        public void diseColumnas()
+        public void diseColumnas()//diseño de columnas
         {
             dgvRemito.Columns["Id"].Visible = false;
             dgvRemito.Columns["Remito"].Visible = false;
@@ -106,13 +109,13 @@ namespace TechSeñuelos
             dgvRemito.Columns["Artificial"].ReadOnly = true;
         }
 
-        private void detalle(int remito)//Detalles remito nuevo
+        public void detalle(int remito)//Detalles remito nuevo
         {
             ArmadoNeg negocio = new ArmadoNeg();
-            int rtoActual = remito;
+            //int rtoActual = remito;
             try
             {
-                armados = negocio.detalleRemito(rtoActual);
+                armados = negocio.detalleRemito(remito);
                 dgvRemito.DataSource = armados;
                 diseColumnas();
             }
@@ -145,15 +148,18 @@ namespace TechSeñuelos
                 if (eliminar == DialogResult.Yes)
                 {
                     seleccion = (Armado)dgvRemito.CurrentRow.DataBoundItem;
+                    int indiceSelec = dgvRemito.CurrentRow.Index; 
                     negocio.eliminar(seleccion.Id);
                     detalle(remito);
+
+                    StandarSuplente.suplentes.RemoveRange(indiceSelec,indiceSelec);
                 }
             }
             catch (Exception ex)
             {
 
                 throw ex;
-            }
+            } 
         }
 
         private void dgvRemito_CellValueChanged(object sender, DataGridViewCellEventArgs e)//evento para editar cantidad dentro del dgvRemito
@@ -197,14 +203,28 @@ namespace TechSeñuelos
 
         private void btnEliminarTodo_Click(object sender, EventArgs e)
         {
-            ArmadoNeg armado = new ArmadoNeg();
-            RemitoNeg remito = new RemitoNeg();
+            if(dgvRemito.RowCount > 0)
+            {
+                if(MessageBox.Show("Quiere reutilizar el remito?","Eliminar todo",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    ArmadoNeg armado = new ArmadoNeg();
+                    RemitoNeg remito = new RemitoNeg();
 
-            int remitoActual = int.Parse(lblNroRem.Text);
-            int idRemito = remito.obtenerId(remitoActual);
+                    int remitoActual = int.Parse(lblNroRem.Text);
+                    int idRemito = remito.obtenerId(remitoActual);
 
-            armado.reutilizar(idRemito);
-            detalle(remitoActual);
+                    armado.reutilizar(idRemito);
+                    detalle(remitoActual);
+
+                    StandarSuplente.suplentes.Clear();
+
+                    btnAgregar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                    btnEliminarTodo.Enabled = true;
+                    btnContinuar.Enabled = false;
+                    btnAddDest.Enabled = false;
+                }
+            }
         }
 
         private void cerrarCheck()
@@ -221,7 +241,9 @@ namespace TechSeñuelos
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-
+            int rto = int.Parse(lblNroRem.Text);
+            frmInsumos insumos = new frmInsumos(rto);
+            insumos.ShowDialog();
         }
     }
 }
