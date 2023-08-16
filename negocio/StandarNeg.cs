@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,7 +122,7 @@ namespace negocio
             
             try
             {
-                datos.setConsulta("select S.Id, S.Modelo, A.Tamaño AnillaA,A.Id AnAnzId,Pit.Tamaño AnillaP, Pit.Id AnPalId, H.Numero AnzSimple,H.Id ASId, HT.Numero AnzTriple, HT.Id ATId from Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Standar S where S.IdAnzueloS = H.Id and S.IdAnzueloT = HT.Id and S.IdAnillasA = A.Id and S.IdAnillasP = Pit.Id and S.Modelo = @modelo");
+                datos.setConsulta("select S.Id, S.Modelo, A.Tamaño AnillaA,A.Id AnAnzId,Pit.Tamaño AnillaP, Pit.Id AnPitId, H.Numero AnzSimple,H.Id ASId, HT.Numero AnzTriple, HT.Id ATId, B.Modelo Blister, B.Id idBlister, C.Modelo Carton, C.Id idCarton from Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Standar S, Blister B, Carton C where S.IdAnzueloS = H.Id and S.IdAnzueloT = HT.Id and S.IdAnillasA = A.Id and S.IdAnillasP = Pit.Id and S.IdCarton = C.Id and S.IdBlister = B.Id and S.Modelo = @modelo");
                 datos.setParametro("@modelo", modelo);
                 datos.ejecLectura();
 
@@ -131,25 +132,76 @@ namespace negocio
                 standar.Modelo = (string)datos.Lector["Modelo"];
                 standar.AnillaPal = new Anillas();
                 standar.AnillaAnz = new Anillas();
-                standar.AnillaPal.Tamaño = (string)datos.Lector["AnillaA"];
-                standar.AnillaPal.Id = (int)datos.Lector["AnPalId"];
-                standar.AnillaAnz.Tamaño = (string)datos.Lector["AnillaP"];
+                standar.AnillaPal.Id = (int)datos.Lector["AnPitId"];
+                standar.AnillaPal.Tamaño = (string)datos.Lector["AnillaP"];
                 standar.AnillaAnz.Id = (int)datos.Lector["AnAnzId"];
+                standar.AnillaAnz.Tamaño = (string)datos.Lector["AnillaA"];
                 standar.AnzSimple = new Anzuelos();
                 standar.AnzTriple = new Anzuelos();
                 standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
                 standar.AnzTriple.Id = (int)datos.Lector["ATId"];
                 standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
                 standar.AnzSimple.Id = (int)datos.Lector["ASId"];
-
-                //if (anzuelo == true)
-                //    config = standar.AnzTriple.Numero;
-                //else
-                //    config = standar.AnzSimple.Numero;
+                standar.Carton = new Carton();
+                standar.Carton.Id = (int)datos.Lector["idCarton"];
+                standar.Carton.Modelo = (string)datos.Lector["Carton"];
+                standar.Blister = new Blister();
+                standar.Blister.Id = (int)datos.Lector["idBlister"];
+                standar.Blister.Modelo = (string)datos.Lector["Blister"];
 
                 string aniAnz = standar.AnillaAnz.Tamaño;
                 string aniPal = standar.AnillaPal.Tamaño;
                 string mod = standar.Modelo;
+
+                return standar;
+            }
+            catch (Exception ex)
+            {
+                //hacer excepcion en caso de devolver null la consulta...
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public Standar personalizar(string modelo, int cantidad)//para usar con la Lista de suplentes
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Standar standar = new Standar();
+            //string config;
+
+            try
+            {
+                datos.setConsulta("select S.Id, S.Modelo, A.Tamaño AnillaA,A.Id AnAnzId,Pit.Tamaño AnillaP, Pit.Id AnPitId, H.Numero AnzSimple,H.Id ASId, HT.Numero AnzTriple, HT.Id ATId, B.Modelo Blister, B.Id idBlister, C.Modelo Carton, C.Id idCarton from Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Standar S, Blister B, Carton C where S.IdAnzueloS = H.Id and S.IdAnzueloT = HT.Id and S.IdAnillasA = A.Id and S.IdAnillasP = Pit.Id and S.IdCarton = C.Id and S.IdBlister = B.Id and S.Modelo = @modelo");
+                datos.setParametro("@modelo", modelo);
+                datos.ejecLectura();
+
+                datos.Lector.Read();
+
+                standar.Id = (int)datos.Lector["Id"];
+                standar.Modelo = (string)datos.Lector["Modelo"];
+                standar.AnillaPal = new Anillas();
+                standar.AnillaAnz = new Anillas();
+                standar.AnillaPal.Id = (int)datos.Lector["AnPitId"];
+                standar.AnillaPal.Tamaño = (string)datos.Lector["AnillaP"];
+                standar.AnillaAnz.Id = (int)datos.Lector["AnAnzId"];
+                standar.AnillaAnz.Tamaño = (string)datos.Lector["AnillaA"];
+                standar.AnzSimple = new Anzuelos();
+                standar.AnzTriple = new Anzuelos();
+                standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
+                standar.AnzTriple.Id = (int)datos.Lector["ATId"];
+                standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
+                standar.AnzSimple.Id = (int)datos.Lector["ASId"];
+                standar.Carton = new Carton();
+                standar.Carton.Id = (int)datos.Lector["idCarton"];
+                standar.Carton.Modelo = (string)datos.Lector["Carton"];
+                standar.Blister = new Blister();
+                standar.Blister.Id = (int)datos.Lector["idBlister"];
+                standar.Blister.Modelo = (string)datos.Lector["Blister"];
+                standar.Cantidad = cantidad;
+
+                //string aniAnz = standar.AnillaAnz.Tamaño; //Esto para que esta??
+                //string aniPal = standar.AnillaPal.Tamaño;
+                //string mod = standar.Modelo;
 
                 return standar;
             }

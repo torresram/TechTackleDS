@@ -188,16 +188,17 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void addDestiNro(string destino, int numero)
+        public void addDestiNro(string destino, int numero, DateTime fecha)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setConsulta("insert into Remito (Numero,Destino) values (@Numero,@Destino)");
+                datos.setConsulta("insert into Remito (Numero,Destino,FechaCreacion) values (@Numero,@Destino,@Fecha)");
 
                 datos.setParametro("@Numero", numero);
                 datos.setParametro("@Destino", destino);
+                datos.setParametro("@Fecha", fecha);
 
                 datos.ejecAccion();
             }
