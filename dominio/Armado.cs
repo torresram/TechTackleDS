@@ -7,6 +7,7 @@ using System.ComponentModel;
 
 namespace dominio
 {
+    [Serializable()]
     public class Armado
     {
         public int Id { get; set; }

@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace dominio
 {
+    [Serializable()]
     public class Color
     {
         public int Id { get; set; }

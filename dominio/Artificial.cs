@@ -9,6 +9,7 @@ using System.ComponentModel;
 
 namespace dominio
 {
+    [Serializable()]
     public class Artificial
     {
         public int Id { get; set; }
