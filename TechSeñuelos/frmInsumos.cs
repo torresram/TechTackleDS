@@ -216,28 +216,41 @@ namespace TechSeñuelos
                 throw ex;
             }
         }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            frmReporte reporte = new frmReporte(insumos);
-            reporte.ShowDialog();
-        }
-        
-        private List<Insumos> cambioFamilia(List<Insumos> lista)
-        //"AnillaAnz", "AnillaPal", "AnzSimple", "AnzTriple", "Blister", "Carton", "Cantidad"
+        private List<Insumos> cambioFamilia(List<Insumos> lista)        
         {
             for (int x = 0; x < lista.Count; x++)
             {
                 if (lista[x].Familia == "AnillaAnz" || lista[x].Familia == "AnillaPal")
+                {
                     lista[x].Familia = "Anillas";
+                }
 
                 if (lista[x].Familia == "AnzSimple")
+                {
                     lista[x].Familia = "Simples";
+                }
 
                 if (lista[x].Familia == "AnzTriple")
+                {
                     lista[x].Familia = "Triples";
+                }
             }
             return lista;
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if(tabPreparado.SelectedTab == tabInsumos)
+            {
+                frmReporte reporte = new frmReporte(insumos);
+                reporte.ShowDialog();
+            }
+            else
+            {
+                frmReporte reporte = new frmReporte(remito,remitoNro);
+                reporte.ShowDialog();
+            }
+        }
+        
     }
 }

@@ -6,7 +6,6 @@ C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\dominio.pdb
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\negocio.pdb
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.csproj.AssemblyReference.cache
-C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.csproj.SuggestedBindingRedirects.cache
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmPrincipal.resources
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmRemitoNuevo.resources
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.Properties.Resources.resources
@@ -70,3 +69,4 @@ C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmStockInsumos.resources

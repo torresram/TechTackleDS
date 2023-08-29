@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRemitir = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRemitir
@@ -41,11 +42,22 @@
             this.btnRemitir.UseVisualStyleBackColor = true;
             this.btnRemitir.Click += new System.EventHandler(this.btnRemitir_Click);
             // 
+            // btnStock
+            // 
+            this.btnStock.Location = new System.Drawing.Point(234, 30);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(95, 45);
+            this.btnStock.TabIndex = 1;
+            this.btnStock.Text = "INSUMOS";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 586);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnRemitir);
             this.Name = "frmPrincipal";
             this.Text = "TECH TACKLE Señuelos";
@@ -57,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnRemitir;
+        private System.Windows.Forms.Button btnStock;
     }
 }
 

@@ -30,10 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rptFinal = new Microsoft.Reporting.WinForms.ReportViewer();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.insumosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.armadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rptFinal = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rptRemito = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.remitoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.insumosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.remitoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // insumosBindingSource
+            // 
+            this.insumosBindingSource.DataSource = typeof(dominio.Insumos);
+            // 
+            // armadoBindingSource
+            // 
+            this.armadoBindingSource.DataSource = typeof(dominio.Armado);
             // 
             // rptFinal
             // 
@@ -45,24 +60,42 @@
             this.rptFinal.Location = new System.Drawing.Point(0, 0);
             this.rptFinal.Name = "rptFinal";
             this.rptFinal.ServerReport.BearerToken = null;
-            this.rptFinal.Size = new System.Drawing.Size(634, 620);
+            this.rptFinal.Size = new System.Drawing.Size(804, 620);
             this.rptFinal.TabIndex = 0;
-            this.rptFinal.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // insumosBindingSource
+            // rptRemito
             // 
-            this.insumosBindingSource.DataSource = typeof(dominio.Insumos);
+            this.rptRemito.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "dataRemito";
+            reportDataSource2.Value = this.armadoBindingSource;
+            reportDataSource3.Name = "dtFechaDestino";
+            reportDataSource3.Value = this.remitoBindingSource;
+            this.rptRemito.LocalReport.DataSources.Add(reportDataSource2);
+            this.rptRemito.LocalReport.DataSources.Add(reportDataSource3);
+            this.rptRemito.LocalReport.ReportEmbeddedResource = "TechSeñuelos.rptRemito.rdlc";
+            this.rptRemito.Location = new System.Drawing.Point(0, 0);
+            this.rptRemito.Name = "rptRemito";
+            this.rptRemito.ServerReport.BearerToken = null;
+            this.rptRemito.Size = new System.Drawing.Size(804, 620);
+            this.rptRemito.TabIndex = 1;
+            // 
+            // remitoBindingSource
+            // 
+            this.remitoBindingSource.DataSource = typeof(dominio.Remito);
             // 
             // frmReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 620);
+            this.ClientSize = new System.Drawing.Size(804, 620);
+            this.Controls.Add(this.rptRemito);
             this.Controls.Add(this.rptFinal);
             this.Name = "frmReporte";
             this.Text = "IMPRIMIR";
             this.Load += new System.EventHandler(this.frmReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.insumosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.remitoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,5 +104,8 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer rptFinal;
         private System.Windows.Forms.BindingSource insumosBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer rptRemito;
+        private System.Windows.Forms.BindingSource armadoBindingSource;
+        private System.Windows.Forms.BindingSource remitoBindingSource;
     }
 }

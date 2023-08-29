@@ -73,7 +73,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(546, 103);
+            this.btnAgregar.Location = new System.Drawing.Point(494, 103);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(105, 46);
             this.btnAgregar.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(546, 155);
+            this.btnEliminar.Location = new System.Drawing.Point(494, 155);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(105, 49);
             this.btnEliminar.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             // btnEliminarTodo
             // 
-            this.btnEliminarTodo.Location = new System.Drawing.Point(546, 210);
+            this.btnEliminarTodo.Location = new System.Drawing.Point(494, 210);
             this.btnEliminarTodo.Name = "btnEliminarTodo";
             this.btnEliminarTodo.Size = new System.Drawing.Size(105, 49);
             this.btnEliminarTodo.TabIndex = 5;
@@ -103,7 +103,7 @@
             // 
             // btnContinuar
             // 
-            this.btnContinuar.Location = new System.Drawing.Point(546, 360);
+            this.btnContinuar.Location = new System.Drawing.Point(494, 360);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(105, 58);
             this.btnContinuar.TabIndex = 6;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 519);
+            this.ClientSize = new System.Drawing.Size(625, 453);
             this.Controls.Add(this.cboDestinoRem);
             this.Controls.Add(this.btnAddDest);
             this.Controls.Add(this.lblDestRem);

@@ -20,7 +20,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.61396cm</Height>
+              <Height>0.84667cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -162,7 +162,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.61396cm</Height>
+              <Height>0.89959cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -315,7 +315,7 @@
         <DataSetName>dataInsumos</DataSetName>
         <Top>0.49953cm</Top>
         <Left>4.2037cm</Left>
-        <Height>3.22792cm</Height>
+        <Height>1.74625cm</Height>
         <Width>8.90292cm</Width>
         <Style>
           <Border>

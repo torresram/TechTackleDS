@@ -30,6 +30,10 @@ namespace TechSeñuelos
             nuevo.ShowDialog();
         }
 
-
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            frmStockInsumos stock = new frmStockInsumos();
+            stock.ShowDialog();
+        }      
     }
 }
