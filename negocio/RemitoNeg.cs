@@ -39,6 +39,36 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
+        public List<Remito> listar(int nro)
+        {
+            List<Remito> lista = new List<Remito>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("select Id, Numero, Destino, FechaCreacion from Remito where Numero = @nro");
+                datos.setParametro("@nro", nro);
+                datos.ejecLectura();
+                
+
+                while (datos.Lector.Read())
+                {
+                    Remito aux = new Remito();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Numero = (int)datos.Lector["Numero"];
+                    aux.Destino = (string)datos.Lector["Destino"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
 
         public void agregarRemito(Remito nuevo)//lo que dice ahí...
         {

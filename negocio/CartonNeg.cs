@@ -28,7 +28,7 @@ namespace negocio
                     aux.Modelo = (string)datos.Lector["Modelo"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Cantidad = (int)datos.Lector["Cantidad"];
-                    aux.Peso = (float)datos.Lector["Peso"];
+                    aux.Peso = (double)datos.Lector["Peso"];
 
                     lista.Add(aux);
                 }

@@ -24,7 +24,7 @@ namespace negocio
                     Carcasa aux = new Carcasa();
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Modelo = (string)datos.Lector["Modelo"];
-                    aux.Peso = (float)datos.Lector["PesoArmado"];
+                    aux.Peso = (double)datos.Lector["PesoArmado"];
                     aux.Cantidad = (int)datos.Lector["Cantidad"];
 
                     lista.Add(aux);
