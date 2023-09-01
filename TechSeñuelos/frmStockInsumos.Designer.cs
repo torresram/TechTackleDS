@@ -30,32 +30,35 @@
         {
             this.tbInsumos = new System.Windows.Forms.TabControl();
             this.tbAnillas = new System.Windows.Forms.TabPage();
+            this.dgvAnillas = new System.Windows.Forms.DataGridView();
             this.tbAnzuelo = new System.Windows.Forms.TabPage();
+            this.dgvAnzuelos = new System.Windows.Forms.DataGridView();
             this.tbBlisters = new System.Windows.Forms.TabPage();
-            this.tbCarton = new System.Windows.Forms.TabPage();
+            this.dgvBlister = new System.Windows.Forms.DataGridView();
             this.tbCarcasa = new System.Windows.Forms.TabPage();
+            this.dgvCarcasas = new System.Windows.Forms.DataGridView();
+            this.tbCarton = new System.Windows.Forms.TabPage();
+            this.dgvCarton = new System.Windows.Forms.DataGridView();
             this.tbPitones = new System.Windows.Forms.TabPage();
             this.dgvPitones = new System.Windows.Forms.DataGridView();
-            this.dgvAnillas = new System.Windows.Forms.DataGridView();
-            this.dgvAnzuelos = new System.Windows.Forms.DataGridView();
-            this.dgvBlister = new System.Windows.Forms.DataGridView();
-            this.dgvCarcasas = new System.Windows.Forms.DataGridView();
-            this.dgvCarton = new System.Windows.Forms.DataGridView();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.tbInsumos.SuspendLayout();
             this.tbAnillas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).BeginInit();
             this.tbAnzuelo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnzuelos)).BeginInit();
             this.tbBlisters.SuspendLayout();
-            this.tbCarton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBlister)).BeginInit();
             this.tbCarcasa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarcasas)).BeginInit();
+            this.tbCarton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).BeginInit();
             this.tbPitones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPitones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnzuelos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBlister)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarcasas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).BeginInit();
             this.SuspendLayout();
             // 
             // tbInsumos
@@ -84,6 +87,16 @@
             this.tbAnillas.Text = "Anillas";
             this.tbAnillas.UseVisualStyleBackColor = true;
             // 
+            // dgvAnillas
+            // 
+            this.dgvAnillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnillas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAnillas.Location = new System.Drawing.Point(-2, -1);
+            this.dgvAnillas.Name = "dgvAnillas";
+            this.dgvAnillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAnillas.Size = new System.Drawing.Size(630, 431);
+            this.dgvAnillas.TabIndex = 1;
+            // 
             // tbAnzuelo
             // 
             this.tbAnzuelo.Controls.Add(this.dgvAnzuelos);
@@ -95,6 +108,16 @@
             this.tbAnzuelo.Text = "Anzuelos";
             this.tbAnzuelo.UseVisualStyleBackColor = true;
             // 
+            // dgvAnzuelos
+            // 
+            this.dgvAnzuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnzuelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAnzuelos.Location = new System.Drawing.Point(-2, -1);
+            this.dgvAnzuelos.Name = "dgvAnzuelos";
+            this.dgvAnzuelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAnzuelos.Size = new System.Drawing.Size(630, 431);
+            this.dgvAnzuelos.TabIndex = 1;
+            // 
             // tbBlisters
             // 
             this.tbBlisters.Controls.Add(this.dgvBlister);
@@ -104,6 +127,36 @@
             this.tbBlisters.TabIndex = 2;
             this.tbBlisters.Text = "Blisters";
             this.tbBlisters.UseVisualStyleBackColor = true;
+            // 
+            // dgvBlister
+            // 
+            this.dgvBlister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBlister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvBlister.Location = new System.Drawing.Point(-2, -1);
+            this.dgvBlister.Name = "dgvBlister";
+            this.dgvBlister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBlister.Size = new System.Drawing.Size(630, 431);
+            this.dgvBlister.TabIndex = 1;
+            // 
+            // tbCarcasa
+            // 
+            this.tbCarcasa.Controls.Add(this.dgvCarcasas);
+            this.tbCarcasa.Location = new System.Drawing.Point(4, 22);
+            this.tbCarcasa.Name = "tbCarcasa";
+            this.tbCarcasa.Size = new System.Drawing.Size(627, 428);
+            this.tbCarcasa.TabIndex = 4;
+            this.tbCarcasa.Text = "Carcasas";
+            this.tbCarcasa.UseVisualStyleBackColor = true;
+            // 
+            // dgvCarcasas
+            // 
+            this.dgvCarcasas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarcasas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCarcasas.Location = new System.Drawing.Point(-2, -1);
+            this.dgvCarcasas.Name = "dgvCarcasas";
+            this.dgvCarcasas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarcasas.Size = new System.Drawing.Size(630, 431);
+            this.dgvCarcasas.TabIndex = 1;
             // 
             // tbCarton
             // 
@@ -115,15 +168,15 @@
             this.tbCarton.Text = "Cartones";
             this.tbCarton.UseVisualStyleBackColor = true;
             // 
-            // tbCarcasa
+            // dgvCarton
             // 
-            this.tbCarcasa.Controls.Add(this.dgvCarcasas);
-            this.tbCarcasa.Location = new System.Drawing.Point(4, 22);
-            this.tbCarcasa.Name = "tbCarcasa";
-            this.tbCarcasa.Size = new System.Drawing.Size(627, 428);
-            this.tbCarcasa.TabIndex = 4;
-            this.tbCarcasa.Text = "Carcasas";
-            this.tbCarcasa.UseVisualStyleBackColor = true;
+            this.dgvCarton.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarton.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCarton.Location = new System.Drawing.Point(-2, -1);
+            this.dgvCarton.Name = "dgvCarton";
+            this.dgvCarton.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarton.Size = new System.Drawing.Size(630, 431);
+            this.dgvCarton.TabIndex = 1;
             // 
             // tbPitones
             // 
@@ -141,53 +194,9 @@
             this.dgvPitones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPitones.Location = new System.Drawing.Point(0, 0);
             this.dgvPitones.Name = "dgvPitones";
+            this.dgvPitones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPitones.Size = new System.Drawing.Size(630, 431);
             this.dgvPitones.TabIndex = 0;
-            // 
-            // dgvAnillas
-            // 
-            this.dgvAnillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnillas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAnillas.Location = new System.Drawing.Point(-2, -1);
-            this.dgvAnillas.Name = "dgvAnillas";
-            this.dgvAnillas.Size = new System.Drawing.Size(630, 431);
-            this.dgvAnillas.TabIndex = 1;
-            // 
-            // dgvAnzuelos
-            // 
-            this.dgvAnzuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnzuelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAnzuelos.Location = new System.Drawing.Point(-2, -1);
-            this.dgvAnzuelos.Name = "dgvAnzuelos";
-            this.dgvAnzuelos.Size = new System.Drawing.Size(630, 431);
-            this.dgvAnzuelos.TabIndex = 1;
-            // 
-            // dgvBlister
-            // 
-            this.dgvBlister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBlister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvBlister.Location = new System.Drawing.Point(-2, -1);
-            this.dgvBlister.Name = "dgvBlister";
-            this.dgvBlister.Size = new System.Drawing.Size(630, 431);
-            this.dgvBlister.TabIndex = 1;
-            // 
-            // dgvCarcasas
-            // 
-            this.dgvCarcasas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarcasas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCarcasas.Location = new System.Drawing.Point(-2, -1);
-            this.dgvCarcasas.Name = "dgvCarcasas";
-            this.dgvCarcasas.Size = new System.Drawing.Size(630, 431);
-            this.dgvCarcasas.TabIndex = 1;
-            // 
-            // dgvCarton
-            // 
-            this.dgvCarton.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarton.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCarton.Location = new System.Drawing.Point(-2, -1);
-            this.dgvCarton.Name = "dgvCarton";
-            this.dgvCarton.Size = new System.Drawing.Size(630, 431);
-            this.dgvCarton.TabIndex = 1;
             // 
             // lblBuscar
             // 
@@ -205,12 +214,43 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(181, 20);
             this.txtFiltro.TabIndex = 2;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(675, 136);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(111, 56);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "&Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(675, 232);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(111, 56);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "&Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(675, 333);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(111, 56);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // frmStockInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 627);
+            this.ClientSize = new System.Drawing.Size(823, 620);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.tbInsumos);
@@ -219,17 +259,17 @@
             this.Load += new System.EventHandler(this.frmStockInsumos_Load);
             this.tbInsumos.ResumeLayout(false);
             this.tbAnillas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).EndInit();
             this.tbAnzuelo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnzuelos)).EndInit();
             this.tbBlisters.ResumeLayout(false);
-            this.tbCarton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBlister)).EndInit();
             this.tbCarcasa.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarcasas)).EndInit();
+            this.tbCarton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).EndInit();
             this.tbPitones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPitones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnzuelos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBlister)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarcasas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,5 +292,8 @@
         private System.Windows.Forms.DataGridView dgvPitones;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

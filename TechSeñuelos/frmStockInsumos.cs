@@ -52,15 +52,37 @@ namespace TechSeñuelos
 
         private void frmStockInsumos_Load(object sender, EventArgs e)
         {
-            formatoDGVS();
+            formatoDgvs();
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
+            int indice = tbInsumos.SelectedIndex;
 
+            switch (indice)//tengo que hacer esto por no haber hecho herencia con los insumos...
+            {
+                case 0:
+                    filtroDgv<Anillas>(anillas,dgvAnillas,"Marca","Tamaño");
+                    break;
+                case 1:
+                    filtroDgv<Anzuelos>(anzuelos, dgvAnzuelos, "Numero", "Descripcion");
+                    break;
+                case 2:
+                    filtroDgv<Blister>(blisters, dgvBlister, "Modelo", "Descripcion");
+                    break;
+                case 3:
+                    filtroDgv<Carcasa>(carcasas, dgvCarcasas, "Modelo", "PesoArmado");
+                    break;
+                case 4:
+                    filtroDgv<Carton>(cartones, dgvCarton, "Modelo", "Descripcion");
+                    break;
+                case 5:
+                    filtroDgv<Piton>(pitones, dgvPitones, "Modelo");
+                    break;
+            }
         }
 
-        private void formatoDGVS()
+        private void formatoDgvs()
         {
             dgvAnillas.Columns["Id"].Visible = false;
             dgvAnillas.Columns["Marca"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -159,7 +181,44 @@ namespace TechSeñuelos
 
         private void tbInsumos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            formatoDGVS();
+            formatoDgvs();
         }
+        
+        private void filtroDgv<T>(List<T> lista, DataGridView dgv, params string[] columnas)
+        {
+          string filtro = txtFiltro.Text.Trim();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dgv.DataSource = lista;
+            }
+            else
+            {
+                filtro = filtro.ToUpper();
+
+                var listaFiltrada = lista
+                    .Where(item =>
+                    {
+                        foreach(var col in columnas)
+                        {
+                            var propiedad = item.GetType().GetProperty(col);
+                            if(propiedad != null)
+                            {
+                                var valor = propiedad.GetValue(item,null)?.ToString();
+                                if(!string.IsNullOrEmpty(valor) && valor.ToUpper().Contains(filtro))
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                    }).ToList();
+
+                dgv.DataSource = null;
+                dgv.DataSource = listaFiltrada;
+            }
+
+            formatoDgvs();
+        }               
     }
 }
