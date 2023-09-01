@@ -67,5 +67,43 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void eliminarAnilla(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("delete from Anilla where Id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
+        }
+
+        public void modificarAnilla(Anillas anilla)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("update Anilla set Marca = @marca,Tamaño = @tamaño, Cantidad = @cantidad, Peso = @peso where Id = @id");
+                datos.setParametro("@marca", anilla.Marca);
+                datos.setParametro("@tamaño", anilla.Tamaño);
+                datos.setParametro("@cantidad", anilla.Cantidad);
+                datos.setParametro("@peso", anilla.Peso);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
+        }
     }
 }

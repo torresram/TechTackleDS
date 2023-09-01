@@ -9,11 +9,11 @@ namespace negocio
 {
     public class CarcasaNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Carcasa> listar()
         {
             List<Carcasa> lista = new List<Carcasa>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("select Id,Modelo,PesoArmado, Cantidad from Carcasa");
@@ -42,8 +42,7 @@ namespace negocio
 
         public void agregarCarcasa(Carcasa nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("insert into Carcasa(Modelo,PesoArmado,Cantidad) values (@Modelo,@Peso,@Cantidad)");
@@ -53,6 +52,20 @@ namespace negocio
                 datos.setParametro("@Cantidad", nuevo.Cantidad);
 
                 datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void eliminarCarcasa(int id)
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using dominio;
 
 namespace negocio
@@ -65,6 +66,43 @@ namespace negocio
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
+        }
+
+        public void eliminarBlister(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("delete from Blister where Id =@id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
+        }
+
+        public void modificarBlister(Blister blister)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("update Blister set Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso where Id = @id");
+                datos.setParametro("@modelo", blister.Modelo);
+                datos.setParametro("@desc", blister.Descripcion);
+                datos.setParametro("@cantidad", blister.Cantidad);
+                datos.setParametro("@peso", blister.Peso);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
         }
     }
 }

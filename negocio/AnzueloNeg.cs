@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using dominio;
 
 namespace negocio
@@ -68,6 +69,43 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public void eliminarAnzuelo (int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("delete from Anzuelo where Id =@id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
+        }
+
+        public void modificarAnzuelo(Anzuelos anzuelo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("update Anzuelo set Numero = @numero,Descripcion = @desc, Cantidad = @cantidad, Peso = @peso where Id = @id ");
+                datos.setParametro("@numero", anzuelo.Numero);
+                datos.setParametro("@desc", anzuelo.Descripcion);
+                datos.setParametro("@cantidad", anzuelo.Cantidad);
+                datos.setParametro("@peso", anzuelo.Peso);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
         }
     }
 }
