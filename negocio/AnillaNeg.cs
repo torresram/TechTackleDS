@@ -10,13 +10,14 @@ namespace negocio
 {
     public class AnillaNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Anillas> listar()
         {
             List<Anillas> lista = new List<Anillas>();
-            AccesoDatos datos = new AccesoDatos();
+            
             try
             {
-                datos.setConsulta("select Id, Marca,Tamaño,Cantidad,Peso from Anilla");
+                datos.setConsulta("SELECT Id, Marca,Tamaño,Cantidad,Peso FROM Anilla");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -46,10 +47,9 @@ namespace negocio
         
         public void agregarAnilla(Anillas nueva)
         {
-            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta("insert into Anilla(Marca,Tamaño,Cantidad,Peso) values (@Marca,@Tamaño,@Cantidad,@Peso)");
+                datos.setConsulta("INSERT INTO Anilla(Marca,Tamaño,Cantidad,Peso) VALUES (@Marca,@Tamaño,@Cantidad,@Peso)");
                 datos.setParametro("@Marca", nueva.Marca);
                 datos.setParametro("@Tamaño", nueva.Tamaño);
                 datos.setParametro("@Cantidad", nueva.Cantidad);
@@ -70,10 +70,9 @@ namespace negocio
 
         public void eliminarAnilla(int id)
         {
-            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta("delete from Anilla where Id = @id");
+                datos.setConsulta("DELETE FROM Anilla WHERE Id = @id");
                 datos.setParametro("@id", id);
                 datos.ejecAccion();
             }
@@ -87,11 +86,9 @@ namespace negocio
 
         public void modificarAnilla(Anillas anilla)
         {
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setConsulta("update Anilla set Marca = @marca,Tamaño = @tamaño, Cantidad = @cantidad, Peso = @peso where Id = @id");
+                datos.setConsulta("UPDATE Anilla SET Marca = @marca,Tamaño = @tamaño, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
                 datos.setParametro("@marca", anilla.Marca);
                 datos.setParametro("@tamaño", anilla.Tamaño);
                 datos.setParametro("@cantidad", anilla.Cantidad);

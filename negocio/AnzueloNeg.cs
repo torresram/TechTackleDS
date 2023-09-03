@@ -11,14 +11,14 @@ namespace negocio
 {
     public class AnzueloNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Anzuelos> listar()
         {
-            List<Anzuelos> lista = new List<Anzuelos>();
-            AccesoDatos datos = new AccesoDatos();
+            List<Anzuelos> lista = new List<Anzuelos>();           
 
             try
             {
-                datos.setConsulta("select Id,Numero,Descripcion,Cantidad,Peso from Anzuelo");
+                datos.setConsulta("SELECT Id,Numero,Descripcion,Cantidad,Peso FROM Anzuelo");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -47,11 +47,10 @@ namespace negocio
         }
 
         public void agregarAnzuelo(Anzuelos nuevo)
-        {
-            AccesoDatos datos = new AccesoDatos();
+        {            
             try
             {
-                datos.setConsulta("insert into Anzuelo(Numero,Descripcion,Cantidad,Peso) values (@Numero,@Descripcion,@Cantidad,@Peso)");
+                datos.setConsulta("INSERT INTO Anzuelo(Numero,Descripcion,Cantidad,Peso) VALUES (@Numero,@Descripcion,@Cantidad,@Peso)");
 
                 datos.setParametro("@Numero", nuevo.Numero);
                 datos.setParametro("@Descripcion", nuevo.Descripcion);
@@ -72,11 +71,10 @@ namespace negocio
         }
 
         public void eliminarAnzuelo (int id)
-        {
-            AccesoDatos datos = new AccesoDatos();
+        {            
             try
             {
-                datos.setConsulta("delete from Anzuelo where Id =@id");
+                datos.setConsulta("DELETE FROM Anzuelo WHERE Id =@id");
                 datos.setParametro("@id", id);
                 datos.ejecAccion();
             }
@@ -89,11 +87,10 @@ namespace negocio
         }
 
         public void modificarAnzuelo(Anzuelos anzuelo)
-        {
-            AccesoDatos datos = new AccesoDatos();
+        {            
             try
             {
-                datos.setConsulta("update Anzuelo set Numero = @numero,Descripcion = @desc, Cantidad = @cantidad, Peso = @peso where Id = @id ");
+                datos.setConsulta("UPDATE Anzuelo SET Numero = @numero,Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id ");
                 datos.setParametro("@numero", anzuelo.Numero);
                 datos.setParametro("@desc", anzuelo.Descripcion);
                 datos.setParametro("@cantidad", anzuelo.Cantidad);

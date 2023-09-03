@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using dominio;
@@ -9,11 +10,11 @@ namespace negocio
 {
     public class PitonNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Piton> listar()
         {
             List<Piton> lista = new List<Piton>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("select Id, Modelo, Cantidad,Peso from Piton");
@@ -40,9 +41,7 @@ namespace negocio
         }
 
         public void agregarPiton(Piton nuevo)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
+        {            
             try
             {
                 datos.setConsulta("insert into Piton(Modelo,Cantidad,Peso) values (@Modelo,@Cant,@Peso)");
@@ -62,6 +61,42 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public void eliminarPiton(int id)
+        {
+            try
+            {
+                datos.setConsulta("DELETE FROM Piton WHERE Id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}
+        }
+
+        public void modificarPiton(Piton piton)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE Piton SET Modelo = @modelo, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
+                datos.setParametro("@modelo", piton.Modelo);
+                datos.setParametro("@cantidad", piton.Cantidad);
+                datos.setParametro("@peso", piton.Peso);
+                datos.setParametro("@id", piton.Id);
+
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion();}  
         }
     }
 }

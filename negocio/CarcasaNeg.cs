@@ -65,7 +65,29 @@ namespace negocio
         {
             try
             {
+                datos.setConsulta("DELETE FROM Carcasa WHERE Id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void modificarCarcasa(Carcasa carcasa)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE Carcasa SET Modelo = @modelo,PesoArmado = @peso, Cantidad = @cantidad WHERE Id = @id");
+                datos.setParametro("@modelo", carcasa.Modelo);
+                datos.setParametro("@peso", carcasa.Peso);
+                datos.setParametro("@cantidad", carcasa.Cantidad);
+                datos.setParametro("@id", carcasa.Id);
+
+                datos.ejecAccion();
             }
             catch (Exception ex)
             {

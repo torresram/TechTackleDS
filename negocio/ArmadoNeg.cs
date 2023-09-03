@@ -12,15 +12,15 @@ namespace negocio
 {
 	public class ArmadoNeg
 	{
+		private AccesoDatos datos = new AccesoDatos();
 		public List<Armado> listar()
 		{
 			List<Armado> lista = new List<Armado>();
-			AccesoDatos datos = new AccesoDatos();
-
+			
 			try
 			{
 
-				datos.setConsulta("select A.Id Id, R.Numero, S.Modelo, C.Color, A.Cantidad from Armado A, Color C, Artificial S,Remito R where Id_artificial = S.Id and A.Id_color = C.Id and Id_remito = R.Id ");
+				datos.setConsulta("SELECT A.Id Id, R.Numero, S.Modelo, C.Color, A.Cantidad FROM Armado A, Color C, Artificial S,Remito R WHERE Id_artificial = S.Id AND A.Id_color = C.Id AND Id_remito = R.Id ");
 				datos.ejecLectura();
 
 				while (datos.Lector.Read())
@@ -49,13 +49,12 @@ namespace negocio
 		}
 
 		public List<Armado> detalleRemito(int remito)
-		{
-			AccesoDatos datos = new AccesoDatos();
+		{			
 			List<Armado> armado = new List<Armado>();
 
 			try
 			{
-				datos.setConsulta("select A.Id,R.Numero, S.Modelo, C.Color,A.Cantidad from Armado A,Color C,Artificial S,Remito R where Id_remito = R.Id and A.Id_artificial = S.Id and A.Id_color = C.Id and R.Numero = @remito");
+				datos.setConsulta("SELECT A.Id,R.Numero, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = @remito");
 				datos.setParametro("@remito", remito);
 				datos.ejecLectura();
 
@@ -83,22 +82,21 @@ namespace negocio
 		}
 
 		public void addItem(int modelo, int color, int cantidad)
-		{
-			AccesoDatos datos = new AccesoDatos();
+		{			
 			int remito = 0;
 			int cantExist = 0;
 			int cantUpd = 0;
 
 			try
 			{
-				datos.setConsulta("select MAX(Id) as Ultimo from Remito");
+				datos.setConsulta("SELECT MAX(Id) AS Ultimo FROM Remito");
 				datos.ejecLectura();
 				datos.Lector.Read();
 
 				remito = (int)datos.Lector["Ultimo"];
 				datos.cerrarConexion();
 
-				datos.setConsulta("SELECT COUNT(*) AS Total FROM Armado WHERE Id_artificial = @modelo AND Id_color = @color and Id_remito = @remito");
+				datos.setConsulta("SELECT COUNT(*) AS Total FROM Armado WHERE Id_artificial = @modelo AND Id_color = @color AND Id_remito = @remito");
 				datos.setParametro("@modelo", modelo);
 				datos.setParametro("@color", color);
 				datos.setParametro("@remito", remito);
@@ -115,7 +113,7 @@ namespace negocio
 
 				if (existe)
 				{
-					datos.setConsulta("select Cantidad from Armado where Id_artificial = @mod and Id_color = @col and Id_remito = @rem");
+					datos.setConsulta("SELECT Cantidad FROM Armado WHERE Id_artificial = @mod AND Id_color = @col AND Id_remito = @rem");
 					datos.setParametro("@mod", modelo);
 					datos.setParametro("@col", color);
 					datos.setParametro("@rem", remito);
@@ -136,7 +134,7 @@ namespace negocio
 				}
 				else
 				{
-					datos.setConsulta("insert into Armado (Id_artificial, Id_color, Id_remito, Cantidad) values (@Art,@Col,@Rem,@Cant)");
+					datos.setConsulta("INSERT INTO Armado (Id_artificial, Id_color, Id_remito, Cantidad) VALUES (@Art,@Col,@Rem,@Cant)");
 
 					datos.setParametro("@Art", modelo);
 					datos.setParametro("@Col", color);
@@ -155,11 +153,9 @@ namespace negocio
 
 		public void nuevoRemArmado(string artificial, string color, int cantidad)
 		{
-			AccesoDatos datos = new AccesoDatos();
-
 			try
 			{
-				datos.setConsulta("select A.Id, Codigo, Modelo,C.Color, Peso, Cantidad, C.Id IdColor from Artificial A, Color C where A.Id_color = C.Id and Modelo = @artificial and Color = @color");
+				datos.setConsulta("SELECT A.Id, Codigo, Modelo,C.Color, Peso, Cantidad, C.Id IdColor from Artificial A, Color C where A.Id_color = C.Id and Modelo = @artificial AND Color = @color");
 				datos.setParametro("@artificial", artificial);
 				datos.setParametro("@color", color);
 				datos.ejecLectura();
@@ -190,11 +186,9 @@ namespace negocio
 
 		public void eliminar(int id)
 		{
-			AccesoDatos datos = new AccesoDatos();
-
 			try
 			{
-				datos.setConsulta("delete from Armado where Id = @Id");
+				datos.setConsulta("DELETE FROM Armado WHERE Id = @Id");
 				datos.setParametro("@Id", id);
 				datos.ejecAccion();
 			}
@@ -207,9 +201,7 @@ namespace negocio
 		}
 
 		public void modifCant(int id, int cantidad)
-		{
-			AccesoDatos datos = new AccesoDatos();
-			
+		{			
 			try
 			{
 				datos.setConsulta("UPDATE Armado SET Cantidad = @Cantidad WHERE Id = @Id");
@@ -227,11 +219,9 @@ namespace negocio
 		
 		public void reutilizar(int remito)
 		{
-			AccesoDatos datos = new AccesoDatos();
-
 			try
 			{
-				datos.setConsulta("delete from Armado where Id_remito = @remito");
+				datos.setConsulta("DELETE FROM Armado WHERE Id_remito = @remito");
 				datos.setParametro("@remito", remito);
 				datos.ejecAccion();
 			}

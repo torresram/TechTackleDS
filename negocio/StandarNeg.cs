@@ -12,11 +12,11 @@ namespace negocio
 {
     public class StandarNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Standar> listar()
         {
             List<Standar> lista = new List<Standar>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("select S.Id, S.Modelo, A.Tamaño AnillaAnz, Pit.Tamaño AnillaPal, H.Numero AnzSimple, HP.Numero AnzTriple, C.Modelo Carton, B.Modelo Blister from Anilla A, Anilla Pit, Anzuelo H, Anzuelo HP, Carton C, Blister B, Standar S where S.IdAnzueloA = H.Id and S.IdAnzueloP = HP.Id and S.IdAnillasA = A.Id and S.IdAnillasP = Pit.Id and S.IdCarton = C.Id and S.IdBlister = B.Id");
@@ -55,8 +55,7 @@ namespace negocio
         public List<Anzuelos> cboAnzuelo()
         {
             List<Anzuelos> anzuelo = new List<Anzuelos>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("select distinct Id, Numero from Anzuelo order by Numero asc");
@@ -86,8 +85,7 @@ namespace negocio
         public List<Anillas> cboAnilla()
         {
             List<Anillas> anilla = new List<Anillas>();
-            AccesoDatos datos = new AccesoDatos();
-
+           
             try
             {
                 datos.setConsulta("select distinct Id, Tamaño from Anilla order by Tamaño asc");
@@ -116,7 +114,6 @@ namespace negocio
 
         public Standar personalizar(string modelo)//configuracion standar de artificiales
         {
-            AccesoDatos datos = new AccesoDatos();
             Standar standar = new Standar();
             //string config;
             
@@ -165,7 +162,6 @@ namespace negocio
 
         public Standar personalizar(string modelo, int cantidad)//para usar con la Lista de suplentes
         {
-            AccesoDatos datos = new AccesoDatos();
             Standar standar = new Standar();
             //string config;
 
@@ -215,7 +211,6 @@ namespace negocio
 
         public string obtImg(string color, string modelo) //pensar bien
         {
-            AccesoDatos datos = new AccesoDatos();
             string imagen;
 
             try

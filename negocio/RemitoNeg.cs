@@ -11,14 +11,14 @@ namespace negocio
 {
     public class RemitoNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Remito> listar()
         {
             List<Remito> lista = new List<Remito>();
-            AccesoDatos datos = new AccesoDatos();
-
+           
             try
             {
-                datos.setConsulta("select Id, Numero, Destino from Remito");
+                datos.setConsulta("SELECT Id, Numero, Destino FROM Remito");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -42,11 +42,10 @@ namespace negocio
         public List<Remito> listar(int nro)
         {
             List<Remito> lista = new List<Remito>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
-                datos.setConsulta("select Id, Numero, Destino, FechaCreacion from Remito where Numero = @nro");
+                datos.setConsulta("SELECT Id, Numero, Destino, FechaCreacion FROM Remito WHERE Numero = @nro");
                 datos.setParametro("@nro", nro);
                 datos.ejecLectura();
                 
@@ -72,11 +71,9 @@ namespace negocio
 
         public void agregarRemito(Remito nuevo)//lo que dice ahí...
         {
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setConsulta("insert into Remito(Numero,Destino) values (@Numero,@Destino)");
+                datos.setConsulta("INSERT INTO Remito(Numero,Destino) VALUES (@Numero,@Destino)");
 
                 datos.setParametro("@Numero", nuevo.Id);
                 datos.setParametro("@Destino", nuevo.Destino);
@@ -93,11 +90,9 @@ namespace negocio
 
         public void eliminarRemito(int remito)
         {
-            AccesoDatos datos = new AccesoDatos();
-            
             try
             {
-                datos.setConsulta("delete from Remito where Numero = @remito");
+                datos.setConsulta("DELETE FROM Remito WHERE Numero = @remito");
                 datos.setParametro("@remito", remito);
                 datos.ejecAccion();
             }
@@ -111,12 +106,11 @@ namespace negocio
         
         public bool existe(int remito)
         {
-            AccesoDatos datos = new AccesoDatos();
             int banRemito;
 
             try
             {
-                datos.setConsulta("select MAX(Numero) as Ultimo from Remito");
+                datos.setConsulta("SELECT MAX(Numero) AS Ultimo FROM Remito");
                 datos.ejecLectura();
                 datos.Lector.Read();
 
@@ -140,11 +134,10 @@ namespace negocio
 
         public int obtProxRem()//Obtener número de remito siguiente
         {
-            AccesoDatos datos = new AccesoDatos();
             int ultRem = 0;
             try
             {
-                datos.setConsulta("select MAX(Numero) as Ultimo from Remito");
+                datos.setConsulta("SELECT MAX(Numero) AS Ultimo FROM Remito");
                 datos.ejecLectura();
                 datos.Lector.Read();
 
@@ -168,12 +161,10 @@ namespace negocio
         }
 
         public int obtenerId(int idRemito)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
+        {           
             try
             {
-                datos.setConsulta("select Id from Remito where Numero = @remito");
+                datos.setConsulta("SELECT Id FROM Remito WHERE Numero = @remito");
                 datos.setParametro("@remito", idRemito);
                 datos.ejecLectura();
 
@@ -193,11 +184,10 @@ namespace negocio
         public List<Remito> cboDestino()//Devuelve solo destinos distintos
         {
             List<Remito> remito = new List<Remito> ();
-            AccesoDatos datos = new AccesoDatos ();
-
+            
             try
             {
-                datos.setConsulta("select distinct Destino from Remito");
+                datos.setConsulta("SELECT DISTINCT Destino FROM Remito");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -220,11 +210,9 @@ namespace negocio
 
         public void addDestiNro(string destino, int numero, DateTime fecha)
         {
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setConsulta("insert into Remito (Numero,Destino,FechaCreacion) values (@Numero,@Destino,@Fecha)");
+                datos.setConsulta("INSERT INTO Remito (Numero,Destino,FechaCreacion) VALUES (@Numero,@Destino,@Fecha)");
 
                 datos.setParametro("@Numero", numero);
                 datos.setParametro("@Destino", destino);

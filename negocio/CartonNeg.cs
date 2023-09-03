@@ -11,11 +11,11 @@ namespace negocio
 {
     public class CartonNeg
     {
+        private AccesoDatos datos = new AccesoDatos();
         public List<Carton> listar()
         {
             List<Carton> lista = new List<Carton>();
-            AccesoDatos datos = new AccesoDatos();
-
+            
             try
             {
                 datos.setConsulta("select Id, Modelo, Descripcion, Cantidad,Peso from Carton");
@@ -45,8 +45,6 @@ namespace negocio
 
         public void agregarCarton(Carton nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
                 datos.setConsulta("insert into Carton(Modelo,Descripcion,Cantidad,Peso) values (@Modelo,@Desc,@Cantidad,@Peso)");
@@ -55,6 +53,43 @@ namespace negocio
                 datos.setParametro("@Desc", nuevo.Descripcion);
                 datos.setParametro("@Cantidad", nuevo.Cantidad);
                 datos.setParametro("@Peso", nuevo.Peso);
+
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void eliminarCarton(int id)
+        {
+            try
+            {
+                datos.setConsulta("DELETE FROM Carton WHERE Id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void modificarCarton(Carton carton)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE Carton SET Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
+                datos.setParametro("@modelo", carton.Modelo);
+                datos.setParametro("@desc", carton.Descripcion);
+                datos.setParametro("@cantidad", carton.Cantidad);
+                datos.setParametro("@peso", carton.Peso);
+                datos.setParametro("@id", carton.Id);
 
                 datos.ejecAccion();
             }
