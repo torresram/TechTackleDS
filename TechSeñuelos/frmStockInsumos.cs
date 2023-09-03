@@ -1,4 +1,5 @@
 ﻿using dominio;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using negocio;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace TechSeñuelos
         private List<Carcasa> carcasas;
         private List<Carton> cartones;
         private List<Piton> pitones;
+        private List<string> columnas;
 
         public frmStockInsumos()
         {
@@ -219,6 +221,72 @@ namespace TechSeñuelos
             }
 
             formatoDgvs();
-        }               
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            int indice = tbInsumos.SelectedIndex;
+
+            switch (indice)
+            {
+                case 0:                    
+                    columnas = obtenerColumnas("Anilla");
+                    frmGestionInsumo anilla = new frmGestionInsumo(columnas, "Anillas");
+                    anilla.ShowDialog();
+                    break;
+                case 1:
+                    columnas = obtenerColumnas("Anzuelo");
+                    frmGestionInsumo anzuelo = new frmGestionInsumo(columnas, "Anzuelos");
+                    anzuelo.ShowDialog();
+                    break;
+                case 2:
+                    columnas = obtenerColumnas("Blister");
+                    frmGestionInsumo blister = new frmGestionInsumo(columnas, "Blisters");
+                    blister.ShowDialog();
+                    break;
+                case 3:
+                    columnas = obtenerColumnas("Carcasa");
+                    frmGestionInsumo carcasa = new frmGestionInsumo(columnas, "Carcasas");
+                    carcasa.ShowDialog();
+                    break;
+                case 4:
+                    columnas = obtenerColumnas("Carton");
+                    frmGestionInsumo carton = new frmGestionInsumo(columnas, "Carton");
+                    carton.ShowDialog();
+                    break;
+                case 5:
+                    columnas = obtenerColumnas("Piton");
+                    frmGestionInsumo piton = new frmGestionInsumo(columnas, "Piton");
+                    piton.ShowDialog();
+                    break;
+            }
+        }
+
+        private List<string> obtenerColumnas(string tabla)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<string> columnas = new List<string>();
+
+            try
+            {
+                datos.setConsulta("SELECT COLUMN_NAME Columna FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @tabla");
+                datos.setParametro("@tabla", tabla);
+                datos.ejecLectura();
+
+                while (datos.Lector.Read())
+                {
+                    string nombreColumna = datos.Lector["Columna"].ToString();
+                    columnas.Add(nombreColumna);
+                }
+
+                return columnas;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
     }
 }

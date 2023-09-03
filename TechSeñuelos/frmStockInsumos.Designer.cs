@@ -218,16 +218,17 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(675, 136);
+            this.btnAgregar.Location = new System.Drawing.Point(669, 136);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(111, 56);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(675, 232);
+            this.btnModificar.Location = new System.Drawing.Point(669, 232);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 56);
             this.btnModificar.TabIndex = 3;
@@ -236,7 +237,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(675, 333);
+            this.btnEliminar.Location = new System.Drawing.Point(669, 333);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(111, 56);
             this.btnEliminar.TabIndex = 4;

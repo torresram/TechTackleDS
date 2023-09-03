@@ -70,3 +70,4 @@ C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmStockInsumos.resources
+C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmGestionInsumo.resources
