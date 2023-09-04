@@ -31,12 +31,11 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblNombreTabla = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(38, 342);
+            this.btnAceptar.Location = new System.Drawing.Point(376, 94);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(84, 34);
             this.btnAceptar.TabIndex = 0;
@@ -46,7 +45,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(294, 342);
+            this.btnCancelar.Location = new System.Drawing.Point(376, 154);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(84, 34);
             this.btnCancelar.TabIndex = 1;
@@ -64,19 +63,11 @@
             this.lblNombreTabla.TabIndex = 2;
             this.lblNombreTabla.Text = "ANILLAS";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(204, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 3;
-            // 
             // frmGestionInsumo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 388);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(483, 352);
             this.Controls.Add(this.lblNombreTabla);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -93,6 +84,5 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblNombreTabla;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

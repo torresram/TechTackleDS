@@ -26,30 +26,7 @@ namespace TechSeñuelos
         public frmStockInsumos()
         {
             InitializeComponent();
-
-            AnillaNeg anillaNeg = new AnillaNeg();
-            anillas = anillaNeg.listar();
-            dgvAnillas.DataSource = anillas;
-
-            AnzueloNeg anzueloNeg = new AnzueloNeg();
-            anzuelos = anzueloNeg.listar();
-            dgvAnzuelos.DataSource = anzuelos;
-
-            BlisterNeg blisterNeg = new BlisterNeg();
-            blisters = blisterNeg.listar();
-            dgvBlister.DataSource = blisters;
-
-            CarcasaNeg carcasaNeg = new CarcasaNeg();
-            carcasas = carcasaNeg.listar();
-            dgvCarcasas.DataSource = carcasas;
-
-            CartonNeg cartonNeg = new CartonNeg();
-            cartones = cartonNeg.listar();
-            dgvCarton.DataSource = cartones;
-
-            PitonNeg pitonNeg = new PitonNeg();
-            pitones = pitonNeg.listar();
-            dgvPitones.DataSource = pitones;
+            cargarDgvs();            
         }
 
         private void frmStockInsumos_Load(object sender, EventArgs e)
@@ -112,7 +89,7 @@ namespace TechSeñuelos
                     row.Visible = true;
                 }
             }
-
+            
             dgvAnzuelos.Columns["Id"].Visible = false;
             dgvAnzuelos.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAnzuelos.Columns["Numero"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -139,7 +116,7 @@ namespace TechSeñuelos
                     row.Visible = true;
                 }
             }
-
+            
             dgvBlister.Columns["Id"].Visible = false;
             dgvBlister.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBlister.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -184,6 +161,7 @@ namespace TechSeñuelos
         private void tbInsumos_SelectedIndexChanged(object sender, EventArgs e)
         {
             formatoDgvs();
+            cargarDgvs();
         }
         
         private void filtroDgv<T>(List<T> lista, DataGridView dgv, params string[] columnas)
@@ -219,47 +197,30 @@ namespace TechSeñuelos
                 dgv.DataSource = null;
                 dgv.DataSource = listaFiltrada;
             }
-
+            
             formatoDgvs();
+            cargarDgvs();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int indice = tbInsumos.SelectedIndex;
 
-            switch (indice)
+            Dictionary<int, string> tablaInsumo = new Dictionary<int, string>()
             {
-                case 0:                    
-                    columnas = obtenerColumnas("Anilla");
-                    frmGestionInsumo anilla = new frmGestionInsumo(columnas, "Anillas");
-                    anilla.ShowDialog();
-                    break;
-                case 1:
-                    columnas = obtenerColumnas("Anzuelo");
-                    frmGestionInsumo anzuelo = new frmGestionInsumo(columnas, "Anzuelos");
-                    anzuelo.ShowDialog();
-                    break;
-                case 2:
-                    columnas = obtenerColumnas("Blister");
-                    frmGestionInsumo blister = new frmGestionInsumo(columnas, "Blisters");
-                    blister.ShowDialog();
-                    break;
-                case 3:
-                    columnas = obtenerColumnas("Carcasa");
-                    frmGestionInsumo carcasa = new frmGestionInsumo(columnas, "Carcasas");
-                    carcasa.ShowDialog();
-                    break;
-                case 4:
-                    columnas = obtenerColumnas("Carton");
-                    frmGestionInsumo carton = new frmGestionInsumo(columnas, "Carton");
-                    carton.ShowDialog();
-                    break;
-                case 5:
-                    columnas = obtenerColumnas("Piton");
-                    frmGestionInsumo piton = new frmGestionInsumo(columnas, "Piton");
-                    piton.ShowDialog();
-                    break;
-            }
+                {0,"Anilla" },
+                {1,"Anzuelo" },
+                {2,"Blister" },
+                {3,"Carcasa" },
+                {4,"Carton" },
+                {5,"Piton" }
+            };
+
+            string tabla = tablaInsumo[indice];
+            columnas = obtenerColumnas(tabla);
+
+            frmGestionInsumo agregar = new frmGestionInsumo(columnas,tabla);
+            agregar.ShowDialog();
         }
 
         private List<string> obtenerColumnas(string tabla)
@@ -276,7 +237,10 @@ namespace TechSeñuelos
                 while (datos.Lector.Read())
                 {
                     string nombreColumna = datos.Lector["Columna"].ToString();
-                    columnas.Add(nombreColumna);
+                    if(nombreColumna != "Id")
+                    {
+                        columnas.Add(nombreColumna);
+                    }
                 }
 
                 return columnas;
@@ -287,6 +251,33 @@ namespace TechSeñuelos
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
+        }
+
+        private void cargarDgvs()
+        {
+            AnillaNeg anillaNeg = new AnillaNeg();
+            anillas = anillaNeg.listar();
+            dgvAnillas.DataSource = anillas;
+
+            AnzueloNeg anzueloNeg = new AnzueloNeg();
+            anzuelos = anzueloNeg.listar();
+            dgvAnzuelos.DataSource = anzuelos;
+
+            BlisterNeg blisterNeg = new BlisterNeg();
+            blisters = blisterNeg.listar();
+            dgvBlister.DataSource = blisters;
+
+            CarcasaNeg carcasaNeg = new CarcasaNeg();
+            carcasas = carcasaNeg.listar();
+            dgvCarcasas.DataSource = carcasas;
+
+            CartonNeg cartonNeg = new CartonNeg();
+            cartones = cartonNeg.listar();
+            dgvCarton.DataSource = cartones;
+
+            PitonNeg pitonNeg = new PitonNeg();
+            pitones = pitonNeg.listar();
+            dgvPitones.DataSource = pitones;
         }
     }
 }
