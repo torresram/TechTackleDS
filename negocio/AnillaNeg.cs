@@ -45,21 +45,25 @@ namespace negocio
             }
         }
         
-        public void agregarAnilla(Anillas nueva)
+        public void agregarAnilla(Dictionary<string,string> valoresParametros)
         {
+            string marca = valoresParametros["Marca"];
+            string tamaño = valoresParametros["Tamaño"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+            
             try
             {
                 datos.setConsulta("INSERT INTO Anilla(Marca,Tamaño,Cantidad,Peso) VALUES (@Marca,@Tamaño,@Cantidad,@Peso)");
-                datos.setParametro("@Marca", nueva.Marca);
-                datos.setParametro("@Tamaño", nueva.Tamaño);
-                datos.setParametro("@Cantidad", nueva.Cantidad);
-                datos.setParametro("@Peso", nueva.Peso);
+                datos.setParametro("@Marca", marca);
+                datos.setParametro("@Tamaño", tamaño);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.setParametro("@Peso", peso);
 
                 datos.ejecAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

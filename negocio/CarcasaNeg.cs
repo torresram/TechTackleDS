@@ -16,7 +16,7 @@ namespace negocio
             
             try
             {
-                datos.setConsulta("select Id,Modelo,PesoArmado, Cantidad from Carcasa");
+                datos.setConsulta("SELECT Id,Modelo,Peso, Cantidad FROM Carcasa");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -24,7 +24,7 @@ namespace negocio
                     Carcasa aux = new Carcasa();
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Modelo = (string)datos.Lector["Modelo"];
-                    aux.Peso = (double)datos.Lector["PesoArmado"];
+                    aux.Peso = (double)datos.Lector["Peso"];
                     aux.Cantidad = (int)datos.Lector["Cantidad"];
 
                     lista.Add(aux);
@@ -40,16 +40,18 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void agregarCarcasa(Carcasa nuevo)
+        public void agregarCarcasa(Dictionary<string, string> valoresParametros)
         {
+            string modelo = valoresParametros["Modelo"];
+            double peso = double.Parse(valoresParametros["Peso"]);
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
             
             try
             {
-                datos.setConsulta("insert into Carcasa(Modelo,PesoArmado,Cantidad) values (@Modelo,@Peso,@Cantidad)");
-
-                datos.setParametro("@Modelo", nuevo.Modelo);
-                datos.setParametro("@Peso", nuevo.Peso);
-                datos.setParametro("@Cantidad", nuevo.Cantidad);
+                datos.setConsulta("INSERT INTO Carcasa(Modelo,Peso,Cantidad) VALUES (@Modelo,@Peso,@Cantidad)");
+                datos.setParametro("@Modelo", modelo);
+                datos.setParametro("@Peso", peso);
+                datos.setParametro("@Cantidad", cantidad);
 
                 datos.ejecAccion();
             }
@@ -81,7 +83,7 @@ namespace negocio
         {
             try
             {
-                datos.setConsulta("UPDATE Carcasa SET Modelo = @modelo,PesoArmado = @peso, Cantidad = @cantidad WHERE Id = @id");
+                datos.setConsulta("UPDATE Carcasa SET Modelo = @modelo, Peso = @peso, Cantidad = @cantidad WHERE Id = @id");
                 datos.setParametro("@modelo", carcasa.Modelo);
                 datos.setParametro("@peso", carcasa.Peso);
                 datos.setParametro("@cantidad", carcasa.Cantidad);

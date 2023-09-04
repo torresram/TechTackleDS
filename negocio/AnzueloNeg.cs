@@ -46,16 +46,21 @@ namespace negocio
             }
         }
 
-        public void agregarAnzuelo(Anzuelos nuevo)
-        {            
+        public void agregarAnzuelo(Dictionary<string, string> valoresParametros)
+        {
+            string numero = valoresParametros["Numero"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("INSERT INTO Anzuelo(Numero,Descripcion,Cantidad,Peso) VALUES (@Numero,@Descripcion,@Cantidad,@Peso)");
 
-                datos.setParametro("@Numero", nuevo.Numero);
-                datos.setParametro("@Descripcion", nuevo.Descripcion);
-                datos.setParametro("@Cantidad", nuevo.Cantidad);
-                datos.setParametro("@Peso", nuevo.Peso);
+                datos.setParametro("@Numero", numero);
+                datos.setParametro("@Descripcion", desc);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.setParametro("@Peso", peso);
 
                 datos.ejecAccion();
             }

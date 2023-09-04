@@ -10,14 +10,14 @@ namespace negocio
 {
     public class BlisterNeg
     {
+        AccesoDatos datos = new AccesoDatos();
         public List<Blister> listar()
         {
             List<Blister> lista = new List<Blister>();
-            AccesoDatos datos = new AccesoDatos();
-
+           
             try
             {
-                datos.setConsulta("select Id, Modelo, Descripcion, Cantidad, Peso from Blister");
+                datos.setConsulta("SELECT Id, Modelo, Descripcion, Cantidad, Peso FROM Blister");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -45,18 +45,21 @@ namespace negocio
             }
         }
 
-        public void agregarBlister(Blister nuevo)
+        public void agregarBlister(Dictionary<string, string> valoresParametros)
         {
-            AccesoDatos datos = new AccesoDatos();
+            string modelo = valoresParametros["Modelo"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
 
             try
             {
-                datos.setConsulta("insert into Blister(Modelo,Descripcion,Cantidad,Peso) values (@Modelo,@Descripcion,@Cantidad,@Peso)");
+                datos.setConsulta("INSERT INTO Blister(Modelo,Descripcion,Cantidad,Peso) VALUES (@Modelo,@Descripcion,@Cantidad,@Peso)");
                 
-                datos.setParametro("@Modelo", nuevo.Modelo);
-                datos.setParametro("@Descripcion", nuevo.Descripcion);
-                datos.setParametro("@Cantidad", nuevo.Cantidad);
-                datos.setParametro("@Peso", nuevo.Peso);
+                datos.setParametro("@Modelo", modelo);
+                datos.setParametro("@Descripcion", desc);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.setParametro("@Peso", peso);
 
                 datos.ejecAccion();
             }
@@ -70,10 +73,9 @@ namespace negocio
 
         public void eliminarBlister(int id)
         {
-            AccesoDatos datos = new AccesoDatos();
-            try
+           try
             {
-                datos.setConsulta("delete from Blister where Id =@id");
+                datos.setConsulta("DELETE FROM Blister WHERE Id =@id");
                 datos.setParametro("@id", id);
                 datos.ejecAccion();
             }
@@ -87,10 +89,9 @@ namespace negocio
 
         public void modificarBlister(Blister blister)
         {
-            AccesoDatos datos = new AccesoDatos();
-            try
+           try
             {
-                datos.setConsulta("update Blister set Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso where Id = @id");
+                datos.setConsulta("UPDATE Blister SET Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
                 datos.setParametro("@modelo", blister.Modelo);
                 datos.setParametro("@desc", blister.Descripcion);
                 datos.setParametro("@cantidad", blister.Cantidad);
