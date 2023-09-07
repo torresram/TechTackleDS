@@ -49,6 +49,7 @@
     <Compile Include="Carcasa.cs" />
     <Compile Include="Carton.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="DiccionarioTablas.cs" />
     <Compile Include="Insumos.cs" />
     <Compile Include="Piton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
