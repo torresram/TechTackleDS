@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -160,8 +161,8 @@ namespace TechSeñuelos
 
         private void tbInsumos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            formatoDgvs();
             cargarDgvs();
+            formatoDgvs();
         }
         
         private void filtroDgv<T>(List<T> lista, DataGridView dgv, params string[] columnas)
@@ -198,25 +199,15 @@ namespace TechSeñuelos
                 dgv.DataSource = listaFiltrada;
             }
             
-            formatoDgvs();
             cargarDgvs();
+            formatoDgvs();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int indice = tbInsumos.SelectedIndex;
+            int indice = tbInsumos.SelectedIndex;            
 
-            Dictionary<int, string> tablaInsumo = new Dictionary<int, string>()
-            {
-                {0,"Anilla" },
-                {1,"Anzuelo" },
-                {2,"Blister" },
-                {3,"Carcasa" },
-                {4,"Carton" },
-                {5,"Piton" }
-            };
-
-            string tabla = tablaInsumo[indice];
+            string tabla = DiccionarioTablas.tablaInsumos[indice];
             columnas = obtenerColumnas(tabla);
 
             frmGestionInsumo agregar = new frmGestionInsumo(columnas,tabla);
@@ -278,6 +269,63 @@ namespace TechSeñuelos
             PitonNeg pitonNeg = new PitonNeg();
             pitones = pitonNeg.listar();
             dgvPitones.DataSource = pitones;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int indice = tbInsumos.SelectedIndex;
+            string tabla = DiccionarioTablas.tablaInsumos[indice];
+             
+            switch (indice)
+            {
+                case 0:
+                    modificarItem(tabla, dgvAnillas);
+                    break;
+                case 1:
+                    modificarItem(tabla, dgvAnzuelos);
+                    break;
+                case 2:
+                    modificarItem(tabla, dgvBlister);
+                    break;
+                case 3:
+                    modificarItem(tabla, dgvCarcasas);
+                    break;
+                case 4:
+                    modificarItem(tabla, dgvCarton);
+                    break;
+                case 5:
+                    modificarItem(tabla, dgvPitones);
+                    break;
+            }
+        }
+
+        private void modificarItem(string tabla, DataGridView dgv)
+        {
+            Dictionary<string,string> valoresTxtBoxs = new Dictionary<string,string>();
+
+            //obtengo el tipo de objeto que componen el datagrid
+            DataGridViewRow seleccionado = dgv.SelectedRows[0];
+            object item = seleccionado.DataBoundItem;
+            Type tipo = item.GetType();
+            //obtengo las propiedades del tipo de objeto y sus valores
+            PropertyInfo[] propiedades = tipo.GetProperties();
+
+            foreach (PropertyInfo prop in propiedades)
+            {
+                string campo = prop.Name.ToString();
+                string valor = prop.GetValue(item).ToString();
+                
+                valoresTxtBoxs.Add(campo, valor);
+            }
+
+            frmGestionInsumo modificar = new frmGestionInsumo(tabla, valoresTxtBoxs);
+            modificar.ShowDialog();
+        }
+
+        private void frmStockInsumos_Enter(object sender, EventArgs e)
+        {
+            cargarDgvs();
+            formatoDgvs();
         }
     }
 }

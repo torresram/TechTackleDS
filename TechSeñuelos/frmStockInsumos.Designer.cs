@@ -234,6 +234,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "&Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -258,6 +259,7 @@
             this.Name = "frmStockInsumos";
             this.Text = "STOCK INSUMOS";
             this.Load += new System.EventHandler(this.frmStockInsumos_Load);
+            this.Enter += new System.EventHandler(this.frmStockInsumos_Enter);
             this.tbInsumos.ResumeLayout(false);
             this.tbAnillas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).EndInit();
