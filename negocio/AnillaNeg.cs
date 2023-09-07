@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using dominio;
+using Microsoft.Win32;
 
 namespace negocio
 {
@@ -88,15 +89,22 @@ namespace negocio
             finally { datos.cerrarConexion();}
         }
 
-        public void modificarAnilla(Anillas anilla)
+        public void modificarAnilla(Dictionary<string,string> valoresParametros)
         {
+            int id = int.Parse(valoresParametros["Id"]);
+            string marca = valoresParametros["Marca"];
+            string tamaño = valoresParametros["Tamaño"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("UPDATE Anilla SET Marca = @marca,Tamaño = @tamaño, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
-                datos.setParametro("@marca", anilla.Marca);
-                datos.setParametro("@tamaño", anilla.Tamaño);
-                datos.setParametro("@cantidad", anilla.Cantidad);
-                datos.setParametro("@peso", anilla.Peso);
+                datos.setParametro("@id", id);
+                datos.setParametro("@marca", marca);
+                datos.setParametro("@tamaño", tamaño);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
                 datos.ejecAccion();
             }
             catch (Exception ex)

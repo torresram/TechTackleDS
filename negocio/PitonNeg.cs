@@ -17,7 +17,7 @@ namespace negocio
             
             try
             {
-                datos.setConsulta("select Id, Modelo, Cantidad,Peso from Piton");
+                datos.setConsulta("SELECT Id, Modelo, Cantidad,Peso FROM Piton");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -40,15 +40,19 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void agregarPiton(Piton nuevo)
-        {            
+        public void agregarPiton(Dictionary<string, string> valoresParametros)
+        {
+            string modelo = valoresParametros["Modelo"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
-                datos.setConsulta("insert into Piton(Modelo,Cantidad,Peso) values (@Modelo,@Cant,@Peso)");
+                datos.setConsulta("INSERT INTO Piton(Modelo,Cantidad,Peso) VALUES (@Modelo,@Cantidad,@Peso)");
 
-                datos.setParametro("@Modelo", nuevo.Modelo);
-                datos.setParametro("@Cant", nuevo.Cantidad);
-                datos.setParametro("@Peso", nuevo.Peso);
+                datos.setParametro("@Modelo", modelo);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.setParametro("@Peso", peso);
 
                 datos.ejecAccion();
             }

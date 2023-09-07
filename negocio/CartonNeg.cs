@@ -18,7 +18,7 @@ namespace negocio
             
             try
             {
-                datos.setConsulta("select Id, Modelo, Descripcion, Cantidad,Peso from Carton");
+                datos.setConsulta("SELECT Id, Modelo, Descripcion, Cantidad,Peso FROM Carton");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -43,16 +43,21 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void agregarCarton(Carton nuevo)
+        public void agregarCarton(Dictionary<string, string> valoresParametros)
         {
+            string modelo = valoresParametros["Modelo"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
-                datos.setConsulta("insert into Carton(Modelo,Descripcion,Cantidad,Peso) values (@Modelo,@Desc,@Cantidad,@Peso)");
+                datos.setConsulta("INSERT INTO Carton(Modelo,Descripcion,Cantidad,Peso) VALUES (@Modelo,@Desc,@Cantidad,@Peso)");
 
-                datos.setParametro("@Modelo", nuevo.Modelo);
-                datos.setParametro("@Desc", nuevo.Descripcion);
-                datos.setParametro("@Cantidad", nuevo.Cantidad);
-                datos.setParametro("@Peso", nuevo.Peso);
+                datos.setParametro("@Modelo", modelo);
+                datos.setParametro("@Desc", desc);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.setParametro("@Peso", peso);
 
                 datos.ejecAccion();
             }
