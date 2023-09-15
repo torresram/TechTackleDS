@@ -17,32 +17,37 @@ namespace TechSeñuelos
     public partial class frmGestionInsumo : Form
     {
         private List<string> columnas;
-        private string tabla = "";
+        private string tabla;
+        private int indice;
         private List<TextBox> txtNombres = new List<TextBox>();
-        private Dictionary<string,string> propiedades = null;        
+        private Dictionary<string,string> propiedades = null;
+        private Type tipo = null;
         
-        public frmGestionInsumo(List<string> lista, string item)
+        public frmGestionInsumo(List<string> lista, string item, int indiceTabla)
         {
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
             this.columnas = lista;
             this.tabla = item;
+            this.indice = indiceTabla;
         }
 
-        public frmGestionInsumo(string item, Dictionary<string,string> propiedades)
+        public frmGestionInsumo(string item, Dictionary<string, string> propiedades, Type tipo)
         {
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
             Text = "Modificar...";            
             this.tabla = item;
             this.propiedades = propiedades;
+            this.tipo = tipo;
+            //MessageBox.Show("El tipo de tipo es " + tipo);
         }
 
         private void frmGestionInsumo_Load(object sender, EventArgs e)
         {            
             try
             {
-                if (propiedades != null)
+                if (tipo != null)
                 {
                     modificarTextBoxs();
                 }
@@ -57,10 +62,9 @@ namespace TechSeñuelos
                 throw ex;
             }
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {   
-            if(propiedades == null)
+            if(tipo == null)
             {
                 Dictionary<string, string> datosTextBox = new Dictionary<string, string>();
 
@@ -68,12 +72,56 @@ namespace TechSeñuelos
                 {
                     string nombre = text.Name;
                     var valor = text.Text;
+
+                    if(nombre == "Peso")
+                    {
+                        valor = valor.Replace('.', ',');
+                        if (!soloNumeros(valor))
+                        {
+                            MessageBox.Show("El peso debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if(nombre == "Cantidad")
+                    {
+                        if (!soloNumeros(valor))
+                        {
+                            MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
                 
                     datosTextBox.Add(nombre, valor);
                 }
 
-                AnillaNeg negocio = new AnillaNeg();
-                negocio.agregarAnilla(datosTextBox);
+                switch (indice)
+                {
+                    case 0:
+                        AnillaNeg anilla = new AnillaNeg();
+                        anilla.agregarAnilla(datosTextBox);
+                        break;
+                    case 1:
+                        AnzueloNeg anzuelo = new AnzueloNeg();
+                        anzuelo.agregarAnzuelo(datosTextBox);
+                        break;
+                    case 2:
+                        BlisterNeg blister = new BlisterNeg();
+                        blister.agregarBlister(datosTextBox);                        
+                        break;
+                    case 3:
+                        CarcasaNeg carcasa = new CarcasaNeg();
+                        carcasa.agregarCarcasa(datosTextBox);
+                        break;
+                    case 4:
+                        CartonNeg carton = new CartonNeg();
+                        carton.agregarCarton(datosTextBox);
+                        break;
+                    case 5:
+                        PitonNeg piton = new PitonNeg();
+                        piton.agregarPiton(datosTextBox);
+                        break;
+                }
 
                 MessageBox.Show("Agregado correctamente", "Éxito");
 
@@ -91,17 +139,66 @@ namespace TechSeñuelos
                     string nombre = text.Name;
                     var valor = text.Text;
 
+                    if (nombre == "Peso")
+                    {
+                        valor = valor.Replace('.', ',');
+                        if (!soloNumeros(valor))
+                        {
+                            MessageBox.Show("El peso debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (nombre == "Cantidad")
+                    {
+                        if (!soloNumeros(valor))
+                        {
+                            MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
                     datosTextBox.Add(nombre, valor);
-                }
+                }               
+                
+                switch (tipo.ToString())
+                {
+                    case "dominio.Anillas":
+                        AnillaNeg anilla = new AnillaNeg();
+                        anilla.modificarAnilla(datosTextBox);
+                        break;
+                    case "dominio.Anzuelos":
+                        AnzueloNeg anzuelo = new AnzueloNeg();
+                        anzuelo.modificarAnzuelo(datosTextBox);
+                        break;
+                    case "dominio.Blister":
+                        BlisterNeg blister = new BlisterNeg();
+                        blister.modificarBlister(datosTextBox);
+                        break;
+                    case "dominio.Carcasas":
+                        CarcasaNeg carcasa = new CarcasaNeg();
+                        carcasa.modificarCarcasa(datosTextBox);
+                        break;
+                    case "dominio.Carton":
+                        CartonNeg carton = new CartonNeg();
+                        carton.modificarCarton(datosTextBox);
+                        break;
+                    case "dominio.Piton":
+                        PitonNeg piton = new PitonNeg();
+                        piton.modificarPiton(datosTextBox);
+                        break;
+                }                
 
-                AnillaNeg negocio = new AnillaNeg();
-                negocio.modificarAnilla(datosTextBox);
-
-                MessageBox.Show("Modificado correctamente!", "Éxito");
+                MessageBox.Show("Modificado correctamente", "Éxito");
 
                 Close();
             }
         }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }        
+        
 
         private void crearTextBoxs()
         {
@@ -128,7 +225,6 @@ namespace TechSeñuelos
                 this.Controls.Add(txt);
             }
         }
-
         private void modificarTextBoxs()
         {
             int i = 0;
@@ -160,17 +256,11 @@ namespace TechSeñuelos
                 }                    
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private bool soloNumeros(string cadena) //mover a una clase general porque lo voy a usar varias veces
+        private bool soloNumeros(string cadena) //mover a una clase general porque lo voy a usar varias veces, creo
         {
             foreach (char caracter in cadena)
             {
-                if (!char.IsNumber(caracter))
+                if (!(char.IsNumber(caracter) || caracter == ','))
                 {
                     return false;
                 }

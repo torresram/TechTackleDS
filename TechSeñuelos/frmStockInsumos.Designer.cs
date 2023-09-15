@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbInsumos = new System.Windows.Forms.TabControl();
             this.tbAnillas = new System.Windows.Forms.TabPage();
             this.dgvAnillas = new System.Windows.Forms.DataGridView();
@@ -89,10 +101,20 @@
             // 
             // dgvAnillas
             // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAnillas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvAnillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnillas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAnillas.Location = new System.Drawing.Point(-2, -1);
             this.dgvAnillas.Name = "dgvAnillas";
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAnillas.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvAnillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnillas.Size = new System.Drawing.Size(630, 431);
             this.dgvAnillas.TabIndex = 1;
@@ -110,10 +132,20 @@
             // 
             // dgvAnzuelos
             // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAnzuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvAnzuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnzuelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAnzuelos.Location = new System.Drawing.Point(-2, -1);
             this.dgvAnzuelos.Name = "dgvAnzuelos";
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.dgvAnzuelos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvAnzuelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnzuelos.Size = new System.Drawing.Size(630, 431);
             this.dgvAnzuelos.TabIndex = 1;
@@ -130,10 +162,20 @@
             // 
             // dgvBlister
             // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBlister.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvBlister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBlister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBlister.Location = new System.Drawing.Point(-2, -1);
             this.dgvBlister.Name = "dgvBlister";
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.dgvBlister.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvBlister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBlister.Size = new System.Drawing.Size(630, 431);
             this.dgvBlister.TabIndex = 1;
@@ -150,10 +192,20 @@
             // 
             // dgvCarcasas
             // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarcasas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvCarcasas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarcasas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCarcasas.Location = new System.Drawing.Point(-2, -1);
             this.dgvCarcasas.Name = "dgvCarcasas";
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.dgvCarcasas.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvCarcasas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarcasas.Size = new System.Drawing.Size(630, 431);
             this.dgvCarcasas.TabIndex = 1;
@@ -170,10 +222,20 @@
             // 
             // dgvCarton
             // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarton.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvCarton.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarton.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCarton.Location = new System.Drawing.Point(-2, -1);
             this.dgvCarton.Name = "dgvCarton";
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.dgvCarton.RowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvCarton.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarton.Size = new System.Drawing.Size(630, 431);
             this.dgvCarton.TabIndex = 1;
@@ -190,10 +252,20 @@
             // 
             // dgvPitones
             // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPitones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvPitones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPitones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPitones.Location = new System.Drawing.Point(0, 0);
             this.dgvPitones.Name = "dgvPitones";
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.dgvPitones.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvPitones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPitones.Size = new System.Drawing.Size(630, 431);
             this.dgvPitones.TabIndex = 0;
@@ -244,6 +316,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmStockInsumos
             // 
@@ -258,8 +331,8 @@
             this.Controls.Add(this.tbInsumos);
             this.Name = "frmStockInsumos";
             this.Text = "STOCK INSUMOS";
+            this.Activated += new System.EventHandler(this.frmStockInsumos_Activated);
             this.Load += new System.EventHandler(this.frmStockInsumos_Load);
-            this.Enter += new System.EventHandler(this.frmStockInsumos_Enter);
             this.tbInsumos.ResumeLayout(false);
             this.tbAnillas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).EndInit();
