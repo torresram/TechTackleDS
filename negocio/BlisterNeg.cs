@@ -87,15 +87,22 @@ namespace negocio
             finally { datos.cerrarConexion();}
         }
 
-        public void modificarBlister(Blister blister)
+        public void modificarBlister(Dictionary<string,string> valoresParametros)
         {
+            int id = int.Parse(valoresParametros["Id"]);
+            string modelo = valoresParametros["Modelo"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
            try
             {
                 datos.setConsulta("UPDATE Blister SET Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
-                datos.setParametro("@modelo", blister.Modelo);
-                datos.setParametro("@desc", blister.Descripcion);
-                datos.setParametro("@cantidad", blister.Cantidad);
-                datos.setParametro("@peso", blister.Peso);
+                datos.setParametro("@id", id);
+                datos.setParametro("@modelo", modelo);
+                datos.setParametro("@desc", desc);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
                 datos.ejecAccion();
             }
             catch (Exception ex)

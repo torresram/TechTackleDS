@@ -83,15 +83,20 @@ namespace negocio
             finally { datos.cerrarConexion();}
         }
 
-        public void modificarPiton(Piton piton)
+        public void modificarPiton(Dictionary<string,string> valoresParametros)
         {
+            int id = int.Parse(valoresParametros["Id"]);
+            string modelo = valoresParametros["Modelo"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("UPDATE Piton SET Modelo = @modelo, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
-                datos.setParametro("@modelo", piton.Modelo);
-                datos.setParametro("@cantidad", piton.Cantidad);
-                datos.setParametro("@peso", piton.Peso);
-                datos.setParametro("@id", piton.Id);
+                datos.setParametro("@id", id);
+                datos.setParametro("@modelo", modelo);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
 
                 datos.ejecAccion();
             }

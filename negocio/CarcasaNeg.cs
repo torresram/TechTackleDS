@@ -79,15 +79,20 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void modificarCarcasa(Carcasa carcasa)
+        public void modificarCarcasa(Dictionary<string,string> valoresParametros)
         {
+            int id = int.Parse(valoresParametros["Id"]);
+            string modelo = valoresParametros["Modelo"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("UPDATE Carcasa SET Modelo = @modelo, Peso = @peso, Cantidad = @cantidad WHERE Id = @id");
-                datos.setParametro("@modelo", carcasa.Modelo);
-                datos.setParametro("@peso", carcasa.Peso);
-                datos.setParametro("@cantidad", carcasa.Cantidad);
-                datos.setParametro("@id", carcasa.Id);
+                datos.setParametro("@id", id);
+                datos.setParametro("@modelo", modelo);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
 
                 datos.ejecAccion();
             }

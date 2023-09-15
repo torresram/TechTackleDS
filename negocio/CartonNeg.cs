@@ -85,16 +85,22 @@ namespace negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void modificarCarton(Carton carton)
+        public void modificarCarton(Dictionary<string,string> valoresParametros)
         {
+            int id = int.Parse(valoresParametros["Id"]);
+            string modelo = valoresParametros["Modelo"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("UPDATE Carton SET Modelo = @modelo, Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
-                datos.setParametro("@modelo", carton.Modelo);
-                datos.setParametro("@desc", carton.Descripcion);
-                datos.setParametro("@cantidad", carton.Cantidad);
-                datos.setParametro("@peso", carton.Peso);
-                datos.setParametro("@id", carton.Id);
+                datos.setParametro("@id", id);
+                datos.setParametro("@modelo", modelo);
+                datos.setParametro("@desc", desc);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
 
                 datos.ejecAccion();
             }

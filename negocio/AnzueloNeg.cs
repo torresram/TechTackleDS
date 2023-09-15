@@ -91,15 +91,22 @@ namespace negocio
             finally { datos.cerrarConexion();}
         }
 
-        public void modificarAnzuelo(Anzuelos anzuelo)
-        {            
+        public void modificarAnzuelo(Dictionary<string,string> valoresParametros)
+        {
+            int id = int.Parse(valoresParametros["Id"]);
+            string numero = valoresParametros["Numero"];
+            string desc = valoresParametros["Descripcion"];
+            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            double peso = double.Parse(valoresParametros["Peso"]);
+
             try
             {
                 datos.setConsulta("UPDATE Anzuelo SET Numero = @numero,Descripcion = @desc, Cantidad = @cantidad, Peso = @peso WHERE Id = @id ");
-                datos.setParametro("@numero", anzuelo.Numero);
-                datos.setParametro("@desc", anzuelo.Descripcion);
-                datos.setParametro("@cantidad", anzuelo.Cantidad);
-                datos.setParametro("@peso", anzuelo.Peso);
+                datos.setParametro("@id", id);
+                datos.setParametro("@numero", numero);
+                datos.setParametro("@desc", desc);
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@peso", peso);
                 datos.ejecAccion();
             }
             catch (Exception ex)
