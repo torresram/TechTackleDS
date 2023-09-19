@@ -18,7 +18,7 @@ namespace negocio
            
             try
             {
-                datos.setConsulta("SELECT Id, Numero, Destino FROM Remito");
+                datos.setConsulta("SELECT Id, Numero, Destino, FechaCreacion FROM Remito");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -27,6 +27,7 @@ namespace negocio
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Numero = (int)datos.Lector["Numero"];
                     aux.Destino = (string)datos.Lector["Destino"];
+                    aux.Fecha = (DateTime)datos.Lector["FechaCreacion"];
 
                     lista.Add(aux);
                 }
@@ -56,6 +57,7 @@ namespace negocio
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Numero = (int)datos.Lector["Numero"];
                     aux.Destino = (string)datos.Lector["Destino"];
+                    aux.Fecha = (DateTime)datos.Lector["FechaCreacion"];
 
                     lista.Add(aux);
                 }

@@ -76,7 +76,6 @@ namespace negocio
 			}
 			catch (Exception ex)
 			{
-
 				throw ex;
 			}
 		}
@@ -107,7 +106,9 @@ namespace negocio
 				if (datos.Lector.Read())
 				{
 					if ((int)datos.Lector["Total"] > 0)
+					{
 						existe = true;
+					}
 				}
 				datos.cerrarConexion();
 
