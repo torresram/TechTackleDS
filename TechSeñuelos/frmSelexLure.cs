@@ -19,52 +19,22 @@ namespace TechSeñuelos
         //private Armado armado = null;
 
         private Standar suplenteRec = null; //para el suplente que viene de frmPersonalizar
-
         public event EventHandler AgregarUpd;//evento para actualizar dgvRemito
-
         public event EventHandler FormClosedEvent;//acciones luego de cerrar este form
 
         //private void frmPersonalizar_pasarSuplente(object sender, EventArgs e)
         //{
         //    StandarSuplente.suplentes.Add(suplente);
         //}
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            base.OnFormClosed(e);
-            FormClosedEvent?.Invoke(this, EventArgs.Empty);
-        }
 
         public frmSelexLure()
         {
             InitializeComponent();
-        }        
-
+        }
         private void frmSelexLure_Load(object sender, EventArgs e)
         {
             cargaCbos();
         }
-
-        private void cargaCbos()
-        {
-            ArtificialNeg lure = new ArtificialNeg();
-            ColorNeg color = new ColorNeg();
-
-            try
-            {
-                cboArtificialNR.DataSource = lure.cboArtificial();
-                cboArtificialNR.ValueMember = "Modelo";
-                cboArtificialNR.DisplayMember = "Modelo";
-                cboColorNR.DataSource = color.cboColores();
-                cboColorNR.ValueMember = "Modelo";
-                cboColorNR.DisplayMember = "Modelo";
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string artificial = cboArtificialNR.SelectedValue.ToString();
@@ -97,7 +67,7 @@ namespace TechSeñuelos
                     suplenteNoMod.AnzSimple.Numero = null;
                     if (suplenteNoMod.AnzTriple.Numero == "0")
                     {
-                        if (MessageBox.Show("Por defecto, este señuelo no lleva triples...¿Personalizar?", "Atencion", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MessageBox.Show("Por defecto, este señuelo no lleva triples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
                             Standar standar;
                             StandarNeg negocio = new StandarNeg();
@@ -165,25 +135,6 @@ namespace TechSeñuelos
 
             suplenteRec = null;
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            if (suplenteRec  != null)
-            {
-                
-                if(MessageBox.Show("¿Esta seguro que desea terminar? Hay un señuelo modificado", "Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    suplenteRec = null;
-                    Close();
-                }
-                else
-                {
-                    return;
-                }
-            }                        
-            Close();
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)//Se pasa como parámetro el objeto al frmPersonalizar
         {
             string mod = cboArtificialNR.SelectedValue.ToString();
@@ -202,6 +153,50 @@ namespace TechSeñuelos
             if(custom.suplente != null)
             {
                 suplenteRec = custom.suplente;
+            }
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (suplenteRec  != null)
+            {
+                
+                if(MessageBox.Show("¿Esta seguro que desea terminar? Hay un señuelo modificado", "Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    suplenteRec = null;
+                    Close();
+                }
+                else
+                {
+                    return;
+                }
+            }                        
+            Close();
+        }
+
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            FormClosedEvent?.Invoke(this, EventArgs.Empty);
+        }
+        private void cargaCbos()
+        {
+            ArtificialNeg lure = new ArtificialNeg();
+            ColorNeg color = new ColorNeg();
+
+            try
+            {
+                cboArtificialNR.DataSource = lure.cboArtificial();
+                cboArtificialNR.ValueMember = "Modelo";
+                cboArtificialNR.DisplayMember = "Modelo";
+                cboColorNR.DataSource = color.cboColores();
+                cboColorNR.ValueMember = "Modelo";
+                cboColorNR.DisplayMember = "Modelo";
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

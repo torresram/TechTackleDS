@@ -237,6 +237,7 @@ namespace TechSeñuelos
         }
         private void formatoDgvs()
         {
+            dgvAnillas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnillas.Columns["Id"].Visible = false;
             dgvAnillas.Columns["Marca"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAnillas.Columns["Marca"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -263,7 +264,8 @@ namespace TechSeñuelos
                     row.Visible = true;
                 }
             }
-            
+
+            dgvAnzuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnzuelos.Columns["Id"].Visible = false;
             dgvAnzuelos.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAnzuelos.Columns["Numero"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -290,7 +292,8 @@ namespace TechSeñuelos
                     row.Visible = true;
                 }
             }
-            
+
+            dgvBlister.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBlister.Columns["Id"].Visible = false;
             dgvBlister.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBlister.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -302,6 +305,7 @@ namespace TechSeñuelos
             dgvBlister.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBlister.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
 
+            dgvCarcasas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCarcasas.Columns["Id"].Visible = false;
             dgvCarcasas.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCarcasas.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -311,6 +315,7 @@ namespace TechSeñuelos
             dgvCarcasas.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvCarcasas.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            dgvCarton.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCarton.Columns["Id"].Visible = false;
             dgvCarton.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCarton.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -322,6 +327,7 @@ namespace TechSeñuelos
             dgvCarton.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCarton.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
 
+            dgvPitones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPitones.Columns["Id"].Visible = false;
             dgvPitones.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvPitones.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

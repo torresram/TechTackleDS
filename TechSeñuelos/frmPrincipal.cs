@@ -34,6 +34,12 @@ namespace TechSeñuelos
         {
             frmStockInsumos stock = new frmStockInsumos();
             stock.ShowDialog();
-        }      
+        }
+
+        private void btnListaRemitos_Click(object sender, EventArgs e)
+        {
+            frmListaRemitos remitos = new frmListaRemitos();
+            remitos.ShowDialog();
+        }
     }
 }

@@ -47,6 +47,7 @@
             this.dgvRemito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRemito.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvRemito.Location = new System.Drawing.Point(29, 90);
+            this.dgvRemito.MultiSelect = false;
             this.dgvRemito.Name = "dgvRemito";
             this.dgvRemito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRemito.Size = new System.Drawing.Size(434, 328);

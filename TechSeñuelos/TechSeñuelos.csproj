@@ -76,6 +76,12 @@
     <Compile Include="frmInsumos.Designer.cs">
       <DependentUpon>frmInsumos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListaRemitos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaRemitos.Designer.cs">
+      <DependentUpon>frmListaRemitos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPersonalizar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInsumos.resx">
       <DependentUpon>frmInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaRemitos.resx">
+      <DependentUpon>frmListaRemitos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonalizar.resx">
       <DependentUpon>frmPersonalizar.cs</DependentUpon>

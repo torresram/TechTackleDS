@@ -73,6 +73,12 @@ namespace TechSeñuelos
                     string nombre = text.Name;
                     var valor = text.Text;
 
+                    if (valor == "")
+                    {
+                        MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN",MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+                    }
+
                     if(nombre == "Peso")
                     {
                         valor = valor.Replace('.', ',');
@@ -139,6 +145,12 @@ namespace TechSeñuelos
                     string nombre = text.Name;
                     var valor = text.Text;
 
+                    if (valor == "")
+                    {
+                        MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+                    }
+
                     if (nombre == "Peso")
                     {
                         valor = valor.Replace('.', ',');
@@ -175,7 +187,7 @@ namespace TechSeñuelos
                         BlisterNeg blister = new BlisterNeg();
                         blister.modificarBlister(datosTextBox);
                         break;
-                    case "dominio.Carcasas":
+                    case "dominio.Carcasa":
                         CarcasaNeg carcasa = new CarcasaNeg();
                         carcasa.modificarCarcasa(datosTextBox);
                         break;
