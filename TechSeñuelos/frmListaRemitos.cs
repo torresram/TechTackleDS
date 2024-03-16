@@ -65,7 +65,7 @@ namespace TechSeñuelos
 
             //dgvListaRemitos.DataSource = null;
             dgvListaRemitos.DataSource = listaFiltrada;
-            if(listaFiltrada != null)
+            if(listaFiltrada.Count > 0)
             {
                 seleccionado = (Remito)dgvListaRemitos.SelectedRows[0].DataBoundItem;
                 formatoDgvs();
@@ -106,6 +106,13 @@ namespace TechSeñuelos
 
             armado = armadoNeg.detalleRemito(nroRemito);
         }
-
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Armado armadoActual = (Armado)dgvDetalleRemito.SelectedRows[0].DataBoundItem;
+            int remito = armadoActual.Remito.Numero;
+            
+            frmReporte imprimir = new frmReporte(armado, remito);
+            imprimir.ShowDialog();
+        }
     }
 }

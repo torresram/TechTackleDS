@@ -27,9 +27,9 @@ namespace TechSeñuelos
         {
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
-            this.columnas = lista;
-            this.tabla = item;
-            this.indice = indiceTabla;
+            columnas = lista;
+            tabla = item;
+            indice = indiceTabla;
         }
 
         public frmGestionInsumo(string item, Dictionary<string, string> propiedades, Type tipo)
@@ -37,7 +37,7 @@ namespace TechSeñuelos
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
             Text = "Modificar...";            
-            this.tabla = item;
+            tabla = item;
             this.propiedades = propiedades;
             this.tipo = tipo;
             //MessageBox.Show("El tipo de tipo es " + tipo);
@@ -58,7 +58,7 @@ namespace TechSeñuelos
             }
             catch ( Exception ex)
             {
-
+                
                 throw ex;
             }
         }
@@ -73,7 +73,7 @@ namespace TechSeñuelos
                     string nombre = text.Name;
                     var valor = text.Text;
 
-                    if (valor == "")
+                    if (string.IsNullOrEmpty(valor))
                     {
                         MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN",MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
@@ -145,7 +145,7 @@ namespace TechSeñuelos
                     string nombre = text.Name;
                     var valor = text.Text;
 
-                    if (valor == "")
+                    if (string.IsNullOrEmpty(valor))
                     {
                         MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
@@ -233,8 +233,8 @@ namespace TechSeñuelos
 
                 txtNombres.Add(txt);
 
-                this.Controls.Add(lbl);
-                this.Controls.Add(txt);
+                Controls.Add(lbl);
+                Controls.Add(txt);
             }
         }
         private void modificarTextBoxs()
@@ -261,8 +261,8 @@ namespace TechSeñuelos
                 
                 if(campo != "Id")
                 {
-                    this.Controls.Add(lbl);
-                    this.Controls.Add(txt);
+                    Controls.Add(lbl);
+                    Controls.Add(txt);
                     
                     i++;
                 }                    

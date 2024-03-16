@@ -56,6 +56,6 @@ namespace TechSeñuelos
         private void frmReporte_Load(object sender, EventArgs e)
         {
             //this.rptRemito.RefreshReport();
-        }
+        }        
     }
 }

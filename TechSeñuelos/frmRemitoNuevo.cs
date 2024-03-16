@@ -18,7 +18,7 @@ namespace TechSeñuelos
             dgvRemito.CellValidating += dgvRemito_CellValidating;
             dgvRemito.CellEndEdit += dgvRemito_CellEndEdit;
 
-            this.FormClosing += cerrarFrm;
+            FormClosing += cerrarFrm;
         }
         private void frmRemitoNuevo_Load(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace TechSeñuelos
             int num = int.Parse(lblNroRem.Text);
             DateTime fecha = DateTime.Today;
 
-            if (dest == "" || dest == null)
+            if (string.IsNullOrEmpty(dest))
             {
                 MessageBox.Show("Debe ingresar un destinatario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -150,8 +150,6 @@ namespace TechSeñuelos
             frmInsumos insumos = new frmInsumos(rto);
             insumos.ShowDialog();
         }
-
-
         public void diseColumnas()//diseño de columnas
         {
             dgvRemito.Columns["Id"].Visible = false;
@@ -227,8 +225,14 @@ namespace TechSeñuelos
             if (remito.existe(rto))
             {
                 if (dgvRemito.RowCount == 0)
+                {
                     remito.eliminarRemito(rto);
+                }
             }
+        }
+        private void descontarStock()
+        {
+
         }
     }
 }

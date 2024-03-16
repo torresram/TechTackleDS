@@ -41,5 +41,23 @@ namespace TechSeñuelos
             frmListaRemitos remitos = new frmListaRemitos();
             remitos.ShowDialog();
         }
+
+        private void btnSetStandar_Click(object sender, EventArgs e)
+        {
+            frmSetStandar predefinidos = new frmSetStandar();
+            predefinidos.ShowDialog();
+        }
+
+        private void btnArtificiales_Click(object sender, EventArgs e)
+        {
+            frmArtificiales artificiales = new frmArtificiales();
+            artificiales.ShowDialog();
+        }
+
+        private void btnColores_Click(object sender, EventArgs e)
+        {
+            frmColores colores = new frmColores();
+            colores.ShowDialog();
+        }
     }
 }

@@ -26,7 +26,6 @@ namespace TechSeñuelos
             this.remitoNro = remitoNro;
             cargaRemito();
         }
-
         private void frmInsumos_Load(object sender, EventArgs e)
         {
             insumos = preparadoInsumos();
@@ -36,6 +35,8 @@ namespace TechSeñuelos
 
             
         }
+
+
         private List<Insumos> preparadoInsumos()
         {
             List<Insumos> items = new List<Insumos>();
@@ -99,21 +100,6 @@ namespace TechSeñuelos
             items = cambioFamilia(items);
             return items;
         }
-      
-        private void formatoDgvInsumos()
-        {
-            dgvInsumos.DataSource = insumos;
-
-            dgvInsumos.Columns["Id"].Visible = false;
-            dgvInsumos.Columns["Familia"].Visible = true;
-            dgvInsumos.Columns["Item"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvInsumos.Columns["Item"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvInsumos.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvInsumos.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvInsumos.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvInsumos.Columns["Peso"].DefaultCellStyle.Format = "0gr";
-            dgvInsumos.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
         private List<Insumos> buscarPeso(List<Insumos> lista)
         {
             double peso;
@@ -168,7 +154,27 @@ namespace TechSeñuelos
             }
             return lista;
         }
+        private List<Insumos> cambioFamilia(List<Insumos> lista)        
+        {
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (lista[x].Familia == "AnillaAnz" || lista[x].Familia == "AnillaPal")
+                {
+                    lista[x].Familia = "Anillas";
+                }
 
+                if (lista[x].Familia == "AnzSimple")
+                {
+                    lista[x].Familia = "Simples";
+                }
+
+                if (lista[x].Familia == "AnzTriple")
+                {
+                    lista[x].Familia = "Triples";
+                }
+            }
+            return lista;
+        }
         private double cargarPeso(string tabla, string columna, string arroba, string item)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -194,7 +200,6 @@ namespace TechSeñuelos
 
             return peso;
         }
-
         private void cargaRemito()
         {
             ArmadoNeg negocio = new ArmadoNeg();
@@ -216,28 +221,20 @@ namespace TechSeñuelos
                 throw ex;
             }
         }
-        private List<Insumos> cambioFamilia(List<Insumos> lista)        
+        private void formatoDgvInsumos()
         {
-            for (int x = 0; x < lista.Count; x++)
-            {
-                if (lista[x].Familia == "AnillaAnz" || lista[x].Familia == "AnillaPal")
-                {
-                    lista[x].Familia = "Anillas";
-                }
+            dgvInsumos.DataSource = insumos;
 
-                if (lista[x].Familia == "AnzSimple")
-                {
-                    lista[x].Familia = "Simples";
-                }
-
-                if (lista[x].Familia == "AnzTriple")
-                {
-                    lista[x].Familia = "Triples";
-                }
-            }
-            return lista;
+            dgvInsumos.Columns["Id"].Visible = false;
+            dgvInsumos.Columns["Familia"].Visible = true;
+            dgvInsumos.Columns["Item"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInsumos.Columns["Item"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInsumos.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInsumos.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvInsumos.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvInsumos.Columns["Peso"].DefaultCellStyle.Format = "0gr";
+            dgvInsumos.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             if(tabPreparado.SelectedTab == tabInsumos)

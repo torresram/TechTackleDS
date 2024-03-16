@@ -1,17 +1,11 @@
 ﻿using dominio;
-using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using negocio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TechSeñuelos
 {
@@ -29,13 +23,12 @@ namespace TechSeñuelos
         public frmStockInsumos()
         {
             InitializeComponent();
-            cargarDgvs();            
         }
         private void frmStockInsumos_Load(object sender, EventArgs e)
         {
+            cargarDgvs();
             formatoDgvs();
         }
-
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             int indice = tbInsumos.SelectedIndex;
@@ -43,7 +36,7 @@ namespace TechSeñuelos
             switch (indice)//tengo que hacer esto por no haber hecho herencia con los insumos...
             {
                 case 0:
-                    filtroDgv<Anillas>(anillas,dgvAnillas,"Marca","Tamaño");
+                    filtroDgv<Anillas>(anillas, dgvAnillas, "Marca", "Tamaño");
                     break;
                 case 1:
                     filtroDgv<Anzuelos>(anzuelos, dgvAnzuelos, "Numero", "Descripcion");
@@ -72,16 +65,16 @@ namespace TechSeñuelos
             int indice = tbInsumos.SelectedIndex;
 
             string tabla = DiccionarioTablas.tablaInsumos[indice];
-            columnas = obtenerColumnas(tabla);            
+            columnas = obtenerColumnas(tabla);
 
-            frmGestionInsumo agregar = new frmGestionInsumo(columnas,tabla,indice);
+            frmGestionInsumo agregar = new frmGestionInsumo(columnas, tabla, indice);
             agregar.ShowDialog();
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
             int indice = tbInsumos.SelectedIndex;
             string tabla = DiccionarioTablas.tablaInsumos[indice];
-             
+
             switch (indice)
             {
                 case 0:
@@ -106,45 +99,51 @@ namespace TechSeñuelos
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int indice = tbInsumos.SelectedIndex;
-
             DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(respuesta == DialogResult.Yes)
+            if (respuesta == DialogResult.Yes)
             {
+                int indice = tbInsumos.SelectedIndex;
+                int id;
+                ;
                 switch (indice)
-            {
-                case 0:
-                    eliminarItem(dgvAnillas, indice);
-                    break;
-                case 1:
-                    eliminarItem(dgvAnzuelos, indice);
-                    break;
-                case 2:
-                    eliminarItem(dgvBlister, indice);
-                    break;
-                case 3:
-                    eliminarItem(dgvCarcasas, indice);
-                    break;
-                case 4:
-                    eliminarItem(dgvCarton, indice);
-                    break;
-                case 5:
-                    eliminarItem(dgvPitones, indice);
-                    break;
+                {
+                    case 0:
+                        Anillas anilla = (Anillas)dgvAnillas.CurrentRow.DataBoundItem;
+                        id = anilla.Id;
+                        eliminarItem(indice, id);
+                        break;
+                    case 1:
+                        Anzuelos anzuelo = (Anzuelos)dgvAnzuelos.CurrentRow.DataBoundItem;
+                        id = anzuelo.Id;
+                        eliminarItem(indice, id);
+                        break;
+                    case 2:
+                        Blister blister = (Blister)dgvBlister.CurrentRow.DataBoundItem;
+                        id = blister.Id;
+                        eliminarItem(indice, id);
+                        break;
+                    case 3:
+                        Carcasa carcasa = (Carcasa)dgvCarcasas.CurrentRow.DataBoundItem;
+                        id = carcasa.Id;
+                        eliminarItem(indice, id);
+                        break;
+                    case 4:
+                        Carton carton = (Carton)dgvCarton.CurrentRow.DataBoundItem;
+                        id = carton.Id;
+                        eliminarItem(indice, id);
+                        break;
+                    case 5:
+                        Piton piton = (Piton)dgvPitones.CurrentRow.DataBoundItem;
+                        id = piton.Id;
+                        eliminarItem(indice, id);
+                        break;
+                }
             }
-            }
-
             cargarDgvs();
             formatoDgvs();
+            MessageBox.Show("Eliminado correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void frmStockInsumos_Activated(object sender, EventArgs e)
-        {
-            cargarDgvs();
-            formatoDgvs();
-        }        
-        
-
         private List<string> obtenerColumnas(string tabla)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -159,7 +158,7 @@ namespace TechSeñuelos
                 while (datos.Lector.Read())
                 {
                     string nombreColumna = datos.Lector["Columna"].ToString();
-                    if(nombreColumna != "Id")
+                    if (nombreColumna != "Id")
                     {
                         columnas.Add(nombreColumna);
                     }
@@ -176,7 +175,7 @@ namespace TechSeñuelos
         }
         private void filtroDgv<T>(List<T> lista, DataGridView dgv, params string[] columnas)
         {
-          string filtro = txtFiltro.Text;
+            string filtro = txtFiltro.Text;
 
             if (string.IsNullOrEmpty(filtro))
             {
@@ -189,13 +188,13 @@ namespace TechSeñuelos
                 var listaFiltrada = lista
                     .Where(item =>
                     {
-                        foreach(var col in columnas)
+                        foreach (var col in columnas)
                         {
                             var propiedad = item.GetType().GetProperty(col);
-                            if(propiedad != null)
+                            if (propiedad != null)
                             {
-                                var valor = propiedad.GetValue(item,null)?.ToString();
-                                if(!string.IsNullOrEmpty(valor) && valor.ToUpper().Contains(filtro))
+                                var valor = propiedad.GetValue(item, null)?.ToString();
+                                if (!string.IsNullOrEmpty(valor) && valor.ToUpper().Contains(filtro))
                                 {
                                     return true;
                                 }
@@ -339,12 +338,12 @@ namespace TechSeñuelos
         }
         private void modificarItem(string tabla, DataGridView dgv)
         {
-            Dictionary<string,string> valoresTxtBoxs = new Dictionary<string,string>();
+            Dictionary<string, string> valoresTxtBoxs = new Dictionary<string, string>();
 
             //obtengo el tipo de objeto que componen el datagrid
             DataGridViewRow seleccionado = dgv.SelectedRows[0];
             object item = seleccionado.DataBoundItem;
-            this.tipo = item.GetType();
+            tipo = item.GetType();
             //MessageBox.Show("El tipo es " + tipo);
 
             //obtengo las propiedades del tipo de objeto y sus valores
@@ -354,57 +353,41 @@ namespace TechSeñuelos
             {
                 string campo = prop.Name.ToString();
                 string valor = prop.GetValue(item).ToString();
-                
+
                 valoresTxtBoxs.Add(campo, valor);
             }
 
             frmGestionInsumo modificar = new frmGestionInsumo(tabla, valoresTxtBoxs, tipo);
             modificar.ShowDialog();
         }
-        private void eliminarItem(DataGridView dgv, int indice)
+        private void eliminarItem(int indice, int id)
         {
-            object item = dgv.CurrentRow.DataBoundItem;
-            this.tipo = item.GetType();
-
-            PropertyInfo[] propiedades = tipo.GetProperties();
-
-            foreach (PropertyInfo propiedad in propiedades)
+            switch (indice)
             {
-                string campo = propiedad.Name.ToString();
-                string valor = propiedad.GetValue(item).ToString();
-
-                if(campo == "Id")
-                {
-                    int id = int.Parse(valor);
-
-                    switch (indice)
-                    {
-                        case 0:
-                            AnillaNeg anilla = new AnillaNeg();
-                            anilla.eliminarAnilla(id);
-                            break;
-                        case 1:
-                            AnzueloNeg anzuelo = new AnzueloNeg();
-                            anzuelo.eliminarAnzuelo(id);
-                            break;
-                        case 2:
-                            BlisterNeg blister = new BlisterNeg();
-                            blister.eliminarBlister(id);
-                            break;
-                        case 3:
-                            CarcasaNeg carcasa = new CarcasaNeg();
-                            carcasa.eliminarCarcasa(id);
-                            break;
-                        case 4:
-                            CartonNeg carton = new CartonNeg();
-                            carton.eliminarCarton(id);
-                            break;
-                        case 5:
-                            PitonNeg piton = new PitonNeg();
-                            piton.eliminarPiton(id);
-                            break;
-                    }
-                }
+                case 0:
+                    AnillaNeg anilla = new AnillaNeg();
+                    anilla.eliminarAnilla(id);
+                    break;
+                case 1:
+                    AnzueloNeg anzuelo = new AnzueloNeg();
+                    anzuelo.eliminarAnzuelo(id);
+                    break;
+                case 2:
+                    BlisterNeg blister = new BlisterNeg();
+                    blister.eliminarBlister(id);
+                    break;
+                case 3:
+                    CarcasaNeg carcasa = new CarcasaNeg();
+                    carcasa.eliminarCarcasa(id);
+                    break;
+                case 4:
+                    CartonNeg carton = new CartonNeg();
+                    carton.eliminarCarton(id);
+                    break;
+                case 5:
+                    PitonNeg piton = new PitonNeg();
+                    piton.eliminarPiton(id);
+                    break;
             }
         }
     }

@@ -284,7 +284,6 @@
             this.Controls.Add(this.tbInsumos);
             this.Name = "frmStockInsumos";
             this.Text = "STOCK INSUMOS";
-            this.Activated += new System.EventHandler(this.frmStockInsumos_Activated);
             this.Load += new System.EventHandler(this.frmStockInsumos_Load);
             this.tbInsumos.ResumeLayout(false);
             this.tbAnillas.ResumeLayout(false);

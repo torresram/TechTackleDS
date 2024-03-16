@@ -34,9 +34,9 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.insumosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.armadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.remitoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rptFinal = new Microsoft.Reporting.WinForms.ReportViewer();
             this.rptRemito = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.remitoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.insumosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remitoBindingSource)).BeginInit();
@@ -49,6 +49,10 @@
             // armadoBindingSource
             // 
             this.armadoBindingSource.DataSource = typeof(dominio.Armado);
+            // 
+            // remitoBindingSource
+            // 
+            this.remitoBindingSource.DataSource = typeof(dominio.Remito);
             // 
             // rptFinal
             // 
@@ -78,10 +82,6 @@
             this.rptRemito.ServerReport.BearerToken = null;
             this.rptRemito.Size = new System.Drawing.Size(804, 620);
             this.rptRemito.TabIndex = 1;
-            // 
-            // remitoBindingSource
-            // 
-            this.remitoBindingSource.DataSource = typeof(dominio.Remito);
             // 
             // frmReporte
             // 

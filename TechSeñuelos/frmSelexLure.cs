@@ -37,6 +37,12 @@ namespace TechSeñuelos
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (!soloNumeros(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtCantidad.Text))
+            {
+                MessageBox.Show("Debe ingresar sólo números en el campo Cantidad","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string artificial = cboArtificialNR.SelectedValue.ToString();
             string color = cboColorNR.SelectedValue.ToString();
             int cantidad = int.Parse(txtCantidad.Text);
@@ -158,8 +164,7 @@ namespace TechSeñuelos
         private void btnSalir_Click(object sender, EventArgs e)
         {
             if (suplenteRec  != null)
-            {
-                
+            {                
                 if(MessageBox.Show("¿Esta seguro que desea terminar? Hay un señuelo modificado", "Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     suplenteRec = null;
@@ -172,8 +177,6 @@ namespace TechSeñuelos
             }                        
             Close();
         }
-
-
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
@@ -198,6 +201,17 @@ namespace TechSeñuelos
 
                 throw ex;
             }
+        }
+        private bool soloNumeros(string cadena) //mover a una clase general porque lo voy a usar varias veces, creo
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsNumber(caracter))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
