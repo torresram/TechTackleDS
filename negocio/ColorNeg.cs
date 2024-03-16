@@ -9,14 +9,14 @@ namespace negocio
 {
     public class ColorNeg
     {
+        AccesoDatos datos = new AccesoDatos();
         public List<Color> listar()
         {
             List<Color> lista = new List<Color>();
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setConsulta("select Id, Color, Descripcion from Color");
+                datos.setConsulta("SELECT Id, Color, Descripcion FROM Color");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -38,14 +38,11 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
-        public void agregarColor(Color nuevo) 
+        public void agregarColor(Color nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setConsulta("insert into Color(Color,Descripcion) values (@Color,@Desc)");
+                datos.setConsulta("INSERT INTO Color(Color,Descripcion) VALUES (@Color,@Desc)");
 
                 datos.setParametro("@Color", nuevo.Modelo);
                 datos.setParametro("@Desc", nuevo.Descripcion);
@@ -59,15 +56,43 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
-        public List<Color> cboColores() 
+        public void modificarColor(Color color)
         {
-            List<Color> colores = new List<Color>();
-            AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setConsulta("select distinct Id,Color from Color");
+                datos.setConsulta("UPDATE COLOR SET color = @modelo, descripcion = @desc WHERE id = @id");
+                datos.setParametro("@id", color.Id);
+                datos.setParametro("@modelo", color.Modelo);
+                datos.setParametro("@desc", color.Descripcion);
+                datos.ejecAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void eliminarColor(Color color)
+        {
+            try
+            {
+                datos.setConsulta("DELETE FROM COLOR WHERE Id =@id");
+                datos.setParametro("@id", color.Id);
+                datos.ejecAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public List<Color> cboColores()
+        {
+            List<Color> colores = new List<Color>();
+            try
+            {
+                datos.setConsulta("SELECT DISTINCT Id,Color FROM Color");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -80,11 +105,44 @@ namespace negocio
                 }
                 return colores;
             }
-            
+
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public bool validarColor(string color)
+        {
+            List<Color> lista = new List<Color>();
+            try
+            {
+                datos.setConsulta("SELECT color FROM COLOR");
+                datos.ejecLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Color aux = new Color();
+                    aux.Modelo = (string)(datos.Lector["color"]);
+
+                    lista.Add(aux);
+                }
+
+                for (int i = 0; i < lista.Count(); i++)
+                {
+                    string colorExistente = lista[i].Modelo;
+
+                    if (colorExistente.ToUpper() == color.ToUpper())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally { datos.cerrarConexion(); }
         }

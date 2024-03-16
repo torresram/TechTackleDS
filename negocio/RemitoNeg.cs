@@ -70,7 +70,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void agregarRemito(Remito nuevo)//lo que dice ahí...
         {
             try
@@ -89,7 +88,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void eliminarRemito(int remito)
         {
             try
@@ -104,8 +102,7 @@ namespace negocio
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
-        }
-        
+        }        
         public bool existe(int remito)
         {
             int banRemito;
@@ -133,7 +130,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public int obtProxRem()//Obtener número de remito siguiente
         {
             int ultRem = 0;
@@ -161,7 +157,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public int obtenerId(int idRemito)
         {           
             try
@@ -182,7 +177,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public List<Remito> cboDestino()//Devuelve solo destinos distintos
         {
             List<Remito> remito = new List<Remito> ();
@@ -209,7 +203,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void addDestiNro(string destino, int numero, DateTime fecha)
         {
             try
