@@ -42,9 +42,9 @@ namespace negocio
 
         public void agregarPiton(Dictionary<string, string> valoresParametros)
         {
-            string modelo = valoresParametros["Modelo"];
-            int cantidad = int.Parse(valoresParametros["Cantidad"]);
-            double peso = double.Parse(valoresParametros["Peso"]);
+            string modelo = valoresParametros["modelo"];
+            int cantidad = int.Parse(valoresParametros["cantidad"]);
+            double peso = double.Parse(valoresParametros["peso"]);
 
             try
             {

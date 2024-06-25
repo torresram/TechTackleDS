@@ -19,7 +19,6 @@ namespace negocio
 			
 			try
 			{
-
 				datos.setConsulta("SELECT A.Id Id, R.Numero, S.Modelo, C.Color, A.Cantidad FROM Armado A, Color C, Artificial S,Remito R WHERE Id_artificial = S.Id AND A.Id_color = C.Id AND Id_remito = R.Id ");
 				datos.ejecLectura();
 
@@ -47,7 +46,6 @@ namespace negocio
 			}
 			finally { datos.cerrarConexion(); }
 		}
-
 		public List<Armado> detalleRemito(int remito)
 		{			
 			List<Armado> armado = new List<Armado>();
@@ -78,8 +76,41 @@ namespace negocio
 			{
 				throw ex;
 			}
+			finally { datos.cerrarConexion(); }
 		}
+		public void nuevoRemArmado(string artificial, string color, int cantidad)
+		{
+			try
+			{
+				datos.setConsulta("SELECT A.Id, Codigo, Modelo,C.Color, Peso, Cantidad, C.Id IdColor FROM Artificial A, Color C where A.Id_color = C.Id and Modelo = @artificial AND Color = @Color");
+				datos.setParametro("@artificial", artificial);
+				datos.setParametro("@Color", color);
+				datos.ejecLectura();
+				datos.Lector.Read();
 
+				Artificial lure = new Artificial();
+				lure.Id = (int)datos.Lector["Id"];
+				lure.Codigo = (string)datos.Lector["Codigo"];
+				lure.Color = new dominio.Color();
+				lure.Color.Id = (int)datos.Lector["IdColor"];
+				lure.Color.Modelo = (string)datos.Lector["Color"];
+				lure.Peso = (double)datos.Lector["Peso"];
+				lure.Cantidad = (int)datos.Lector["Cantidad"];
+
+				int art = lure.Id;
+				int col = lure.Color.Id;
+				int cant = cantidad;
+
+				//ArmadoNeg negocio = new ArmadoNeg();//agrega los valores a la tabla Armado
+				datos.cerrarConexion();
+				addItem(art, col, cant);
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+			finally { datos.cerrarConexion(); }
+		}
 		public void addItem(int modelo, int color, int cantidad)
 		{			
 			int remito = 0;
@@ -95,9 +126,9 @@ namespace negocio
 				remito = (int)datos.Lector["Ultimo"];
 				datos.cerrarConexion();
 
-				datos.setConsulta("SELECT COUNT(*) AS Total FROM Armado WHERE Id_artificial = @modelo AND Id_color = @color AND Id_remito = @remito");
+				datos.setConsulta("SELECT COUNT(*) AS Total FROM Armado WHERE Id_artificial = @modelo AND Id_color = @IdColor AND Id_remito = @remito");
 				datos.setParametro("@modelo", modelo);
-				datos.setParametro("@color", color);
+				datos.setParametro("@IdColor", color);
 				datos.setParametro("@remito", remito);
 				datos.ejecLectura();
 
@@ -151,40 +182,6 @@ namespace negocio
 			}
 			finally { datos.cerrarConexion(); }
 		}
-
-		public void nuevoRemArmado(string artificial, string color, int cantidad)
-		{
-			try
-			{
-				datos.setConsulta("SELECT A.Id, Codigo, Modelo,C.Color, Peso, Cantidad, C.Id IdColor from Artificial A, Color C where A.Id_color = C.Id and Modelo = @artificial AND Color = @color");
-				datos.setParametro("@artificial", artificial);
-				datos.setParametro("@color", color);
-				datos.ejecLectura();
-				datos.Lector.Read();
-
-				Artificial lure = new Artificial();
-				lure.Id = (int)datos.Lector["Id"];
-				lure.Codigo = (string)datos.Lector["Codigo"];
-				lure.Color = new dominio.Color();
-				lure.Color.Id = (int)datos.Lector["IdColor"];
-				lure.Color.Modelo = (string)datos.Lector["Color"];
-				lure.Peso = (double)datos.Lector["Peso"];
-				lure.Cantidad = (int)datos.Lector["Cantidad"];
-
-				int art = lure.Id;
-				int col = lure.Color.Id;
-				int cant = cantidad;
-
-				//ArmadoNeg negocio = new ArmadoNeg();//agrega los valores a la tabla Armado
-				addItem(art, col, cant);
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-			finally { datos.cerrarConexion(); }
-		}
-
 		public void eliminar(int id)
 		{
 			try
@@ -200,8 +197,7 @@ namespace negocio
 			}
 			finally { datos.cerrarConexion(); }
 		}
-
-		public void modifCant(int id, int cantidad)
+		public void modificarCant(int id, int cantidad)
 		{			
 			try
 			{
@@ -217,7 +213,6 @@ namespace negocio
 			}
 			finally { datos.cerrarConexion(); }
 		}
-		
 		public void reutilizar(int remito)
 		{
 			try

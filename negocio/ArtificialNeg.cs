@@ -18,7 +18,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("SELECT A.Id, Codigo, Modelo, C.Color Color, Imagen, Peso, Cantidad, C.Id IdColor, C.Descripcion Descripcion FROM Artificial A, Color C WHERE A.Id_color = C.Id");
+                datos.setConsulta("SELECT A.Id, Codigo, Modelo, C.Color Color, Imagen, Peso, Cantidad, C.Id IdColor, C.Descripcion Descripcion FROM Artificial A, Color C WHERE A.Id_color = C.Id ORDER BY modelo ASC");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -87,10 +87,10 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("UPDATE ARTIFICIAL SET codigo = @codigo, id_color = @idColor, modelo = @modelo, imagen = @imagen, cantidad = @cantidad, peso = @peso WHERE id = @id");
+                datos.setConsulta("UPDATE ARTIFICIAL SET codigo = @codigoArt, id_color = @idColor, modelo = @modelo, imagen = @imagen, cantidad = @cantidad, peso = @peso WHERE id = @id");
                 datos.setParametro("@id", id);
-                datos.setParametro("@codigo", codigo);
-                datos.setParametro("idColor", idColor);
+                datos.setParametro("@codigoArt", codigo);
+                datos.setParametro("@idColor", idColor);
                 datos.setParametro("@modelo", modelo);
                 datos.setParametro("@imagen", imagen);
                 datos.setParametro("@cantidad", cantidad);

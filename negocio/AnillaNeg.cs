@@ -48,10 +48,10 @@ namespace negocio
         
         public void agregarAnilla(Dictionary<string,string> valoresParametros)
         {
-            string marca = valoresParametros["Marca"];
-            string tamaño = valoresParametros["Tamaño"];
-            int cantidad = int.Parse(valoresParametros["Cantidad"]);
-            double peso = double.Parse(valoresParametros["Peso"]);
+            string marca = valoresParametros["marca"];
+            string tamaño = valoresParametros["tamaño"];
+            int cantidad = int.Parse(valoresParametros["cantidad"]);
+            double peso = double.Parse(valoresParametros["peso"]);
             
             try
             {

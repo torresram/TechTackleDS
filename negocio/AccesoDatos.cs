@@ -40,7 +40,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -55,7 +54,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -69,7 +67,9 @@ namespace negocio
         public void cerrarConexion()
         {
             if(lector != null)
+            {
                 lector.Close();
+            }
             conexion.Close();
         }
     }

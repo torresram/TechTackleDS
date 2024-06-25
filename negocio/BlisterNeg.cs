@@ -47,10 +47,10 @@ namespace negocio
 
         public void agregarBlister(Dictionary<string, string> valoresParametros)
         {
-            string modelo = valoresParametros["Modelo"];
-            string desc = valoresParametros["Descripcion"];
-            int cantidad = int.Parse(valoresParametros["Cantidad"]);
-            double peso = double.Parse(valoresParametros["Peso"]);
+            string modelo = valoresParametros["modelo"];
+            string desc = valoresParametros["descripcion"];
+            int cantidad = int.Parse(valoresParametros["cantidad"]);
+            double peso = double.Parse(valoresParametros["peso"]);
 
             try
             {

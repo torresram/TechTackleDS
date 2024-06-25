@@ -42,9 +42,9 @@ namespace negocio
 
         public void agregarCarcasa(Dictionary<string, string> valoresParametros)
         {
-            string modelo = valoresParametros["Modelo"];
-            double peso = double.Parse(valoresParametros["Peso"]);
-            int cantidad = int.Parse(valoresParametros["Cantidad"]);
+            string modelo = valoresParametros["modelo"];
+            double peso = double.Parse(valoresParametros["peso"]);
+            int cantidad = int.Parse(valoresParametros["cantidad"]);
             
             try
             {
