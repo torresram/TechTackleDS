@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -18,10 +19,12 @@ namespace TechSeñuelos
         List<Remito> remitos = new List<Remito>();
         List<Armado> armado = new List<Armado>();
         private Remito seleccionado;
+        bool vacio = true;
 
         public frmListaRemitos()
         {
             InitializeComponent();
+            btnImprimir.Enabled = false;
         }
         private void frmListaRemitos_Load(object sender, EventArgs e)
         {
@@ -29,7 +32,13 @@ namespace TechSeñuelos
             remitos = remitoNeg.listar();
             dgvListaRemitos.DataSource = remitos;
 
-            formatoDgvs();
+            if (remitos.Count > 0)
+            {
+                vacio = false;
+                btnImprimir.Enabled = true;
+            }
+
+            formatoDgvs(vacio);
         }
         private void dgvListaRemitos_SelectionChanged(object sender, EventArgs e)
         {
@@ -54,7 +63,7 @@ namespace TechSeñuelos
 
             string filtro = txtBuscar.Text;
 
-            if(filtro.Length >= 1)
+            if (filtro.Length >= 1)
             {
                 listaFiltrada = remitos.FindAll(x => x.Destino.ToLower().Contains(filtro.ToLower()) || x.Numero.ToString().ToLower().Contains(filtro.ToLower()));
             }
@@ -65,10 +74,11 @@ namespace TechSeñuelos
 
             //dgvListaRemitos.DataSource = null;
             dgvListaRemitos.DataSource = listaFiltrada;
-            if(listaFiltrada.Count > 0)
+
+            if (listaFiltrada.Count > 0)
             {
                 seleccionado = (Remito)dgvListaRemitos.SelectedRows[0].DataBoundItem;
-                formatoDgvs();
+                formatoDgvs(vacio);
             }
             else
             {
@@ -77,7 +87,7 @@ namespace TechSeñuelos
         }
 
 
-        private void formatoDgvs()
+        private void formatoDgvs(bool vacio)
         {
             dgvListaRemitos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListaRemitos.Columns["Id"].Visible = false;
@@ -89,15 +99,18 @@ namespace TechSeñuelos
             dgvListaRemitos.Columns["Destino"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaRemitos.Columns["Destino"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dgvDetalleRemito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDetalleRemito.Columns["Id"].Visible = false;
-            dgvDetalleRemito.Columns["Remito"].Visible = false;
-            dgvDetalleRemito.Columns["Artificial"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvDetalleRemito.Columns["Artificial"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvDetalleRemito.Columns["Color"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvDetalleRemito.Columns["Color"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvDetalleRemito.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvDetalleRemito.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            if (!vacio)
+            {
+                dgvDetalleRemito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvDetalleRemito.Columns["Id"].Visible = false;
+                dgvDetalleRemito.Columns["Remito"].Visible = false;
+                dgvDetalleRemito.Columns["Artificial"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDetalleRemito.Columns["Artificial"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDetalleRemito.Columns["Color"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDetalleRemito.Columns["Color"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDetalleRemito.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDetalleRemito.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
         }
         private void obtenerRemito(Remito remito)
         {
@@ -110,9 +123,14 @@ namespace TechSeñuelos
         {
             Armado armadoActual = (Armado)dgvDetalleRemito.SelectedRows[0].DataBoundItem;
             int remito = armadoActual.Remito.Numero;
-            
+
             frmReporte imprimir = new frmReporte(armado, remito);
             imprimir.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

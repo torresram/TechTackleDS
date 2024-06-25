@@ -3,6 +3,7 @@ using negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -139,10 +140,10 @@ namespace TechSeñuelos
                         eliminarItem(indice, id);
                         break;
                 }
+                MessageBox.Show("Eliminado correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             cargarDgvs();
             formatoDgvs();
-            MessageBox.Show("Eliminado correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private List<string> obtenerColumnas(string tabla)
         {
@@ -236,6 +237,9 @@ namespace TechSeñuelos
         }
         private void formatoDgvs()
         {
+            Font rowFont = new Font("Century Gothic", 9, FontStyle.Regular);
+            Font headerFont = new Font("Century Gothic", 9, FontStyle.Bold);
+
             dgvAnillas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnillas.Columns["Id"].Visible = false;
             dgvAnillas.Columns["Marca"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -264,6 +268,8 @@ namespace TechSeñuelos
                 }
             }
 
+            dgvAnzuelos.Font= rowFont;
+            dgvAnzuelos.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvAnzuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnzuelos.Columns["Id"].Visible = false;
             dgvAnzuelos.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -292,6 +298,8 @@ namespace TechSeñuelos
                 }
             }
 
+            dgvBlister.Font = rowFont;
+            dgvBlister.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvBlister.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBlister.Columns["Id"].Visible = false;
             dgvBlister.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -304,6 +312,24 @@ namespace TechSeñuelos
             dgvBlister.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBlister.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
 
+            for (int i = 0; i < dgvBlister.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvBlister.Rows[i];
+
+                string valorCelda = row.Cells[2].Value as string;
+
+                if (valorCelda.ToLower() == "no lleva")
+                {
+                    row.Visible = false;
+                }
+                else
+                {
+                    row.Visible = true;
+                }
+            }
+
+            dgvCarcasas.Font = rowFont;
+            dgvCarcasas.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvCarcasas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCarcasas.Columns["Id"].Visible = false;
             dgvCarcasas.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -314,6 +340,8 @@ namespace TechSeñuelos
             dgvCarcasas.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvCarcasas.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            dgvCarton.Font = rowFont;
+            dgvCarton.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvCarton.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCarton.Columns["Id"].Visible = false;
             dgvCarton.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -326,6 +354,24 @@ namespace TechSeñuelos
             dgvCarton.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCarton.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
 
+            for (int i = 0; i < dgvCarton.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvCarton.Rows[i];
+
+                string valorCelda = row.Cells[2].Value as string;
+
+                if (valorCelda.ToLower() == "no lleva")
+                {
+                    row.Visible = false;
+                }
+                else
+                {
+                    row.Visible = true;
+                }
+            }
+
+            dgvPitones.Font = rowFont;
+            dgvPitones.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvPitones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPitones.Columns["Id"].Visible = false;
             dgvPitones.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -335,6 +381,22 @@ namespace TechSeñuelos
             dgvPitones.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvPitones.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvPitones.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
+
+            for (int i = 0; i < dgvPitones.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvPitones.Rows[i];
+
+                string valorCelda = row.Cells[1].Value as string;
+
+                if (valorCelda.ToLower() == "no lleva")
+                {
+                    row.Visible = false;
+                }
+                else
+                {
+                    row.Visible = true;
+                }
+            }
         }
         private void modificarItem(string tabla, DataGridView dgv)
         {
@@ -354,7 +416,7 @@ namespace TechSeñuelos
                 string campo = prop.Name.ToString();
                 string valor = prop.GetValue(item).ToString();
 
-                valoresTxtBoxs.Add(campo, valor);
+                valoresTxtBoxs.Add(campo, valor);//almaceno los valores obtenidos en el diccionario
             }
 
             frmGestionInsumo modificar = new frmGestionInsumo(tabla, valoresTxtBoxs, tipo);
@@ -389,6 +451,11 @@ namespace TechSeñuelos
                     piton.eliminarPiton(id);
                     break;
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

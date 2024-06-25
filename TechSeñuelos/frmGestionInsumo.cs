@@ -20,9 +20,9 @@ namespace TechSeñuelos
         private string tabla;
         private int indice;
         private List<TextBox> txtNombres = new List<TextBox>();
-        private Dictionary<string,string> propiedades = null;
+        private Dictionary<string, string> propiedades = null;
         private Type tipo = null;
-        
+
         public frmGestionInsumo(List<string> lista, string item, int indiceTabla)
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace TechSeñuelos
         {
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
-            Text = "Modificar...";            
+            Text = "Modificar...";
             tabla = item;
             this.propiedades = propiedades;
             this.tipo = tipo;
@@ -44,8 +44,8 @@ namespace TechSeñuelos
         }
 
         private void frmGestionInsumo_Load(object sender, EventArgs e)
-        {            
-            try
+        {
+             try
             {
                 if (tipo != null)
                 {
@@ -56,49 +56,53 @@ namespace TechSeñuelos
                     crearTextBoxs();
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
         private void btnAceptar_Click(object sender, EventArgs e)
-        {   
-            if(tipo == null)
+        {
+            if (tipo == null)
             {
                 Dictionary<string, string> datosTextBox = new Dictionary<string, string>();
 
                 foreach (TextBox text in txtNombres)
                 {
                     string nombre = text.Name;
-                    var valor = text.Text;
 
-                    if (string.IsNullOrEmpty(valor))
+                    if (nombre.ToUpper() != "ID")
                     {
-                        MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN",MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        return;
-                    }
+                        var valor = text.Text.ToUpper();
 
-                    if(nombre == "Peso")
-                    {
-                        valor = valor.Replace('.', ',');
-                        if (!soloNumeros(valor))
+                        if (string.IsNullOrEmpty(valor))
                         {
-                            MessageBox.Show("El peso debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Complete todos los campos para continuar", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             return;
                         }
-                    }
 
-                    if(nombre == "Cantidad")
-                    {
-                        if (!soloNumeros(valor))
+                        if (nombre.ToUpper() == "PESO")
                         {
-                            MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            valor = valor.Replace('.', ',');
+                            if (!soloNumeros(valor))
+                            {
+                                MessageBox.Show("El peso debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                         }
+
+                        if (nombre.ToUpper() == "CANTIDAD")
+                        {
+                            if (!soloNumeros(valor))
+                            {
+                                MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
+                        datosTextBox.Add(nombre, valor);
                     }
-                
-                    datosTextBox.Add(nombre, valor);
                 }
 
                 switch (indice)
@@ -113,7 +117,7 @@ namespace TechSeñuelos
                         break;
                     case 2:
                         BlisterNeg blister = new BlisterNeg();
-                        blister.agregarBlister(datosTextBox);                        
+                        blister.agregarBlister(datosTextBox);
                         break;
                     case 3:
                         CarcasaNeg carcasa = new CarcasaNeg();
@@ -151,7 +155,7 @@ namespace TechSeñuelos
                         return;
                     }
 
-                    if (nombre == "Peso")
+                    if (nombre.ToUpper() == "PESO")
                     {
                         valor = valor.Replace('.', ',');
                         if (!soloNumeros(valor))
@@ -161,7 +165,7 @@ namespace TechSeñuelos
                         }
                     }
 
-                    if (nombre == "Cantidad")
+                    if (nombre.ToUpper() == "CANTIDAD")
                     {
                         if (!soloNumeros(valor))
                         {
@@ -171,8 +175,8 @@ namespace TechSeñuelos
                     }
 
                     datosTextBox.Add(nombre, valor);
-                }               
-                
+                }
+
                 switch (tipo.ToString())
                 {
                     case "dominio.Anillas":
@@ -199,7 +203,7 @@ namespace TechSeñuelos
                         PitonNeg piton = new PitonNeg();
                         piton.modificarPiton(datosTextBox);
                         break;
-                }                
+                }
 
                 MessageBox.Show("Modificado correctamente", "Éxito");
 
@@ -209,46 +213,51 @@ namespace TechSeñuelos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-        }        
-        
+        }
+
 
         private void crearTextBoxs()
         {
+            int k = 0;
             for (int i = 0; i < columnas.Count; i++)
             {
                 Label lbl = new Label();
                 lbl.AutoSize = true;
-                lbl.Location = new Point(19, 94 + (i * 40));
+                lbl.Location = new Point(19, 94 + (k * 40));
                 lbl.Name = "lbl" + columnas[i];
                 lbl.Text = columnas[i].ToUpper() + ":";
-                Font fuenteActual = lbl.Font;
-                Font newFont = new Font(fuenteActual.FontFamily, 10, fuenteActual.Style);
+                Font newFont = new Font("Century Gothic", 10, FontStyle.Bold);
                 lbl.Font = newFont;
 
                 TextBox txt = new TextBox();
-                txt.Location = new Point(150, 94 + (i * 40));
+                txt.Location = new Point(150, 94 + (k * 40));
                 txt.Name = columnas[i];
                 txt.Text = "";
                 txt.Size = new Size(150, 20);
+                newFont = new Font("Century Gothic", 10, FontStyle.Regular);
+                txt.Font = newFont;
 
                 txtNombres.Add(txt);
 
-                Controls.Add(lbl);
-                Controls.Add(txt);
+                if (txt.Name.ToUpper() != "ID")
+                {
+                    Controls.Add(lbl);
+                    Controls.Add(txt);
+                    k++;
+                }
             }
         }
         private void modificarTextBoxs()
         {
             int i = 0;
             foreach (string campo in propiedades.Keys)
-            {                
+            {
                 Label lbl = new Label();
                 lbl.AutoSize = true;
                 lbl.Location = new Point(19, 94 + (i * 40));
                 lbl.Name = "lbl" + campo;
                 lbl.Text = campo.ToUpper() + ":";
-                Font fuenteActual = lbl.Font;
-                Font newFont = new Font(fuenteActual.FontFamily, 10, fuenteActual.Style);
+                Font newFont = new Font("Century Gothic", 10, FontStyle.Bold);
                 lbl.Font = newFont;
 
                 TextBox txt = new TextBox();
@@ -256,16 +265,17 @@ namespace TechSeñuelos
                 txt.Name = campo;
                 txt.Text = propiedades[campo];
                 txt.Size = new Size(150, 20);
-                
+                newFont = new Font("Century Gothic", 10, FontStyle.Regular);
+                txt.Font = newFont;
+
                 txtNombres.Add(txt);
-                
-                if(campo != "Id")
+
+                if (campo.ToUpper() != "ID")
                 {
                     Controls.Add(lbl);
                     Controls.Add(txt);
-                    
                     i++;
-                }                    
+                }
             }
         }
         private bool soloNumeros(string cadena) //mover a una clase general porque lo voy a usar varias veces, creo

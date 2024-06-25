@@ -19,7 +19,8 @@ namespace TechSeñuelos
         private int cantidadSeñuelos { get; set; }
         private List<Insumos> insumos;
         private List<Armado> remito;
-        int remitoNro;
+        private int remitoNro;
+
         public frmInsumos(int remitoNro)
         {
             InitializeComponent();
@@ -30,13 +31,9 @@ namespace TechSeñuelos
         {
             insumos = preparadoInsumos();
             //insumos = buscarPeso(insumos);
-            lblCantTotal.Text = cantidadSeñuelos.ToString();
+            lblCantTotal.Text = "TOTAL: " + cantidadSeñuelos.ToString();
             formatoDgvInsumos();
-
-            
         }
-
-
         private List<Insumos> preparadoInsumos()
         {
             List<Insumos> items = new List<Insumos>();
@@ -47,7 +44,7 @@ namespace TechSeñuelos
 
             foreach (Standar supl in lista)
             {
-                int cantidad = (int)supl.Cantidad;
+                int cantidad = supl.Cantidad;
                 foreach (var prop in typeof(Standar).GetProperties())
                 {
                     string[] propFiltradas = { "AnillaAnz", "AnillaPal", "AnzSimple", "AnzTriple", "Blister", "Carton", "Cantidad" };
@@ -57,12 +54,14 @@ namespace TechSeñuelos
                     {
                         object valorProp = prop.GetValue(supl).ToString();
                         Insumos insumos = new Insumos();
-                        insumos.Id = contadorId; // Asignamos el Id único
+                        insumos.Id = contadorId; //Asignamos el Id único
                         insumos.Familia = propiedad;
                         string[] dobleCantidad = { "AnillaAnz", "AnzSimple", "AnzTriple" };
 
                         if (dobleCantidad.Contains(propiedad))
-                           cantFinal = cantidad * 2;
+                        {
+                            cantFinal = cantidad * 2;
+                        }
 
                         if (propiedad == "Cantidad")
                         {
@@ -72,7 +71,7 @@ namespace TechSeñuelos
                         }
                         else
                         {
-                            insumos.Item = valorProp == null || (string)valorProp == "No lleva" ? "VACIO" : valorProp.ToString();
+                            insumos.Item = valorProp == null || valorProp.ToString().ToUpper() == "NO LLEVA" ? "VACIO" : valorProp.ToString();
                             insumos.Cantidad = cantFinal;
                         }
 
@@ -80,22 +79,24 @@ namespace TechSeñuelos
                         {
                             // Si el insumo ya existe, sumamos la cantidad
                             var insumoExistente = items.First(i => i.Item == insumos.Item);
-                            insumoExistente.Cantidad += cantidad;
+                            insumoExistente.Cantidad += cantFinal;
                         }
                         else
                         {
                             // Si el insumo no existe, lo agregamos a la lista
-                            if(!(insumos.Item == "VACIO"))
-                                if(!(insumos.Familia == "Cantidad"))
+                            if (!(insumos.Item == "VACIO"))
+                            {
+                                if (!(insumos.Familia == "Cantidad"))
+                                {
                                     items.Add(insumos);
+                                }
+                            }
                         }
-
                         contadorId++; // Incrementamos el contador del Id
                     }
                 }
             }
-            items.Sort((item1,item2) => item1.Familia.CompareTo(item2.Familia));
-            
+            items.Sort((item1, item2) => item1.Familia.CompareTo(item2.Familia));
             items = buscarPeso(items);
             items = cambioFamilia(items);
             return items;
@@ -104,35 +105,35 @@ namespace TechSeñuelos
         {
             double peso;
             for (int x = 0; x < lista.Count; x++)
-            {   
+            {
                 string familia = lista[x].Familia;
                 string item = lista[x].Item;
                 int cantidad = lista[x].Cantidad;
                 string tabla;
                 string columna;
                 string arroba;
-                
+
                 if (familia == "AnzSimple" || familia == "AnzTriple")
                 {
                     tabla = "Anzuelo";
                     columna = "Numero";
                     arroba = "@numero";
-                    peso = cargarPeso(tabla,columna,arroba,item);
+                    peso = cargarPeso(tabla, columna, arroba, item);
 
                     lista[x].Peso = peso * cantidad;
                 }
 
-                if(familia == "AnillaAnz" || familia == "AnillaPal")
+                if (familia == "AnillaAnz" || familia == "AnillaPal")
                 {
                     tabla = "Anilla";
                     columna = "Tamaño";
                     arroba = "@tamaño";
-                    peso = cargarPeso(tabla, columna,arroba,item);
+                    peso = cargarPeso(tabla, columna, arroba, item);
 
                     lista[x].Peso = peso * cantidad;
                 }
 
-                if(familia == "Blister")
+                if (familia == "Blister")
                 {
                     tabla = familia;
                     columna = "Modelo";
@@ -142,7 +143,7 @@ namespace TechSeñuelos
                     lista[x].Peso = peso * cantidad;
                 }
 
-                if(familia == "Carton")
+                if (familia == "Carton")
                 {
                     tabla = familia;
                     columna = "Modelo";
@@ -154,7 +155,7 @@ namespace TechSeñuelos
             }
             return lista;
         }
-        private List<Insumos> cambioFamilia(List<Insumos> lista)        
+        private List<Insumos> cambioFamilia(List<Insumos> lista)
         {
             for (int x = 0; x < lista.Count; x++)
             {
@@ -179,7 +180,7 @@ namespace TechSeñuelos
         {
             AccesoDatos datos = new AccesoDatos();
             double peso;
-            string consulta = "Select Peso from " + tabla + " where " + columna + " = " + arroba + "";
+            string consulta = "SELECT Peso FROM " + tabla + " WHERE " + columna + " = " + arroba + "";
             try
             {
                 datos.setConsulta(consulta);
@@ -191,10 +192,9 @@ namespace TechSeñuelos
 
                 datos.cerrarConexion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             finally { datos.cerrarConexion(); }
 
@@ -208,7 +208,7 @@ namespace TechSeñuelos
             {
                 remito = negocio.detalleRemito(remitoNro);
                 dgvRemito.DataSource = remito;
-
+                dgvRemito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvRemito.Columns["Id"].Visible = false;
                 dgvRemito.Columns["Remito"].Visible = false;
                 dgvRemito.Columns["Cantidad"].ReadOnly = false;
@@ -217,16 +217,14 @@ namespace TechSeñuelos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
         private void formatoDgvInsumos()
         {
             dgvInsumos.DataSource = insumos;
-
+            dgvInsumos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInsumos.Columns["Id"].Visible = false;
-            dgvInsumos.Columns["Familia"].Visible = true;
             dgvInsumos.Columns["Item"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvInsumos.Columns["Item"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvInsumos.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -237,17 +235,20 @@ namespace TechSeñuelos
         }
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if(tabPreparado.SelectedTab == tabInsumos)
+            if (tabPreparado.SelectedTab == tabInsumos)
             {
                 frmReporte reporte = new frmReporte(insumos);
                 reporte.ShowDialog();
             }
             else
             {
-                frmReporte reporte = new frmReporte(remito,remitoNro);
+                frmReporte reporte = new frmReporte(remito, remitoNro);
                 reporte.ShowDialog();
             }
         }
-        
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

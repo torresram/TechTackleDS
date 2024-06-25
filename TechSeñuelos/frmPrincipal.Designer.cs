@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.btnRemitir = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnListaRemitos = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             // 
             // btnRemitir
             // 
+            this.btnRemitir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemitir.Location = new System.Drawing.Point(35, 30);
             this.btnRemitir.Name = "btnRemitir";
             this.btnRemitir.Size = new System.Drawing.Size(129, 45);
@@ -48,6 +50,7 @@
             // 
             // btnStock
             // 
+            this.btnStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.Location = new System.Drawing.Point(234, 30);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(129, 45);
@@ -58,6 +61,7 @@
             // 
             // btnListaRemitos
             // 
+            this.btnListaRemitos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaRemitos.Location = new System.Drawing.Point(33, 101);
             this.btnListaRemitos.Name = "btnListaRemitos";
             this.btnListaRemitos.Size = new System.Drawing.Size(131, 50);
@@ -68,6 +72,7 @@
             // 
             // btnSetStandar
             // 
+            this.btnSetStandar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetStandar.Location = new System.Drawing.Point(234, 101);
             this.btnSetStandar.Name = "btnSetStandar";
             this.btnSetStandar.Size = new System.Drawing.Size(129, 50);
@@ -78,6 +83,7 @@
             // 
             // btnArtificiales
             // 
+            this.btnArtificiales.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtificiales.Location = new System.Drawing.Point(35, 180);
             this.btnArtificiales.Name = "btnArtificiales";
             this.btnArtificiales.Size = new System.Drawing.Size(129, 50);
@@ -88,6 +94,7 @@
             // 
             // btnColores
             // 
+            this.btnColores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnColores.Location = new System.Drawing.Point(234, 180);
             this.btnColores.Name = "btnColores";
             this.btnColores.Size = new System.Drawing.Size(129, 50);
@@ -100,6 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(393, 478);
             this.Controls.Add(this.btnColores);
             this.Controls.Add(this.btnArtificiales);
@@ -107,7 +115,12 @@
             this.Controls.Add(this.btnListaRemitos);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnRemitir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TECH TACKLE Señuelos";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

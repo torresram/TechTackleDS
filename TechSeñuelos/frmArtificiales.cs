@@ -14,6 +14,7 @@ namespace TechSeñuelos
 {
     public partial class frmArtificiales : Form
     {
+        private List<Artificial> artificiales;
         public frmArtificiales()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace TechSeñuelos
             }
             catch (Exception)
             {
-                pbImagenArtificial.Load("~/imgs/noImageIcon.png");
+                pbImagenArtificial.Load("C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg");
             }
         }
         private void btnModificar_Click(object sender, EventArgs e)
@@ -82,13 +83,14 @@ namespace TechSeñuelos
         }
         private void cargarDGV()
         {
-            List<Artificial> lista;
+            //List<Artificial> lista;
             ArtificialNeg negocio = new ArtificialNeg();
-            lista = negocio.listar();
-            dgvArtificiales.DataSource = lista;
+            artificiales = negocio.listar();
+            dgvArtificiales.DataSource = artificiales;
         }
         private void formatoDGV()
         {
+            //dgvArtificiales.Sort(dgvArtificiales.Columns["Modelo"],ListSortDirection.Ascending);
             dgvArtificiales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvArtificiales.Columns["id"].Visible = false;
             dgvArtificiales.Columns["Imagen"].Visible = false;
@@ -103,6 +105,36 @@ namespace TechSeñuelos
             dgvArtificiales.Columns["Peso"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvArtificiales.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvArtificiales.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Artificial> listaFiltrada;
+
+            string filtro = txtBuscar.Text;
+
+            if (filtro.Length >= 1)
+            {
+                listaFiltrada = artificiales.FindAll(x => x.Codigo.ToLower().Contains(filtro.ToLower()) || x.Modelo.ToString().ToLower().Contains(filtro.ToLower()) || x.Color.ToString().ToLower().Contains(filtro.ToLower()));
+            }
+            else
+            {
+                listaFiltrada = artificiales;
+            }
+
+            //dgvListaRemitos.DataSource = null;
+            dgvArtificiales.DataSource = listaFiltrada;
+
+            if (listaFiltrada.Count > 0)
+            {
+                Artificial seleccionado = new Artificial();
+                seleccionado = (Artificial)dgvArtificiales.SelectedRows[0].DataBoundItem;
+                formatoDGV();
+            }
+            else
+            {
+                dgvArtificiales.DataSource = artificiales;
+            }
         }
     }
 }

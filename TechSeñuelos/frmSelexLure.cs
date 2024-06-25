@@ -18,14 +18,11 @@ namespace TechSeñuelos
     {
         //private Armado armado = null;
 
-        private Standar suplenteRec = null; //para el suplente que viene de frmPersonalizar
+        private Standar suplenteRecibido = null; //para el suplente que viene de frmPersonalizar
         public event EventHandler AgregarUpd;//evento para actualizar dgvRemito
         public event EventHandler FormClosedEvent;//acciones luego de cerrar este form
 
-        //private void frmPersonalizar_pasarSuplente(object sender, EventArgs e)
-        //{
-        //    StandarSuplente.suplentes.Add(suplente);
-        //}
+        //private void frmPersonalizar_pasarSuplente(object sender, EventArgs e){StandarSuplente.suplentes.Add(suplenteRecibido);}
 
         public frmSelexLure()
         {
@@ -37,111 +34,166 @@ namespace TechSeñuelos
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            ArmadoNeg armado = new ArmadoNeg();
+
             if (!soloNumeros(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
-                MessageBox.Show("Debe ingresar sólo números en el campo Cantidad","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar sólo números en el campo Cantidad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string artificial = cboArtificialNR.SelectedValue.ToString();
             string color = cboColorNR.SelectedValue.ToString();
             int cantidad = int.Parse(txtCantidad.Text);
-            bool optAnz = rbTriple.Checked;
-            
-            ArmadoNeg armado = new ArmadoNeg();
-            armado.nuevoRemArmado(artificial, color, cantidad);
+            bool tipoAnzuelo = rbTriple.Checked;
 
-            Standar suplenteNoMod = new Standar();
-            StandarNeg negocioSupl = new StandarNeg();
-
-            if (suplenteRec != null)
+            try
             {
-                if (rbTriple.Checked)//hacer metodo
-                    suplenteRec.AnzSimple.Numero = null;
-                else
-                    suplenteRec.AnzTriple.Numero = null;
-                
-                suplenteRec.Cantidad = cantidad;
-                StandarSuplente.suplentes.Add(suplenteRec);
-            }
-            else
-            {
-                suplenteNoMod = negocioSupl.personalizar(artificial,cantidad);
+                Standar suplenteNoMod = new Standar();
+                StandarNeg negocioSupl = new StandarNeg();
 
-                if(optAnz)//hacer en un metodo
+                if (suplenteRecibido != null)
                 {
-                    suplenteNoMod.AnzSimple.Numero = null;
-                    if (suplenteNoMod.AnzTriple.Numero == "0")
+                    if (tipoAnzuelo)
                     {
-                        if (MessageBox.Show("Por defecto, este señuelo no lleva triples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            Standar standar;
-                            StandarNeg negocio = new StandarNeg();
+                        suplenteRecibido.AnzSimple.Numero = null;
+                    }
+                    else
+                    {
+                        suplenteRecibido.AnzTriple.Numero = null;
+                    }
 
-                            standar = negocio.personalizar(artificial);
-                            string imagen = negocio.obtImg(color, artificial);
+                    suplenteRecibido.Cantidad = cantidad;
 
-                            frmPersonalizar custom = new frmPersonalizar(standar, optAnz, imagen);
-                            custom.ShowDialog();
-
-                            if (custom.suplente != null)
-                            {
-                                suplenteRec = custom.suplente;
-                                suplenteRec.Cantidad = cantidad;
-                                suplenteNoMod = suplenteRec;
-                            }
-                        }
-                        else
-                        {
-                            suplenteNoMod.AnzTriple.Numero = null;
-                        }
+                    if (chkLista(suplenteRecibido))
+                    {
+                        addSuplenteRepetido(suplenteRecibido);
+                    }
+                    else
+                    {
+                        StandarSuplente.suplentes.Add(suplenteRecibido);
                     }
                 }
                 else
                 {
-                    suplenteNoMod.AnzTriple.Numero = null;
-                    if (suplenteNoMod.AnzSimple.Numero == "0")
+                    suplenteNoMod = negocioSupl.personalizar(artificial, cantidad);
+
+                    if (tipoAnzuelo)//hacer en un metodo
                     {
-                        if (MessageBox.Show("Por defecto, este señuelo no lleva simples...¿Personalizar?","Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        suplenteNoMod.AnzSimple.Numero = null;
+                        if (suplenteNoMod.AnzTriple.Numero.ToUpper() == "NO LLEVA")
                         {
-                            Standar standar;
-                            StandarNeg negocio = new StandarNeg();
-
-                            standar = negocio.personalizar(artificial);
-                            string imagen = negocio.obtImg(color, artificial);
-
-                            frmPersonalizar custom = new frmPersonalizar(standar, optAnz, imagen);
-                            custom.ShowDialog();
-
-                            if (custom.suplente != null)
+                            if (MessageBox.Show("Por defecto, este señuelo no lleva triples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                             {
-                                suplenteRec = custom.suplente;
-                                suplenteRec.Cantidad = cantidad;
-                                suplenteNoMod = suplenteRec;
+                                Standar standar;
+                                StandarNeg negocio = new StandarNeg();
+
+                                standar = negocio.personalizar(artificial);
+                                string imagen = negocio.obtImg(color, artificial);
+
+                                frmPersonalizar custom = new frmPersonalizar(standar, tipoAnzuelo, imagen);
+                                custom.ShowDialog();
+
+                                if (custom.suplente != null)
+                                {
+                                    suplenteRecibido = custom.suplente;
+                                    suplenteRecibido.Cantidad = cantidad;
+                                    suplenteNoMod = suplenteRecibido;
+                                }
+                            }
+                            else
+                            {
+                                return;
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        suplenteNoMod.AnzTriple.Numero = null;
+                        if (suplenteNoMod.AnzSimple.Numero.ToUpper() == "NO LLEVA")
                         {
-                            suplenteNoMod.AnzSimple.Numero = null;
+                            if (MessageBox.Show("Por defecto, este señuelo no lleva simples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                Standar standar;
+                                StandarNeg negocio = new StandarNeg();
+
+                                standar = negocio.personalizar(artificial);
+                                string imagen = negocio.obtImg(color, artificial);
+
+                                frmPersonalizar custom = new frmPersonalizar(standar, tipoAnzuelo, imagen);
+                                custom.ShowDialog();
+
+                                if (custom.suplente != null)
+                                {
+                                    suplenteRecibido = custom.suplente;
+                                    suplenteRecibido.Cantidad = cantidad;
+                                    suplenteNoMod = suplenteRecibido;
+                                }
+                            }
+                            else
+                            {
+                                return;
+                            }
                         }
+                    }
+
+                    if (suplenteNoMod.AnillaAnz.Tamaño == "0")
+                    {
+                        suplenteNoMod.AnillaAnz.Tamaño = "No lleva";
+                    }
+
+                    if (suplenteNoMod.AnillaPal.Tamaño == "0")
+                    {
+                        suplenteNoMod.AnillaPal.Tamaño = "No lleva";
+                    }
+
+                    if (chkLista(suplenteNoMod))
+                    {
+                        addSuplenteRepetido(suplenteNoMod);
+                    }
+                    else
+                    {
+                        StandarSuplente.suplentes.Add(suplenteNoMod);
                     }
                 }
 
-                if (suplenteNoMod.AnillaAnz.Tamaño == "0")
-                    suplenteNoMod.AnillaAnz.Tamaño = "No lleva";
-
-                if (suplenteNoMod.AnillaPal.Tamaño == "0")
-                    suplenteNoMod.AnillaPal.Tamaño = "No lleva";
-
-                StandarSuplente.suplentes.Add(suplenteNoMod);
+                armado.nuevoRemArmado(artificial, color, cantidad);
+                AgregarUpd?.Invoke(this, EventArgs.Empty);
+                suplenteRecibido = null;
+                MessageBox.Show("Agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            AgregarUpd?.Invoke(this, EventArgs.Empty);
-            MessageBox.Show("Agregado exitosamente!","Éxito",MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            suplenteRec = null;
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("El señuelo solicitado no se encuentra en la lista.\nAgreguelo antes de continuar", "¡ATENCIÓN!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
-        private void btnModificar_Click(object sender, EventArgs e)//Se pasa como parámetro el objeto al frmPersonalizar
+        private bool chkLista(Standar suplente)
+        {
+            foreach (Standar standar in StandarSuplente.suplentes)
+            {
+                if(standar.Modelo.ToString() == suplente.Modelo.ToString())
+                {
+                    if(standar.AnzSimple.ToString() ==  suplente.AnzSimple.ToString() && standar.AnzTriple.ToString() == suplente.AnzTriple.ToString() && standar.AnillaAnz.ToString() == suplente.AnillaAnz.ToString() && standar.AnillaPal.ToString() == suplente.AnillaPal.ToString())
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private void addSuplenteRepetido(Standar suplente)
+        {
+            List<Standar> lista = StandarSuplente.suplentes;
+
+            int index = lista.FindIndex(item => item.Modelo == suplente.Modelo && item.AnzSimple.ToString() == suplente.AnzSimple.ToString() && item.AnzTriple.ToString() == suplente.AnzTriple.ToString() && item.AnillaPal.ToString() == suplente.AnillaPal.ToString() && item.AnillaAnz.ToString() == suplente.AnillaAnz.ToString());
+
+            if (index != -1)
+            {
+                lista[index].Cantidad += int.Parse(txtCantidad.Text);
+            }
+        }
+        private void btnModificar_Click(object sender, EventArgs e) //Se pasa como parámetro el objeto al frmPersonalizar
         {
             string mod = cboArtificialNR.SelectedValue.ToString();
             string col = cboColorNR.SelectedValue.ToString();
@@ -151,31 +203,30 @@ namespace TechSeñuelos
             StandarNeg negocio = new StandarNeg();
 
             standar = negocio.personalizar(mod);
-            string imagen = negocio.obtImg(col,mod);
+            string imagen = negocio.obtImg(col, mod);
 
             frmPersonalizar custom = new frmPersonalizar(standar, anz, imagen);
             custom.ShowDialog();
 
-            if(custom.suplente != null)
+            if (custom.suplente != null)
             {
-                suplenteRec = custom.suplente;
+                suplenteRecibido = custom.suplente;
             }
         }
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnTerminar_Click(object sender, EventArgs e)
         {
-            if (suplenteRec  != null)
-            {                
-                if(MessageBox.Show("¿Esta seguro que desea terminar? Hay un señuelo modificado", "Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (suplenteRecibido != null)
+            {
+                if (MessageBox.Show("¿Esta seguro que desea terminar? Hay un señuelo modificado", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    suplenteRec = null;
+                    suplenteRecibido = null;
                     Close();
                 }
                 else
                 {
                     return;
                 }
-            }                        
-            Close();
+            }
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -192,6 +243,7 @@ namespace TechSeñuelos
                 cboArtificialNR.DataSource = lure.cboArtificial();
                 cboArtificialNR.ValueMember = "Modelo";
                 cboArtificialNR.DisplayMember = "Modelo";
+
                 cboColorNR.DataSource = color.cboColores();
                 cboColorNR.ValueMember = "Modelo";
                 cboColorNR.DisplayMember = "Modelo";
@@ -212,6 +264,19 @@ namespace TechSeñuelos
                 }
             }
             return true;
+        }
+
+        private void cboArtificialNR_SelectedValueChanged(object sender, EventArgs e)
+        {
+            StandarNeg negocio = new StandarNeg();
+            Standar modelo = new Standar();
+            int idSeleccion = cboArtificialNR.SelectedIndex;
+            List<Standar> lista = new List<Standar>();
+            lista = negocio.listar();
+
+            modelo = lista[idSeleccion];
+            rbSimple.Text = "Simples (" + modelo.AnzSimple + ")";
+            rbTriple.Text = "Triples (" + modelo.AnzTriple + ")";
         }
     }
 }

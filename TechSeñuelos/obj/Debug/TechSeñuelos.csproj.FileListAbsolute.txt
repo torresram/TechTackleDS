@@ -164,3 +164,5 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmArtificialNuevo.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\System.Configuration.ConfigurationManager.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\Microsoft.Bcl.HashCode.xml

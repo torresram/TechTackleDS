@@ -74,7 +74,10 @@ namespace TechSeñuelos
         private void formatoDgv()
         {
             dgvColores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            Font rowFont = new Font("Century Gothic", 9, FontStyle.Regular);
+            Font headerFont = new Font("Century Gothic",9, FontStyle.Bold);
+            dgvColores.Font = rowFont;
+            dgvColores.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvColores.Columns["Id"].Visible = false;
             dgvColores.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvColores.Columns["Modelo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -87,6 +90,15 @@ namespace TechSeñuelos
         {
             cargarDgv();
             dgvColores.Refresh();
+        }
+
+        private void dgvColores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dominio.Color seleccion;
+            seleccion = (dominio.Color)dgvColores.CurrentRow.DataBoundItem;
+
+            frmColorNuevo modificar = new frmColorNuevo(seleccion);
+            modificar.ShowDialog();
         }
     }
 }

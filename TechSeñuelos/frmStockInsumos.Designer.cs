@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockInsumos));
             this.tbInsumos = new System.Windows.Forms.TabControl();
             this.tbAnillas = new System.Windows.Forms.TabPage();
             this.dgvAnillas = new System.Windows.Forms.DataGridView();
@@ -52,6 +53,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.tbInsumos.SuspendLayout();
             this.tbAnillas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnillas)).BeginInit();
@@ -75,7 +77,7 @@
             this.tbInsumos.Controls.Add(this.tbCarcasa);
             this.tbInsumos.Controls.Add(this.tbCarton);
             this.tbInsumos.Controls.Add(this.tbPitones);
-            this.tbInsumos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbInsumos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInsumos.Location = new System.Drawing.Point(0, 114);
             this.tbInsumos.Name = "tbInsumos";
             this.tbInsumos.SelectedIndex = 0;
@@ -86,10 +88,11 @@
             // tbAnillas
             // 
             this.tbAnillas.Controls.Add(this.dgvAnillas);
-            this.tbAnillas.Location = new System.Drawing.Point(4, 23);
+            this.tbAnillas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAnillas.Location = new System.Drawing.Point(4, 25);
             this.tbAnillas.Name = "tbAnillas";
             this.tbAnillas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAnillas.Size = new System.Drawing.Size(627, 427);
+            this.tbAnillas.Size = new System.Drawing.Size(627, 425);
             this.tbAnillas.TabIndex = 0;
             this.tbAnillas.Text = "Anillas";
             this.tbAnillas.UseVisualStyleBackColor = true;
@@ -101,7 +104,7 @@
             this.dgvAnillas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAnillas.Location = new System.Drawing.Point(-2, -1);
             this.dgvAnillas.Name = "dgvAnillas";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAnillas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAnillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnillas.Size = new System.Drawing.Size(630, 431);
@@ -110,10 +113,11 @@
             // tbAnzuelo
             // 
             this.tbAnzuelo.Controls.Add(this.dgvAnzuelos);
-            this.tbAnzuelo.Location = new System.Drawing.Point(4, 23);
+            this.tbAnzuelo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAnzuelo.Location = new System.Drawing.Point(4, 25);
             this.tbAnzuelo.Name = "tbAnzuelo";
             this.tbAnzuelo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAnzuelo.Size = new System.Drawing.Size(627, 427);
+            this.tbAnzuelo.Size = new System.Drawing.Size(627, 425);
             this.tbAnzuelo.TabIndex = 1;
             this.tbAnzuelo.Text = "Anzuelos";
             this.tbAnzuelo.UseVisualStyleBackColor = true;
@@ -125,7 +129,7 @@
             this.dgvAnzuelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAnzuelos.Location = new System.Drawing.Point(-2, -1);
             this.dgvAnzuelos.Name = "dgvAnzuelos";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAnzuelos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAnzuelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnzuelos.Size = new System.Drawing.Size(630, 431);
@@ -134,9 +138,10 @@
             // tbBlisters
             // 
             this.tbBlisters.Controls.Add(this.dgvBlister);
-            this.tbBlisters.Location = new System.Drawing.Point(4, 23);
+            this.tbBlisters.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBlisters.Location = new System.Drawing.Point(4, 25);
             this.tbBlisters.Name = "tbBlisters";
-            this.tbBlisters.Size = new System.Drawing.Size(627, 427);
+            this.tbBlisters.Size = new System.Drawing.Size(627, 425);
             this.tbBlisters.TabIndex = 2;
             this.tbBlisters.Text = "Blisters";
             this.tbBlisters.UseVisualStyleBackColor = true;
@@ -144,11 +149,12 @@
             // dgvBlister
             // 
             this.dgvBlister.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvBlister.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dgvBlister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBlister.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBlister.Location = new System.Drawing.Point(-2, -1);
             this.dgvBlister.Name = "dgvBlister";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBlister.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBlister.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBlister.Size = new System.Drawing.Size(630, 431);
@@ -157,9 +163,10 @@
             // tbCarcasa
             // 
             this.tbCarcasa.Controls.Add(this.dgvCarcasas);
-            this.tbCarcasa.Location = new System.Drawing.Point(4, 23);
+            this.tbCarcasa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCarcasa.Location = new System.Drawing.Point(4, 25);
             this.tbCarcasa.Name = "tbCarcasa";
-            this.tbCarcasa.Size = new System.Drawing.Size(627, 427);
+            this.tbCarcasa.Size = new System.Drawing.Size(627, 425);
             this.tbCarcasa.TabIndex = 4;
             this.tbCarcasa.Text = "Carcasas";
             this.tbCarcasa.UseVisualStyleBackColor = true;
@@ -171,7 +178,7 @@
             this.dgvCarcasas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCarcasas.Location = new System.Drawing.Point(-2, -1);
             this.dgvCarcasas.Name = "dgvCarcasas";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCarcasas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCarcasas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarcasas.Size = new System.Drawing.Size(630, 431);
@@ -180,9 +187,10 @@
             // tbCarton
             // 
             this.tbCarton.Controls.Add(this.dgvCarton);
-            this.tbCarton.Location = new System.Drawing.Point(4, 23);
+            this.tbCarton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCarton.Location = new System.Drawing.Point(4, 25);
             this.tbCarton.Name = "tbCarton";
-            this.tbCarton.Size = new System.Drawing.Size(627, 427);
+            this.tbCarton.Size = new System.Drawing.Size(627, 425);
             this.tbCarton.TabIndex = 3;
             this.tbCarton.Text = "Cartones";
             this.tbCarton.UseVisualStyleBackColor = true;
@@ -194,7 +202,7 @@
             this.dgvCarton.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCarton.Location = new System.Drawing.Point(-2, -1);
             this.dgvCarton.Name = "dgvCarton";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCarton.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCarton.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarton.Size = new System.Drawing.Size(630, 431);
@@ -203,9 +211,10 @@
             // tbPitones
             // 
             this.tbPitones.Controls.Add(this.dgvPitones);
-            this.tbPitones.Location = new System.Drawing.Point(4, 23);
+            this.tbPitones.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPitones.Location = new System.Drawing.Point(4, 25);
             this.tbPitones.Name = "tbPitones";
-            this.tbPitones.Size = new System.Drawing.Size(627, 427);
+            this.tbPitones.Size = new System.Drawing.Size(627, 425);
             this.tbPitones.TabIndex = 5;
             this.tbPitones.Text = "Pitones";
             this.tbPitones.UseVisualStyleBackColor = true;
@@ -217,7 +226,7 @@
             this.dgvPitones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPitones.Location = new System.Drawing.Point(0, 0);
             this.dgvPitones.Name = "dgvPitones";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvPitones.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPitones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPitones.Size = new System.Drawing.Size(630, 431);
@@ -226,24 +235,26 @@
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(1, 73);
+            this.lblBuscar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(12, 73);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(68, 17);
+            this.lblBuscar.Size = new System.Drawing.Size(72, 20);
             this.lblBuscar.TabIndex = 1;
             this.lblBuscar.Text = "BUSCAR:";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(75, 72);
+            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.Location = new System.Drawing.Point(90, 71);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(181, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(181, 22);
             this.txtFiltro.TabIndex = 2;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(669, 136);
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(641, 139);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(111, 56);
             this.btnAgregar.TabIndex = 2;
@@ -253,7 +264,8 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(669, 232);
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(641, 201);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 56);
             this.btnModificar.TabIndex = 3;
@@ -263,7 +275,8 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(669, 333);
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(641, 263);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(111, 56);
             this.btnEliminar.TabIndex = 4;
@@ -271,18 +284,38 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(641, 508);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(111, 56);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmStockInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 620);
+            this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnSalir;
+            this.ClientSize = new System.Drawing.Size(762, 573);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.tbInsumos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmStockInsumos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "STOCK INSUMOS";
             this.Load += new System.EventHandler(this.frmStockInsumos_Load);
             this.tbInsumos.ResumeLayout(false);
@@ -323,5 +356,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

@@ -26,7 +26,6 @@ namespace TechSeñuelos
             this.color = color;
             Text = "MODIFICAR COLOR";
         }
-
         private void frmColorNuevo_Load(object sender, EventArgs e)
         {
             txtModelo.Focus();
@@ -42,6 +41,8 @@ namespace TechSeñuelos
             {
                 MessageBox.Show(ex.ToString());
             }
+            
+            btnAceptar.Enabled = false;
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -49,6 +50,7 @@ namespace TechSeñuelos
             {
                 color = new dominio.Color();
             }
+
             ColorNeg negocio = new ColorNeg();
             string modelo = txtModelo.Text;
             string desc = txtDescripcion.Text;
@@ -92,10 +94,17 @@ namespace TechSeñuelos
                 txtModelo.Focus();
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private void txtModelo_TextChanged(object sender, EventArgs e)
+        {
+            btnAceptar.Enabled = true;    
+        }
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            btnAceptar.Enabled = true;
         }
     }
 }

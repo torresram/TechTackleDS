@@ -2,6 +2,8 @@
 using negocio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Windows.Forms;
 
 namespace TechSeñuelos
@@ -17,7 +19,6 @@ namespace TechSeñuelos
 
             dgvRemito.CellValidating += dgvRemito_CellValidating;
             dgvRemito.CellEndEdit += dgvRemito_CellEndEdit;
-
             FormClosing += cerrarFrm;
         }
         private void frmRemitoNuevo_Load(object sender, EventArgs e)
@@ -44,27 +45,30 @@ namespace TechSeñuelos
 
             dgvRemito.Refresh();
         }
-        //private void actualizar(object sender, EventArgs e)//reemplazado por otro metodo
-        //{
-        //    int remito = int.Parse(lblNroRem.Text);
-        //    detalle(remito);
-        //}
+
+        //private void actualizar(object sender, EventArgs e){int remito = int.Parse(lblNroRem.Text);detalle(remito);}//reemplazado por otro metodo
+
         private void dgvRemito_CellValueChanged(object sender, DataGridViewCellEventArgs e)//evento para editar cantidad dentro del dgvRemito
         {
             ArmadoNeg armado = new ArmadoNeg();
 
             int cantidadIndex = dgvRemito.Columns["Cantidad"].Index;
             int idIndex = dgvRemito.Columns["Id"].Index;
+            int fila = e.RowIndex;
+            int celda = e.ColumnIndex;
 
-            if (e.ColumnIndex == cantidadIndex && e.RowIndex >= 0)
+            if (celda == cantidadIndex && fila >= 0)
             {
-                DataGridViewCell celdaCantidad = dgvRemito.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewCell celdaCantidad = dgvRemito.Rows[fila].Cells[celda];
                 int cantUpd;
 
                 if (celdaCantidad.Value != null && int.TryParse(celdaCantidad.Value.ToString(), out cantUpd))
                 {
-                    int id = (int)dgvRemito.Rows[e.RowIndex].Cells[idIndex].Value;
-                    armado.modifCant(id, cantUpd);
+                    int id = (int)dgvRemito.Rows[fila].Cells[idIndex].Value;
+                    List<Standar> lista = StandarSuplente.suplentes;
+
+                    armado.modificarCant(id, cantUpd);
+                    lista[fila].Cantidad = cantUpd;
                 }
             }
         }
@@ -94,7 +98,7 @@ namespace TechSeñuelos
         }
         private void btnAddDest_Click(object sender, EventArgs e)
         {
-            string dest = cboDestinoRem.Text;
+            string dest = cboDestinoRem.Text.ToUpper();
             int num = int.Parse(lblNroRem.Text);
             DateTime fecha = DateTime.Today;
 
@@ -114,6 +118,7 @@ namespace TechSeñuelos
             btnEliminar.Enabled = true;
             btnEliminarTodo.Enabled = true;
             btnContinuar.Enabled = true;
+            cboDestinoRem.SelectedValue = dest;
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -121,9 +126,9 @@ namespace TechSeñuelos
         }
         private void btnEliminarTodo_Click(object sender, EventArgs e)
         {
-            if(dgvRemito.RowCount > 0)
+            if (dgvRemito.RowCount > 0)
             {
-                if(MessageBox.Show("Quiere reutilizar el remito?","Eliminar todo",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Quiere reutilizar el remito?", "Eliminar todo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     ArmadoNeg armado = new ArmadoNeg();
                     RemitoNeg remito = new RemitoNeg();
@@ -139,19 +144,22 @@ namespace TechSeñuelos
                     btnAgregar.Enabled = true;
                     btnEliminar.Enabled = true;
                     btnEliminarTodo.Enabled = true;
-                    btnContinuar.Enabled = false;
                     btnAddDest.Enabled = false;
                 }
             }
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            int rto = int.Parse(lblNroRem.Text);
-            frmInsumos insumos = new frmInsumos(rto);
-            insumos.ShowDialog();
+            if (dgvRemito.Rows.Count > 0)
+            {
+                int rto = int.Parse(lblNroRem.Text);
+                frmInsumos insumos = new frmInsumos(rto);
+                insumos.ShowDialog();
+            }
         }
         public void diseColumnas()//diseño de columnas
         {
+            dgvRemito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRemito.Columns["Id"].Visible = false;
             dgvRemito.Columns["Remito"].Visible = false;
             dgvRemito.Columns["Cantidad"].ReadOnly = false;
@@ -170,7 +178,6 @@ namespace TechSeñuelos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -179,24 +186,31 @@ namespace TechSeñuelos
             ArmadoNeg negocio = new ArmadoNeg();
             Armado seleccion;
             int remito = int.Parse(lblNroRem.Text);
+
             try
             {
-                DialogResult eliminar = MessageBox.Show("Desea eliminar el artículo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (eliminar == DialogResult.Yes)
+                if (MessageBox.Show("Desea eliminar el artículo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    seleccion = (Armado)dgvRemito.CurrentRow.DataBoundItem;
-                    int indiceSelec = dgvRemito.CurrentRow.Index; 
-                    negocio.eliminar(seleccion.Id);
-                    detalle(remito);
+                    //Aca deberia saber si lo que deberia borrar lleva anzuelos simples o triples, de acuerdo la decision del usuario...
+                    if (dgvRemito.CurrentRow != null)
+                    {
+                        seleccion = (Armado)dgvRemito.CurrentRow.DataBoundItem;
+                        int indiceSelec = dgvRemito.CurrentRow.Index;
+                        negocio.eliminar(seleccion.Id);
+                        detalle(remito);
 
-                    StandarSuplente.suplentes.RemoveRange(indiceSelec,indiceSelec);
+                        StandarSuplente.suplentes.RemoveRange(indiceSelec, indiceSelec);
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
-            } 
+            }
         }
         private void cboDestino() //Carga destinos preexistentes
         {
@@ -232,7 +246,12 @@ namespace TechSeñuelos
         }
         private void descontarStock()
         {
-
+            //dejar esto para más adelante...
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            StandarSuplente.suplentes.Clear();
+            Close();
         }
     }
 }

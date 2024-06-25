@@ -66,18 +66,18 @@ namespace TechSeñuelos
                 {"imagen", txtImagen.Text },
                 {"cantidad", txtCantidad.Text.ToString()},
                 {"peso", txtPeso.Text.ToString()},
-            };            
+            };
 
             ArtificialNeg negocio = new ArtificialNeg();
             try
             {
-                if(artificial == null)
+                if (artificial == null)
                 {
                     artificial = new Artificial();
                 }
                 string chkCodigo = txtCodigo.Text;
-                
-                if(chkCodigo != artificial.Codigo)
+
+                if (chkCodigo != artificial.Codigo)
                 {
                     if (negocio.validarCodigo(chkCodigo))
                     {
@@ -133,11 +133,14 @@ namespace TechSeñuelos
                     vaciarCampos();
                 }
 
-                if(archivo != null && !(txtImagen.Text.ToUpper().Contains("HTTP")))
+                if (archivo != null)
                 {
-                    if (File.Exists(ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName) == false)
+                    if (archivo.FileName != "" && !(txtImagen.Text.ToUpper().Contains("HTTP")))
                     {
-                        File.Copy(archivo.FileName, ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName);
+                        if (File.Exists(ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName) == false)
+                        {
+                            File.Copy(archivo.FileName, ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName);
+                        }
                     }
                 }
 
@@ -175,6 +178,7 @@ namespace TechSeñuelos
             catch (Exception)
             {
                 pbImagen.Load("C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg");
+                txtImagen.Text = "C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg";
             }
         }
 
@@ -182,7 +186,7 @@ namespace TechSeñuelos
         {
             foreach (char letra in cadena)
             {
-                if (!(char.IsNumber(letra) || letra == ',' || letra == '.' ))
+                if (!(char.IsNumber(letra) || letra == ',' || letra == '.'))
                 {
                     return false;
                 }
@@ -194,7 +198,7 @@ namespace TechSeñuelos
         {
             archivo = new OpenFileDialog();
             archivo.Filter = "jpg|*.jpg; |png|*.png";
-            if(archivo.ShowDialog() == DialogResult.OK)
+            if (archivo.ShowDialog() == DialogResult.OK)
             {
                 txtImagen.Text = archivo.FileName;
                 cargarImg(archivo.FileName);
@@ -208,12 +212,12 @@ namespace TechSeñuelos
 
         private void vaciarCampos()
         {
-            txtCodigo.Text = "";
+            txtCodigo.Text = txtModelo.Text.Replace(" ", "") + "-";
             txtCodigo.Focus();
-            txtModelo.Text = "";
-            txtImagen.Text = "";
-            txtCantidad.Text = "";
-            txtPeso.Text = "";
+            //txtModelo.Text = "";
+            //txtImagen.Text = "";
+            txtCantidad.Text = "0";
+            //txtPeso.Text = "";
         }
     }
 }

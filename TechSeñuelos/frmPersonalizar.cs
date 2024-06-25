@@ -19,7 +19,7 @@ namespace TechSeñuelos
 
         private Standar standar = new Standar();
         public Standar suplente { get; set; }
-
+        private bool optAnz = false;
         //public List<Standar> aPreparar = new List<Standar>();//reemplazado por clase dedicada
         public frmPersonalizar(Standar standar, bool optAnz, string imagen)
         {
@@ -28,57 +28,63 @@ namespace TechSeñuelos
             cargarImg(imagen);
 
             this.standar = standar;
+            this.optAnz = optAnz;
             lblArtificial.Text = standar.Modelo;
+
+            int aux;
+            int indice;
 
             if(standar.AnillaAnz.Tamaño == "0")//hacerlo mas simple con algun metodo o array
             {
                 standar.AnillaAnz.Tamaño = "No lleva";
-                int indice = cboAnillasA.FindString(standar.AnillaAnz.Tamaño);
+                indice = cboAnillasA.FindString(standar.AnillaAnz.Tamaño);
                 cboAnillasA.SelectedIndex = indice;
             }
             else
             {
-                int indice = cboAnillasA.FindString(standar.AnillaAnz.Tamaño);
+                indice = cboAnillasA.FindString(standar.AnillaAnz.Tamaño);
                 cboAnillasA.SelectedIndex = indice;
             }
 
             if(standar.AnillaPal.Tamaño == "0")
             {
                 standar.AnillaPal.Tamaño = "No lleva";
-                int indice = cboAnillasP.FindString(standar.AnillaPal.Tamaño);
+                indice = cboAnillasP.FindString(standar.AnillaPal.Tamaño);
                 cboAnillasP.SelectedIndex = indice;
             }
             else
             {
-                int indice = cboAnillasP.FindString(standar.AnillaPal.Tamaño);
+                indice = cboAnillasP.FindString(standar.AnillaPal.Tamaño);
                 cboAnillasP.SelectedIndex = indice;
             }
             
             if(optAnz)//hacer metodo
             {
+                lblAnzuelo.Text = "TRIPLES:";
                 if(standar.AnzTriple.Numero == "0")
                 {
-                    standar.AnzTriple.Numero = "No lleva";//aca habria que ver como hacer en caso de que el valor de 0 sea puesto por el usuario en la tabla  
-                    int aux = cboAnzuelo.FindString(standar.AnzTriple.Numero);
+                    standar.AnzTriple.Numero = "No lleva";//aca habria que ver como hacer en caso de que el valor de 0 sea puesto por el usuario en la tabla
+                    aux = cboAnzuelo.FindString(standar.AnzTriple.Numero);
                     cboAnzuelo.SelectedIndex = aux;
                 }
                 else
                 {
-                    int aux = cboAnzuelo.FindString(standar.AnzTriple.Numero);
+                    aux = cboAnzuelo.FindString(standar.AnzTriple.Numero);
                     cboAnzuelo.SelectedIndex = aux;
                 }
             }
             else
             {
+                lblAnzuelo.Text = "SIMPLES:";
                 if(standar.AnzSimple.Numero == "0")
                 {
                     standar.AnzSimple.Numero = "No lleva";
-                    int aux = cboAnzuelo.FindString(standar.AnzSimple.Numero);
+                    aux = cboAnzuelo.FindString(standar.AnzSimple.Numero);
                     cboAnzuelo.SelectedIndex = aux;
                 }
                 else
                 {
-                    int aux = cboAnzuelo.FindString(standar.AnzSimple.Numero);
+                    aux = cboAnzuelo.FindString(standar.AnzSimple.Numero);
                     cboAnzuelo.SelectedIndex = aux;
                 }
             }
@@ -123,7 +129,7 @@ namespace TechSeñuelos
             }
             catch (Exception)
             {
-                pbImagen.Load("http://sigpapelera.com.ar/Fotos/sin.jpg");
+                pbImagen.Load("C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg");
             }
         }
 
@@ -141,17 +147,19 @@ namespace TechSeñuelos
             string anillaPal = AniPal.Tamaño;
             string anillaAnz = AniAnz.Tamaño;
 
-            standar.AnzTriple.Numero = anzuelo;
-            standar.AnzSimple.Numero = anzuelo;//hago trampa aca, solo interesa el nro de anzuelo elegido, no si es triple o simple.
+            if (optAnz)
+            {
+                standar.AnzTriple.Numero = anzuelo;
+                standar.AnzSimple.Numero = "No lleva";
+            }
+            else
+            {
+                standar.AnzSimple.Numero = anzuelo;//hago trampa aca, solo interesa el nro de anzuelo elegido, no si es triple o simple.
+                standar.AnzTriple.Numero = "No lleva";
+            }
             standar.AnillaAnz.Tamaño = anillaAnz;
             standar.AnillaPal.Tamaño = anillaPal;
         }
-
-        //private void cboCheck(int indA, int IndB, int IndC)//no esta definido si se usa aun
-        //{
-            
-        //}
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
