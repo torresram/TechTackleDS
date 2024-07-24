@@ -16,7 +16,6 @@ namespace dominio
         public Artificial Artificial { get; set; }
         public Color Color { get; set; }
         public int Cantidad { get; set; }
-
-        
+        public List<int> codArmado { get; set; }
     }
 }

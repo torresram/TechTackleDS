@@ -26,6 +26,8 @@ namespace dominio
         [DisplayName("Pitón")]
         public Piton Piton { get; set; }
         public int Cantidad { get; set; }
+        public bool tipoAnzuelo {  get; set; }
+        public int codigoArmado { get; set; }
 
         public override string ToString()
         {
