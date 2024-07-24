@@ -91,7 +91,7 @@ namespace negocio
 				Artificial lure = new Artificial();
 				lure.Id = (int)datos.Lector["Id"];
 				lure.Codigo = (string)datos.Lector["Codigo"];
-				lure.Color = new dominio.Color();
+				lure.Color = new Color();
 				lure.Color.Id = (int)datos.Lector["IdColor"];
 				lure.Color.Modelo = (string)datos.Lector["Color"];
 				lure.Peso = (double)datos.Lector["Peso"];
@@ -101,7 +101,7 @@ namespace negocio
 				int col = lure.Color.Id;
 				int cant = cantidad;
 
-				//ArmadoNeg negocio = new ArmadoNeg();//agrega los valores a la tabla Armado
+				//agrega los valores a la tabla Armado
 				datos.cerrarConexion();
 				addItem(art, col, cant);
 			}
@@ -113,7 +113,7 @@ namespace negocio
 		}
 		public void addItem(int modelo, int color, int cantidad)
 		{			
-			int remito = 0;
+			int remito;
 			int cantExist = 0;
 			int cantUpd = 0;
 
@@ -192,7 +192,6 @@ namespace negocio
 			}
 			catch (Exception ex)
 			{
-
 				throw ex;
 			}
 			finally { datos.cerrarConexion(); }

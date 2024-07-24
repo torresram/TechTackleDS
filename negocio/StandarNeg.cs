@@ -273,10 +273,10 @@ namespace negocio
                 standar.AnillaAnz.Tamaño = (string)datos.Lector["AnillaA"];
                 standar.AnzSimple = new Anzuelos();
                 standar.AnzTriple = new Anzuelos();
-                standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
-                standar.AnzTriple.Id = (int)datos.Lector["ATId"];
-                standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
                 standar.AnzSimple.Id = (int)datos.Lector["ASId"];
+                standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
+                standar.AnzTriple.Id = (int)datos.Lector["ATId"];
+                standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
                 standar.Carton = new Carton();
                 standar.Carton.Id = (int)datos.Lector["idCarton"];
                 standar.Carton.Modelo = (string)datos.Lector["Carton"];
