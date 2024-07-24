@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -21,9 +22,8 @@ namespace TechSeñuelos
         private Standar suplenteRecibido = null; //para el suplente que viene de frmPersonalizar
         public event EventHandler AgregarUpd;//evento para actualizar dgvRemito
         public event EventHandler FormClosedEvent;//acciones luego de cerrar este form
-
-        //private void frmPersonalizar_pasarSuplente(object sender, EventArgs e){StandarSuplente.suplentes.Add(suplenteRecibido);}
-
+        int idArm = 0;
+        
         public frmSelexLure()
         {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace TechSeñuelos
             string color = cboColorNR.SelectedValue.ToString();
             int cantidad = int.Parse(txtCantidad.Text);
             bool tipoAnzuelo = rbTriple.Checked;
+            int idStd;
 
             try
             {
@@ -63,24 +64,23 @@ namespace TechSeñuelos
                         suplenteRecibido.AnzTriple.Numero = null;
                     }
 
+                    suplenteRecibido.tipoAnzuelo = tipoAnzuelo;
                     suplenteRecibido.Cantidad = cantidad;
 
-                    if (chkLista(suplenteRecibido))
-                    {
-                        addSuplenteRepetido(suplenteRecibido);
-                    }
-                    else
-                    {
-                        StandarSuplente.suplentes.Add(suplenteRecibido);
-                    }
+                    idArm++;
+                    idStd = suplenteRecibido.Id;
+                    suplenteRecibido.codigoArmado = generarCodigo(idArm, idStd);
+                    StandarSuplente.suplentes.Add(suplenteRecibido);
                 }
                 else
                 {
                     suplenteNoMod = negocioSupl.personalizar(artificial, cantidad);
+                    suplenteNoMod.tipoAnzuelo = tipoAnzuelo;
 
                     if (tipoAnzuelo)//hacer en un metodo
                     {
                         suplenteNoMod.AnzSimple.Numero = null;
+
                         if (suplenteNoMod.AnzTriple.Numero.ToUpper() == "NO LLEVA")
                         {
                             if (MessageBox.Show("Por defecto, este señuelo no lleva triples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -110,6 +110,7 @@ namespace TechSeñuelos
                     else
                     {
                         suplenteNoMod.AnzTriple.Numero = null;
+
                         if (suplenteNoMod.AnzSimple.Numero.ToUpper() == "NO LLEVA")
                         {
                             if (MessageBox.Show("Por defecto, este señuelo no lleva simples...¿Personalizar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -147,20 +148,16 @@ namespace TechSeñuelos
                         suplenteNoMod.AnillaPal.Tamaño = "No lleva";
                     }
 
-                    if (chkLista(suplenteNoMod))
-                    {
-                        addSuplenteRepetido(suplenteNoMod);
-                    }
-                    else
-                    {
-                        StandarSuplente.suplentes.Add(suplenteNoMod);
-                    }
+                    idArm++;
+                    idStd = suplenteNoMod.Id;
+                    suplenteNoMod.codigoArmado = generarCodigo(idArm, idStd);
+                    StandarSuplente.suplentes.Add(suplenteNoMod);
                 }
 
                 armado.nuevoRemArmado(artificial, color, cantidad);
                 AgregarUpd?.Invoke(this, EventArgs.Empty);
                 suplenteRecibido = null;
-                MessageBox.Show("Agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("¡Agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidOperationException)
             {
@@ -172,9 +169,9 @@ namespace TechSeñuelos
         {
             foreach (Standar standar in StandarSuplente.suplentes)
             {
-                if(standar.Modelo.ToString() == suplente.Modelo.ToString())
+                if (standar.Modelo.ToString() == suplente.Modelo.ToString())
                 {
-                    if(standar.AnzSimple.ToString() ==  suplente.AnzSimple.ToString() && standar.AnzTriple.ToString() == suplente.AnzTriple.ToString() && standar.AnillaAnz.ToString() == suplente.AnillaAnz.ToString() && standar.AnillaPal.ToString() == suplente.AnillaPal.ToString())
+                    if (standar.AnzSimple.ToString() == suplente.AnzSimple.ToString() && standar.AnzTriple.ToString() == suplente.AnzTriple.ToString() && standar.AnillaAnz.ToString() == suplente.AnillaAnz.ToString() && standar.AnillaPal.ToString() == suplente.AnillaPal.ToString())
                     {
                         return true;
                     }
@@ -265,7 +262,6 @@ namespace TechSeñuelos
             }
             return true;
         }
-
         private void cboArtificialNR_SelectedValueChanged(object sender, EventArgs e)
         {
             StandarNeg negocio = new StandarNeg();
@@ -277,6 +273,16 @@ namespace TechSeñuelos
             modelo = lista[idSeleccion];
             rbSimple.Text = "Simples (" + modelo.AnzSimple + ")";
             rbTriple.Text = "Triples (" + modelo.AnzTriple + ")";
+        }
+        private int generarCodigo(int idArm, int idStd)
+        {
+            int codigoFinal;
+            string cadenaCodigo;
+
+            cadenaCodigo = idArm.ToString() + "0" + idStd;
+            codigoFinal = int.Parse(cadenaCodigo);
+
+            return codigoFinal;
         }
     }
 }

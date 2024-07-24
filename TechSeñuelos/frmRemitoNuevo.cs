@@ -1,10 +1,14 @@
 ﻿using dominio;
 using negocio;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
 using System.Web;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace TechSeñuelos
 {
@@ -12,7 +16,9 @@ namespace TechSeñuelos
     {
         private RemitoNeg nuevoRem = new RemitoNeg();
         private List<Armado> armados;
-
+        private List<Armado> armadoConCodigo = new List<Armado>();
+        private Dictionary<int, string> codigos = new Dictionary<int, string>();
+        private int indice;
         public frmRemitoNuevo()
         {
             InitializeComponent();
@@ -36,19 +42,50 @@ namespace TechSeñuelos
             btnEliminarTodo.Enabled = false;
             btnContinuar.Enabled = false;
 
-            cboDestinoRem.SelectedIndex = -1;//muesta el cbo en blanco por defecto
+            cboDestinoRem.SelectedIndex = -1; //muesta el cbo en blanco por defecto
         }
         private void FrmSelexLure_AgregarUpd(object sender, EventArgs e)
         {
             int remito = int.Parse(lblNroRem.Text);
+
             detalle(remito);
-
             dgvRemito.Refresh();
+
+            if (armadoConCodigo.Count < 1)
+            {
+                armadoConCodigo.Add(armados[0]);
+                armadoConCodigo[0].codArmado = new List<int>();
+            }
+            else if(!armadoConCodigo.Contains(armados.Last()))
+            {
+                armadoConCodigo.Add(armados.Last());
+                armadoConCodigo[armadoConCodigo.Count - 1].codArmado = new List<int>();
+            }
+
+            foreach (Standar item in StandarSuplente.suplentes)
+            {
+                if (!codigos.Any(x => x.Key == item.codigoArmado))
+                {
+                    codigos.Add(item.codigoArmado, item.Modelo);
+
+                    for (int i = 0; i < armadoConCodigo.Count; i++)
+                    {
+                        bool control = false;
+
+                        if (armadoConCodigo[i].Artificial.Modelo == armados.Last().Artificial.Modelo && armadoConCodigo[i].Color.Modelo == armados.Last().Color.Modelo)
+                        {
+                            armadoConCodigo[i].codArmado.Add(item.codigoArmado);
+                            control = true;
+                        }
+                        else if (control)
+                        {
+                            armadoConCodigo.Last().codArmado.Add(item.codigoArmado);
+                        }
+                    }
+                }
+            }
         }
-
-        //private void actualizar(object sender, EventArgs e){int remito = int.Parse(lblNroRem.Text);detalle(remito);}//reemplazado por otro metodo
-
-        private void dgvRemito_CellValueChanged(object sender, DataGridViewCellEventArgs e)//evento para editar cantidad dentro del dgvRemito
+        private void dgvRemito_CellValueChanged(object sender, DataGridViewCellEventArgs e) //evento para editar cantidad dentro del dgvRemito
         {
             ArmadoNeg armado = new ArmadoNeg();
 
@@ -92,7 +129,6 @@ namespace TechSeñuelos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmSelexLure elegir = new frmSelexLure();
-            //elegir.FormClosedEvent += actualizar; reemplazado por el evento siguiente
             elegir.AgregarUpd += FrmSelexLure_AgregarUpd;
             elegir.ShowDialog();
         }
@@ -115,6 +151,7 @@ namespace TechSeñuelos
 
             btnAddDest.Enabled = false;
             btnAgregar.Enabled = true;
+            btnAgregar.Focus();
             btnEliminar.Enabled = true;
             btnEliminarTodo.Enabled = true;
             btnContinuar.Enabled = true;
@@ -195,11 +232,11 @@ namespace TechSeñuelos
                     if (dgvRemito.CurrentRow != null)
                     {
                         seleccion = (Armado)dgvRemito.CurrentRow.DataBoundItem;
-                        int indiceSelec = dgvRemito.CurrentRow.Index;
+
                         negocio.eliminar(seleccion.Id);
                         detalle(remito);
 
-                        StandarSuplente.suplentes.RemoveRange(indiceSelec, indiceSelec);
+                        int indiceSeleccion = StandarSuplente.suplentes.FindIndex(item => item.Modelo == seleccion.Artificial.Modelo);
                     }
                     else
                     {
@@ -238,10 +275,7 @@ namespace TechSeñuelos
 
             if (remito.existe(rto))
             {
-                if (dgvRemito.RowCount == 0)
-                {
-                    remito.eliminarRemito(rto);
-                }
+                remito.eliminarRemito(rto);
             }
         }
         private void descontarStock()

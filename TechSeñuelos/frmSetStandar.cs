@@ -91,6 +91,7 @@ namespace TechSeñuelos
             dgvStandar.Columns["Piton"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvStandar.Columns["Piton"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvStandar.Columns["Cantidad"].Visible = false;
+            dgvStandar.Columns["tipoAnzuelo"].Visible = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
