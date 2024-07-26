@@ -165,31 +165,6 @@ namespace TechSeñuelos
                 return;
             }
         }
-        private bool chkLista(Standar suplente)
-        {
-            foreach (Standar standar in StandarSuplente.suplentes)
-            {
-                if (standar.Modelo.ToString() == suplente.Modelo.ToString())
-                {
-                    if (standar.AnzSimple.ToString() == suplente.AnzSimple.ToString() && standar.AnzTriple.ToString() == suplente.AnzTriple.ToString() && standar.AnillaAnz.ToString() == suplente.AnillaAnz.ToString() && standar.AnillaPal.ToString() == suplente.AnillaPal.ToString())
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        private void addSuplenteRepetido(Standar suplente)
-        {
-            List<Standar> lista = StandarSuplente.suplentes;
-
-            int index = lista.FindIndex(item => item.Modelo == suplente.Modelo && item.AnzSimple.ToString() == suplente.AnzSimple.ToString() && item.AnzTriple.ToString() == suplente.AnzTriple.ToString() && item.AnillaPal.ToString() == suplente.AnillaPal.ToString() && item.AnillaAnz.ToString() == suplente.AnillaAnz.ToString());
-
-            if (index != -1)
-            {
-                lista[index].Cantidad += int.Parse(txtCantidad.Text);
-            }
-        }
         private void btnModificar_Click(object sender, EventArgs e) //Se pasa como parámetro el objeto al frmPersonalizar
         {
             string mod = cboArtificialNR.SelectedValue.ToString();
@@ -229,6 +204,31 @@ namespace TechSeñuelos
         {
             base.OnFormClosed(e);
             FormClosedEvent?.Invoke(this, EventArgs.Empty);
+        }
+        private bool chkLista(Standar suplente)
+        {
+            foreach (Standar standar in StandarSuplente.suplentes)
+            {
+                if (standar.Modelo.ToString() == suplente.Modelo.ToString())
+                {
+                    if (standar.AnzSimple.ToString() == suplente.AnzSimple.ToString() && standar.AnzTriple.ToString() == suplente.AnzTriple.ToString() && standar.AnillaAnz.ToString() == suplente.AnillaAnz.ToString() && standar.AnillaPal.ToString() == suplente.AnillaPal.ToString())
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private void addSuplenteRepetido(Standar suplente)
+        {
+            List<Standar> lista = StandarSuplente.suplentes;
+
+            int index = lista.FindIndex(item => item.Modelo == suplente.Modelo && item.AnzSimple.ToString() == suplente.AnzSimple.ToString() && item.AnzTriple.ToString() == suplente.AnzTriple.ToString() && item.AnillaPal.ToString() == suplente.AnillaPal.ToString() && item.AnillaAnz.ToString() == suplente.AnillaAnz.ToString());
+
+            if (index != -1)
+            {
+                lista[index].Cantidad += int.Parse(txtCantidad.Text);
+            }
         }
         private void cargaCbos()
         {

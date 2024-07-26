@@ -1,14 +1,9 @@
 ﻿using dominio;
 using negocio;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Web;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace TechSeñuelos
 {
@@ -18,7 +13,7 @@ namespace TechSeñuelos
         private List<Armado> armados;
         private List<Armado> armadoConCodigo = new List<Armado>();
         private Dictionary<int, string> codigos = new Dictionary<int, string>();
-        private int indice;
+
         public frmRemitoNuevo()
         {
             InitializeComponent();
@@ -44,9 +39,83 @@ namespace TechSeñuelos
 
             cboDestinoRem.SelectedIndex = -1; //muesta el cbo en blanco por defecto
         }
+        private void btnAddDest_Click(object sender, EventArgs e)
+        {
+            string dest = cboDestinoRem.Text.ToUpper();
+            int num = int.Parse(lblNroRem.Text);
+            DateTime fecha = DateTime.Today;
+
+            if (string.IsNullOrEmpty(dest))
+            {
+                MessageBox.Show("Debe ingresar un destinatario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            nuevoRem.addDestiNro(dest, num, fecha);
+
+            cboDestino();
+            detalle(num);
+
+            btnAddDest.Enabled = false;
+            btnAgregar.Enabled = true;
+            btnAgregar.Focus();
+            btnEliminar.Enabled = true;
+            btnEliminarTodo.Enabled = true;
+            btnContinuar.Enabled = true;
+            cboDestinoRem.SelectedValue = dest;
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmSelexLure elegir = new frmSelexLure();
+            elegir.AgregarUpd += FrmSelexLure_AgregarUpd;
+            elegir.ShowDialog();
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+        }
+        private void btnEliminarTodo_Click(object sender, EventArgs e)
+        {
+            if (dgvRemito.RowCount > 0)
+            {
+                if (MessageBox.Show("Quiere reutilizar el remito?", "Eliminar todo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    ArmadoNeg armado = new ArmadoNeg();
+                    RemitoNeg remito = new RemitoNeg();
+
+                    int remitoActual = int.Parse(lblNroRem.Text);
+                    int idRemito = remito.obtenerId(remitoActual);
+
+                    armado.reutilizar(idRemito);
+                    detalle(remitoActual);
+
+                    StandarSuplente.suplentes.Clear();
+
+                    btnAgregar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                    btnEliminarTodo.Enabled = true;
+                    btnAddDest.Enabled = false;
+                }
+            }
+        }
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            if (dgvRemito.Rows.Count > 0)
+            {
+                int rto = int.Parse(lblNroRem.Text);
+                frmInsumos insumos = new frmInsumos(rto);
+                insumos.ShowDialog();
+            }
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            StandarSuplente.suplentes.Clear();
+            Close();
+        }
         private void FrmSelexLure_AgregarUpd(object sender, EventArgs e)
         {
             int remito = int.Parse(lblNroRem.Text);
+            int? indiceQ = 0;
 
             detalle(remito);
             dgvRemito.Refresh();
@@ -56,10 +125,23 @@ namespace TechSeñuelos
                 armadoConCodigo.Add(armados[0]);
                 armadoConCodigo[0].codArmado = new List<int>();
             }
-            else if(!armadoConCodigo.Contains(armados.Last()))
+            else if (armadoConCodigo.Count == armados.Count)
+            {
+                for (int x = 0; x < armadoConCodigo.Count; x++)
+                {
+                    if (armadoConCodigo[x].Cantidad != armados[x].Cantidad)
+                    {
+                        armadoConCodigo[x].Cantidad = armados[x].Cantidad;
+                        indiceQ = x;
+                        break;
+                    }
+                }
+            }
+            else
             {
                 armadoConCodigo.Add(armados.Last());
                 armadoConCodigo[armadoConCodigo.Count - 1].codArmado = new List<int>();
+                indiceQ = null;
             }
 
             foreach (Standar item in StandarSuplente.suplentes)
@@ -74,7 +156,15 @@ namespace TechSeñuelos
 
                         if (armadoConCodigo[i].Artificial.Modelo == armados.Last().Artificial.Modelo && armadoConCodigo[i].Color.Modelo == armados.Last().Color.Modelo)
                         {
-                            armadoConCodigo[i].codArmado.Add(item.codigoArmado);
+                            if (indiceQ != null)
+                            {
+                                armadoConCodigo[(int)indiceQ].codArmado.Add(item.codigoArmado);
+                            }
+                            else
+                            {
+                                armadoConCodigo[i].codArmado.Add(item.codigoArmado);
+                            }
+
                             control = true;
                         }
                         else if (control)
@@ -126,74 +216,6 @@ namespace TechSeñuelos
         {
             dgvRemito.Rows[e.RowIndex].ErrorText = string.Empty;
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            frmSelexLure elegir = new frmSelexLure();
-            elegir.AgregarUpd += FrmSelexLure_AgregarUpd;
-            elegir.ShowDialog();
-        }
-        private void btnAddDest_Click(object sender, EventArgs e)
-        {
-            string dest = cboDestinoRem.Text.ToUpper();
-            int num = int.Parse(lblNroRem.Text);
-            DateTime fecha = DateTime.Today;
-
-            if (string.IsNullOrEmpty(dest))
-            {
-                MessageBox.Show("Debe ingresar un destinatario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            nuevoRem.addDestiNro(dest, num, fecha);
-
-            cboDestino();
-            detalle(num);
-
-            btnAddDest.Enabled = false;
-            btnAgregar.Enabled = true;
-            btnAgregar.Focus();
-            btnEliminar.Enabled = true;
-            btnEliminarTodo.Enabled = true;
-            btnContinuar.Enabled = true;
-            cboDestinoRem.SelectedValue = dest;
-        }
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            eliminar();
-        }
-        private void btnEliminarTodo_Click(object sender, EventArgs e)
-        {
-            if (dgvRemito.RowCount > 0)
-            {
-                if (MessageBox.Show("Quiere reutilizar el remito?", "Eliminar todo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    ArmadoNeg armado = new ArmadoNeg();
-                    RemitoNeg remito = new RemitoNeg();
-
-                    int remitoActual = int.Parse(lblNroRem.Text);
-                    int idRemito = remito.obtenerId(remitoActual);
-
-                    armado.reutilizar(idRemito);
-                    detalle(remitoActual);
-
-                    StandarSuplente.suplentes.Clear();
-
-                    btnAgregar.Enabled = true;
-                    btnEliminar.Enabled = true;
-                    btnEliminarTodo.Enabled = true;
-                    btnAddDest.Enabled = false;
-                }
-            }
-        }
-        private void btnContinuar_Click(object sender, EventArgs e)
-        {
-            if (dgvRemito.Rows.Count > 0)
-            {
-                int rto = int.Parse(lblNroRem.Text);
-                frmInsumos insumos = new frmInsumos(rto);
-                insumos.ShowDialog();
-            }
-        }
         public void diseColumnas()//diseño de columnas
         {
             dgvRemito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -232,11 +254,23 @@ namespace TechSeñuelos
                     if (dgvRemito.CurrentRow != null)
                     {
                         seleccion = (Armado)dgvRemito.CurrentRow.DataBoundItem;
+                        int indiceSeleccion = dgvRemito.CurrentRow.Index;
+                        seleccion.codArmado = armadoConCodigo[indiceSeleccion].codArmado;
 
+                        foreach (int code in seleccion.codArmado)
+                        {
+                            for (int x = 0; x < StandarSuplente.suplentes.Count; x++)
+                            {
+                                if (StandarSuplente.suplentes[x].codigoArmado == code)
+                                {
+                                    StandarSuplente.suplentes.RemoveAt(x);
+                                    break;
+                                }
+                            }
+                        }
+                        armadoConCodigo.RemoveAt(indiceSeleccion);
                         negocio.eliminar(seleccion.Id);
                         detalle(remito);
-
-                        int indiceSeleccion = StandarSuplente.suplentes.FindIndex(item => item.Modelo == seleccion.Artificial.Modelo);
                     }
                     else
                     {
@@ -273,19 +307,18 @@ namespace TechSeñuelos
             RemitoNeg remito = new RemitoNeg();
             int rto = int.Parse(lblNroRem.Text);
 
+
             if (remito.existe(rto))
             {
-                remito.eliminarRemito(rto);
+                if (dgvRemito.RowCount == 0)
+                {
+                    remito.eliminarRemito(rto);
+                }
             }
         }
         private void descontarStock()
         {
             //dejar esto para más adelante...
-        }
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            StandarSuplente.suplentes.Clear();
-            Close();
         }
     }
 }
