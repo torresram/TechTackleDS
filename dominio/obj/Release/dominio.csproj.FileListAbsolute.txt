@@ -1,0 +1,9 @@
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Release\dominio.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Release\dominio.pdb
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Release\Microsoft.Bcl.HashCode.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Release\Microsoft.Bcl.HashCode.xml
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Release\dominio.csproj.AssemblyReference.cache
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Release\dominio.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Release\dominio.csproj.Up2Date
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Release\dominio.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Release\dominio.pdb
