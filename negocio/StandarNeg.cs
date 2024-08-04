@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("SELECT S.Id, S.Modelo, A.Tamaño AnillaA,Pit.Tamaño AnillaP, H.Numero AnzSimple, HT.Numero AnzTriple, C.Modelo Carton, B.Modelo Blister, P.Modelo Piton FROM Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Carton C, Blister B, Standar S, Piton P WHERE S.IdAnzueloS = H.Id AND S.IdAnzueloT = HT.Id AND S.IdAnillasA = A.Id AND S.IdAnillasP = Pit.Id AND S.IdCarton = C.Id AND S.IdBlister = B.Id AND S.IdPiton = P.Id");
+                datos.setConsulta("SELECT S.Id, S.Modelo, A.Tamaño AnillaA,Pit.Tamaño AnillaP, H.Numero AnzSimple, HT.Numero AnzTriple, C.Modelo Carton, B.Modelo Blister, P.Modelo Piton FROM Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Carton C, Blister B, Standar S, Piton P WHERE S.IdAnzueloS = H.Id AND S.IdAnzueloT = HT.Id AND S.IdAnillasA = A.Id AND S.IdAnillasP = Pit.Id AND S.IdCarton = C.Id AND S.IdBlister = B.Id AND S.IdPiton = P.Id ORDER BY S.Modelo");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())

@@ -52,7 +52,7 @@ namespace negocio
 
 			try
 			{
-				datos.setConsulta("SELECT A.Id,R.Numero, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = @remito");
+				datos.setConsulta("SELECT A.Id,R.Numero,R.fechaCreacion Fecha, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = @remito");
 				datos.setParametro("@remito", remito);
 				datos.ejecLectura();
 
@@ -62,6 +62,8 @@ namespace negocio
 					aux.Id = (int)datos.Lector["Id"];
 					aux.Remito = new Remito();
 					aux.Remito.Numero = (int)datos.Lector["Numero"];
+					aux.Remito.Fecha = (DateTime)datos.Lector["Fecha"];
+					aux.Remito.Fecha = (DateTime)datos.Lector["Fecha"];
 					aux.Artificial = new Artificial();
 					aux.Artificial.Modelo = (string)datos.Lector["Modelo"];
 					aux.Color = new Color();
