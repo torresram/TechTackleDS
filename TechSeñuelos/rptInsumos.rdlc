@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.25778cm</Width>
+              <Width>2.53559cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41653cm</Width>
+              <Width>2.69434cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.07257cm</Width>
+              <Width>2.35038cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.15604cm</Width>
+              <Width>2.43385cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -32,7 +32,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Tipo</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -64,7 +67,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Tamaño</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -96,7 +102,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Cantidad</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -128,7 +137,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Peso</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -139,7 +151,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -174,7 +189,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Familia.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -204,7 +221,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Item.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -236,7 +255,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Cantidad.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -268,7 +289,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Peso.Value &amp;"gr"</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -315,8 +338,8 @@
         <DataSetName>dataInsumos</DataSetName>
         <Top>0.49953cm</Top>
         <Left>4.2037cm</Left>
-        <Height>1.74625cm</Height>
-        <Width>8.90292cm</Width>
+        <Height>1.74626cm</Height>
+        <Width>10.01417cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -342,7 +365,11 @@
               <TextRuns>
                 <TextRun>
                   <Value>PREPARADO</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -352,7 +379,7 @@
           </Paragraphs>
           <Top>0.86995cm</Top>
           <Height>0.68792cm</Height>
-          <Width>16.51cm</Width>
+          <Width>18.58348cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

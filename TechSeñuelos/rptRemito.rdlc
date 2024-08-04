@@ -105,7 +105,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Modelo</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -137,7 +140,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Color </Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -169,7 +175,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Cantidad</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -206,7 +215,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=CStr(Fields!Artificial.Value.ToString)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -238,7 +249,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Color.Value.ToString</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -270,7 +283,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Cantidad.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Century Gothic</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -343,7 +358,11 @@
                   <TextRuns>
                     <TextRun>
                       <Value>REMITO</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -353,9 +372,8 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.49953cm</Top>
-              <Left>6.48229cm</Left>
               <Height>0.68792cm</Height>
-              <Width>1.77271cm</Width>
+              <Width>16.51cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -374,17 +392,21 @@
                   <TextRuns>
                     <TextRun>
                       <Value>NÚMERO:</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>1.84298cm</Top>
+              <Top>1.76071cm</Top>
               <Left>1.87537cm</Left>
               <Height>0.63818cm</Height>
-              <Width>1.82562cm</Width>
+              <Width>2.11666cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -404,17 +426,21 @@
                   <TextRuns>
                     <TextRun>
                       <Value>DESTINO:</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>1.76361cm</Top>
-              <Left>8.69597cm</Left>
+              <Top>1.79889cm</Top>
+              <Left>8.45908cm</Left>
               <Height>0.6cm</Height>
-              <Width>1.78594cm</Width>
+              <Width>1.91823cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -434,7 +460,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=First(Fields!Destino.Value, "dtFechaDestino")</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -465,7 +493,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Sum(Fields!Numero.Value, "dtFechaDestino")</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -473,8 +503,8 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.84298cm</Top>
-              <Left>3.8421cm</Left>
+              <Top>1.73715cm</Top>
+              <Left>4.17159cm</Left>
               <Height>0.66174cm</Height>
               <Width>1.95475cm</Width>
               <ZIndex>4</ZIndex>
@@ -495,8 +525,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=CDate(First(Fields!FechaCreacion.FormattedValue, "dtFechaDestino"))</Value>
-                      <Style />
+                      <Value>=CDate(First(Fields!FechaCreacion.Value, "dtFechaDestino"))</Value>
+                      <Style>
+                        <FontFamily>Century Gothic</FontFamily>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>

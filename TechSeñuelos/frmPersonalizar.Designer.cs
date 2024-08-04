@@ -44,7 +44,7 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(318, 78);
+            this.pbImagen.Location = new System.Drawing.Point(318, 36);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(319, 194);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +167,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPersonalizar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PERSONALIZAR(?)";
+            this.Text = "PERSONALIZAR";
             this.Load += new System.EventHandler(this.frmPersonalizar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);

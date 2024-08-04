@@ -1,71 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmselexlure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmselexlure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frminsumos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frminsumos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmRemitoNuevo.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
-              "RelativeDocumentMoniker": "frmRemitoNuevo.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
-              "RelativeToolTip": "frmRemitoNuevo.cs",
-              "ViewState": "AQIAAMQAAAAAAAAAAAAiwOEAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T17:25:20.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmSelexLure.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmSelexLure.cs",
-              "RelativeDocumentMoniker": "frmSelexLure.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmSelexLure.cs",
-              "RelativeToolTip": "frmSelexLure.cs",
-              "ViewState": "AQIAAPoAAAAAAAAAAAAkwB0BAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T17:25:55.538Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmInsumos.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmInsumos.cs",
-              "RelativeDocumentMoniker": "frmInsumos.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmInsumos.cs",
-              "RelativeToolTip": "frmInsumos.cs",
-              "ViewState": "AQIAANgAAAAAAAAAAAAswOwAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T22:42:59.445Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
