@@ -269,6 +269,7 @@ namespace TechSeñuelos
             int idSeleccion = cboArtificialNR.SelectedIndex;
             List<Standar> lista = new List<Standar>();
             lista = negocio.listar();
+            //lista.Sort((x, y) => string.Compare(x.Modelo, y.Modelo));
 
             modelo = lista[idSeleccion];
             rbSimple.Text = "Simples (" + modelo.AnzSimple + ")";
@@ -276,10 +277,13 @@ namespace TechSeñuelos
         }
         private int generarCodigo(int idArm, int idStd)
         {
+            Random random = new Random();
             int codigoFinal;
+            int num = random.Next(10, 100);
+
             string cadenaCodigo;
 
-            cadenaCodigo = idArm.ToString() + "0" + idStd;
+            cadenaCodigo = idArm.ToString() + num.ToString() + idStd;
             codigoFinal = int.Parse(cadenaCodigo);
 
             return codigoFinal;

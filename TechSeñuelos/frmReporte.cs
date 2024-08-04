@@ -21,7 +21,7 @@ namespace TechSeñuelos
         private RemitoNeg negocioRemito = new RemitoNeg();
         public frmReporte(List<Insumos> lista)
         {
-            this.insumos = lista;
+            insumos = lista;
             InitializeComponent();
             rptRemito.Visible = false;
 
@@ -31,12 +31,12 @@ namespace TechSeñuelos
             ReportDataSource data = new ReportDataSource("dataInsumos", insumos);
             rptFinal.LocalReport.DataSources.Add(data);
 
-            this.rptFinal.RefreshReport();
+            rptFinal.RefreshReport();
         }
 
         public frmReporte(List<Armado> lista,int numero)
         {
-            this.armado = lista;
+            armado = lista;
             InitializeComponent();
             remito = negocioRemito.listar(numero);
             rptFinal.Visible = false;
@@ -50,7 +50,9 @@ namespace TechSeñuelos
             rptRemito.LocalReport.DataSources.Add(dataFd);
             rptRemito.LocalReport.DataSources.Add(data);
 
-            this.rptRemito.RefreshReport();
+            //string fecha = dataFd.Value;
+
+            rptRemito.RefreshReport();
         }
 
         private void frmReporte_Load(object sender, EventArgs e)

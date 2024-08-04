@@ -74,6 +74,7 @@ namespace TechSeñuelos
         {
             dgvStandar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStandar.Columns["Id"].Visible = false;
+            dgvStandar.Columns["codigoArmado"].Visible = false;
             dgvStandar.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvStandar.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvStandar.Columns["AnillaAnz"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

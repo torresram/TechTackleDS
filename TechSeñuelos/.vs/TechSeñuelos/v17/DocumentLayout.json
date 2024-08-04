@@ -13,12 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frminsumos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frminsumos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1F6216C-7EC0-4604-942B-9D6476AB62E6}|..\\negocio\\negocio.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\negocio\\armadoneg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E98C5276-94EB-4E7C-8826-46DCE52FC8D2}|..\\dominio\\dominio.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\dominio\\armado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +32,7 @@
               "RelativeDocumentMoniker": "frmRemitoNuevo.cs",
               "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
               "RelativeToolTip": "frmRemitoNuevo.cs",
-              "ViewState": "AQIAAOMAAAAAAAAAAAAcwPMAAAAIAAAA",
+              "ViewState": "AQIAAMQAAAAAAAAAAAAiwOEAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T17:25:20.664Z",
               "EditorCaption": ""
@@ -51,7 +45,7 @@
               "RelativeDocumentMoniker": "frmSelexLure.cs",
               "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmSelexLure.cs",
               "RelativeToolTip": "frmSelexLure.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAswIsAAAAAAAAA",
+              "ViewState": "AQIAAPoAAAAAAAAAAAAkwB0BAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T17:25:55.538Z",
               "EditorCaption": ""
@@ -64,35 +58,9 @@
               "RelativeDocumentMoniker": "frmInsumos.cs",
               "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmInsumos.cs",
               "RelativeToolTip": "frmInsumos.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAMAAAA",
+              "ViewState": "AQIAANgAAAAAAAAAAAAswOwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-23T22:42:59.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Armado.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\dominio\\Armado.cs",
-              "RelativeDocumentMoniker": "..\\dominio\\Armado.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\dominio\\Armado.cs",
-              "RelativeToolTip": "..\\dominio\\Armado.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T17:14:00.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ArmadoNeg.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\ArmadoNeg.cs",
-              "RelativeDocumentMoniker": "..\\negocio\\ArmadoNeg.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\ArmadoNeg.cs",
-              "RelativeToolTip": "..\\negocio\\ArmadoNeg.cs",
-              "ViewState": "AQIAAJkAAAAAAAAAAADwv3EAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T16:46:24.645Z",
               "EditorCaption": ""
             }
           ]

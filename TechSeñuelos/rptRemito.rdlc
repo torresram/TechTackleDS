@@ -457,39 +457,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="txtFecha">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!FechaCreacion.Value, "dtFechaDestino")</Value>
-                      <Style>
-                        <Format>d</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.58745cm</Top>
-              <Left>10.62302cm</Left>
-              <Height>0.6cm</Height>
-              <Width>4.00526cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="txtNumero">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -510,6 +477,38 @@
               <Left>3.8421cm</Left>
               <Height>0.66174cm</Height>
               <Width>1.95475cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="FechaCreacion">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=CDate(First(Fields!FechaCreacion.FormattedValue, "dtFechaDestino"))</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>FechaCreacion</rd:DefaultName>
+              <Top>0.49953cm</Top>
+              <Left>10.62302cm</Left>
+              <Height>0.6cm</Height>
+              <Width>4.00526cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>

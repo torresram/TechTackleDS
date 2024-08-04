@@ -89,19 +89,18 @@
             // 
             this.groupBox1.Controls.Add(this.pbImagenArtificial);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(681, 86);
+            this.groupBox1.Location = new System.Drawing.Point(681, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 255);
+            this.groupBox1.Size = new System.Drawing.Size(405, 262);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Señuelo";
             // 
             // pbImagenArtificial
             // 
             this.pbImagenArtificial.BackColor = System.Drawing.Color.Transparent;
-            this.pbImagenArtificial.Location = new System.Drawing.Point(6, 19);
+            this.pbImagenArtificial.Location = new System.Drawing.Point(6, 12);
             this.pbImagenArtificial.Name = "pbImagenArtificial";
-            this.pbImagenArtificial.Size = new System.Drawing.Size(390, 230);
+            this.pbImagenArtificial.Size = new System.Drawing.Size(393, 237);
             this.pbImagenArtificial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenArtificial.TabIndex = 0;
             this.pbImagenArtificial.TabStop = false;

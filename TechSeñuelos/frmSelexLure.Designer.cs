@@ -49,7 +49,7 @@
             this.cboArtificialNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboArtificialNR.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboArtificialNR.FormattingEnabled = true;
-            this.cboArtificialNR.Location = new System.Drawing.Point(109, 41);
+            this.cboArtificialNR.Location = new System.Drawing.Point(139, 41);
             this.cboArtificialNR.Name = "cboArtificialNR";
             this.cboArtificialNR.Size = new System.Drawing.Size(121, 25);
             this.cboArtificialNR.TabIndex = 0;
@@ -60,7 +60,7 @@
             this.cboColorNR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboColorNR.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboColorNR.FormattingEnabled = true;
-            this.cboColorNR.Location = new System.Drawing.Point(109, 83);
+            this.cboColorNR.Location = new System.Drawing.Point(139, 83);
             this.cboColorNR.Name = "cboColorNR";
             this.cboColorNR.Size = new System.Drawing.Size(121, 25);
             this.cboColorNR.TabIndex = 1;
@@ -68,7 +68,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(109, 127);
+            this.txtCantidad.Location = new System.Drawing.Point(139, 127);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(121, 23);
             this.txtCantidad.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.lblArtificial.AutoSize = true;
             this.lblArtificial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtificial.Location = new System.Drawing.Point(12, 41);
+            this.lblArtificial.Location = new System.Drawing.Point(42, 41);
             this.lblArtificial.Name = "lblArtificial";
             this.lblArtificial.Size = new System.Drawing.Size(82, 20);
             this.lblArtificial.TabIndex = 0;
@@ -88,7 +88,7 @@
             // 
             this.lblColor.AutoSize = true;
             this.lblColor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColor.Location = new System.Drawing.Point(23, 83);
+            this.lblColor.Location = new System.Drawing.Point(53, 83);
             this.lblColor.Name = "lblColor";
             this.lblColor.Size = new System.Drawing.Size(71, 20);
             this.lblColor.TabIndex = 1;
@@ -98,7 +98,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(0, 127);
+            this.lblCantidad.Location = new System.Drawing.Point(30, 127);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(94, 20);
             this.lblCantidad.TabIndex = 2;

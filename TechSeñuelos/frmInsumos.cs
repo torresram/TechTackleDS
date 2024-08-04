@@ -37,8 +37,7 @@ namespace TechSeñuelos
         private List<Insumos> preparadoInsumos()
         {
             List<Insumos> items = new List<Insumos>();
-            List<Standar> lista;
-            lista = StandarSuplente.suplentes;
+            List<Standar> lista = StandarSuplente.suplentes;
 
             int contadorId = 1; // Variable contador para asignar el Id único
 
@@ -52,7 +51,7 @@ namespace TechSeñuelos
                     int cantFinal = cantidad;
                     if (propFiltradas.Contains(propiedad))
                     {
-                        object valorProp = prop.GetValue(supl).ToString();
+                        object valorProp = prop.GetValue(supl).ToString(); 
                         Insumos insumos = new Insumos();
                         insumos.Id = contadorId; //Asignamos el Id único
                         insumos.Familia = propiedad;

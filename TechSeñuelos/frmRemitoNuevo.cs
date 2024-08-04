@@ -2,7 +2,9 @@
 using negocio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Security;
 using System.Windows.Forms;
 
 namespace TechSeñuelos
@@ -37,6 +39,7 @@ namespace TechSeñuelos
             btnEliminarTodo.Enabled = false;
             btnContinuar.Enabled = false;
 
+            cboDestinoRem.Enabled = true;
             cboDestinoRem.SelectedIndex = -1; //muesta el cbo en blanco por defecto
         }
         private void btnAddDest_Click(object sender, EventArgs e)
@@ -63,6 +66,7 @@ namespace TechSeñuelos
             btnEliminarTodo.Enabled = true;
             btnContinuar.Enabled = true;
             cboDestinoRem.SelectedValue = dest;
+            cboDestinoRem.Enabled = false;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -90,6 +94,7 @@ namespace TechSeñuelos
                     detalle(remitoActual);
 
                     StandarSuplente.suplentes.Clear();
+                    armadoConCodigo.Clear();
 
                     btnAgregar.Enabled = true;
                     btnEliminar.Enabled = true;
@@ -188,6 +193,9 @@ namespace TechSeñuelos
             {
                 DataGridViewCell celdaCantidad = dgvRemito.Rows[fila].Cells[celda];
                 int cantUpd;
+                Armado seleccion = armadoConCodigo[fila];
+                List<int> codigos = seleccion.codArmado;
+                //codigos.Sort((x,y) => string.Compare(y.ToString(), x.ToString()));
 
                 if (celdaCantidad.Value != null && int.TryParse(celdaCantidad.Value.ToString(), out cantUpd))
                 {
@@ -195,7 +203,35 @@ namespace TechSeñuelos
                     List<Standar> lista = StandarSuplente.suplentes;
 
                     armado.modificarCant(id, cantUpd);
-                    lista[fila].Cantidad = cantUpd;
+
+                    if (seleccion.Cantidad < cantUpd)
+                    {
+                        int total = cantUpd - seleccion.Cantidad;
+                        lista[lista.FindIndex(x => x.codigoArmado == seleccion.codArmado[0])].Cantidad += total;
+                        seleccion.Cantidad = cantUpd;
+                    }
+                    else if (seleccion.Cantidad > cantUpd)
+                    {
+                        for (int i = 0; i < lista.Count; i++)
+                        {
+                            if (codigos.Contains(lista[i].codigoArmado))
+                            {
+                                if ((seleccion.Cantidad - lista[i].Cantidad) > cantUpd)
+                                {
+                                    seleccion.Cantidad -= lista[i].Cantidad;
+                                    seleccion.codArmado.Remove(lista[i].codigoArmado);
+                                    lista.RemoveAt(i);
+                                    i--;
+                                }
+                                else
+                                {
+                                    lista[i].Cantidad = cantUpd;
+                                    seleccion.Cantidad = cantUpd;
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -285,10 +321,9 @@ namespace TechSeñuelos
         }
         private void cboDestino() //Carga destinos preexistentes
         {
-            RemitoNeg destino = new RemitoNeg();
             try
             {
-                cboDestinoRem.DataSource = destino.cboDestino();
+                cboDestinoRem.DataSource = new RemitoNeg().cboDestino();
                 cboDestinoRem.ValueMember = "Destino";
                 cboDestinoRem.DisplayMember = "Destino";
             }
