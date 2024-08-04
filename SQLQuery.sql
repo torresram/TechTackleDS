@@ -33,6 +33,7 @@
 --SELECT S.Id, S.Modelo, A.Tamaño AnillaA,A.Id AnAnzId,Pit.Tamaño AnillaP, Pit.Id AnPitId, H.Numero AnzSimple,H.Id ASId, HT.Numero AnzTriple, HT.Id ATId, B.Modelo Blister, B.Id idBlister, C.Modelo Carton, C.Id idCarton,P.modelo Piton, P.id idPiton 
 --FROM Anilla A, Anilla Pit, Anzuelo H, Anzuelo HT, Standar S, Blister B, Carton C, PITON P 
 --WHERE S.IdAnzueloS = H.Id AND S.IdAnzueloT = HT.Id AND S.IdAnillasA = A.Id AND S.IdAnillasP = Pit.Id AND S.IdCarton = C.Id AND S.IdBlister = B.Id AND S.idPiton = P.id
+--ORDER BY S.Modelo
 
 select A.Id,R.Numero Remito, S.Modelo, C.Color,A.Cantidad from Armado A,Color C,Artificial S,Remito R
 where Id_remito = R.Id and A.Id_artificial = S.Id and A.Id_color = C.Id and R.Numero = 14
@@ -137,3 +138,5 @@ select * from Standar
 --insert into STANDAR (modelo,idAnillasA,idAnillasP,idAnzueloS,idAnzueloT, idBlister,idCarton,idPiton) values ('@model',0,0,0,0,0,0,0)
 
 --SELECT A.Id, Codigo, Modelo, C.Color Color, Imagen, Peso, Cantidad, C.Id IdColor, C.Descripcion Descripcion FROM Artificial A, Color C WHERE A.Id_color = C.Id ORDER BY modelo ASC
+
+SELECT A.Id,R.Numero,R.fechaCreacion Fecha, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = 16
