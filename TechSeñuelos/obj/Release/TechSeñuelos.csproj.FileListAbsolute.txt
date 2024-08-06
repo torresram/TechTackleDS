@@ -72,6 +72,7 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Releas
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Release\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Release\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.csproj.AssemblyReference.cache
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.g.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.frmArtificiales.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.frmArtificialNuevo.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.frmColores.resources

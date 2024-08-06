@@ -1,14 +1,17 @@
-﻿using dominio;
-using negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechSeñuelos.Properties;
+using dominio;
+using negocio;
+using System.Configuration;
 
 namespace TechSeñuelos
 {
@@ -46,7 +49,7 @@ namespace TechSeñuelos
             }
             catch (Exception)
             {
-                pbImagenArtificial.Load("C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg");
+                pbImagenArtificial.Image = Resources.noImageIcon;
             }
         }
         private void btnModificar_Click(object sender, EventArgs e)

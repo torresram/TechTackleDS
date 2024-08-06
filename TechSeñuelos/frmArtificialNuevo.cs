@@ -10,9 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using System.Xml.Schema;
 using dominio;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using negocio;
+using TechSeñuelos.Properties;
 
 namespace TechSeñuelos
 {
@@ -58,7 +62,6 @@ namespace TechSeñuelos
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            bool chkCampos = false;
             Dictionary<string, string> textBoxes = new Dictionary<string, string>()
             {
                 {"codigo",txtCodigo.Text},
@@ -91,14 +94,9 @@ namespace TechSeñuelos
                 {
                     if (string.IsNullOrEmpty(campo.Value))
                     {
-                        chkCampos = true;
+                        MessageBox.Show("Complete todos los campos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
-                }
-
-                if (chkCampos)
-                {
-                    MessageBox.Show("Complete todos los campos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
                 }
 
                 artificial.Codigo = txtCodigo.Text.ToUpper();
@@ -135,11 +133,20 @@ namespace TechSeñuelos
 
                 if (archivo != null)
                 {
-                    if (archivo.FileName != "" && !(txtImagen.Text.ToUpper().Contains("HTTP")))
+                    if (archivo.FileName != "" && !txtImagen.Text.ToUpper().Contains("HTTP"))
                     {
-                        if (File.Exists(ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName) == false)
+                        string relativa = ConfigurationManager.AppSettings["artificiales-folder"];
+                        string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativa);
+                        string destino = Path.Combine(ruta, archivo.SafeFileName);
+
+                        if (!Directory.Exists(ruta))
                         {
-                            File.Copy(archivo.FileName, ConfigurationManager.AppSettings["artificiales-folder"] + archivo.SafeFileName);
+                            Directory.CreateDirectory(ruta);
+                        }
+
+                        if (!File.Exists(destino))
+                        {
+                            File.Copy(archivo.FileName, destino);
                         }
                     }
                 }
@@ -177,8 +184,8 @@ namespace TechSeñuelos
             }
             catch (Exception)
             {
-                pbImagen.Load("C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg");
-                txtImagen.Text = "C:/Users/ramir/Documents/programacion/Practicas/01 Tech/imgs/noImageIcon.jpg";
+                pbImagen.Image = Resources.noImageIcon;
+                txtImagen.Text = "Sin imágen";
             }
         }
 

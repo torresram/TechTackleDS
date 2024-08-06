@@ -165,9 +165,9 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(340, 38);
+            this.pbImagen.Location = new System.Drawing.Point(344, 19);
             this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(301, 187);
+            this.pbImagen.Size = new System.Drawing.Size(291, 238);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 15;
             this.pbImagen.TabStop = false;
