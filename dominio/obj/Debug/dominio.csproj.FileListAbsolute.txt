@@ -4,3 +4,12 @@ C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\dominio\obj\De
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.dll
 C:\Users\ramir\OneDrive\Escritorio\Programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.pdb
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Debug\dominio.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Debug\dominio.pdb
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.csproj.Up2Date
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.dll
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\dominio\obj\Debug\dominio.pdb
