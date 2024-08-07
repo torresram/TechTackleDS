@@ -35,16 +35,16 @@
 --WHERE S.IdAnzueloS = H.Id AND S.IdAnzueloT = HT.Id AND S.IdAnillasA = A.Id AND S.IdAnillasP = Pit.Id AND S.IdCarton = C.Id AND S.IdBlister = B.Id AND S.idPiton = P.id
 --ORDER BY S.Modelo
 
-select A.Id,R.Numero Remito, S.Modelo, C.Color,A.Cantidad from Armado A,Color C,Artificial S,Remito R
-where Id_remito = R.Id and A.Id_artificial = S.Id and A.Id_color = C.Id and R.Numero = 14
+--select A.Id,R.Numero Remito, S.Modelo, C.Color,A.Cantidad from Armado A,Color C,Artificial S,Remito R
+--where Id_remito = R.Id and A.Id_artificial = S.Id and A.Id_color = C.Id and R.Numero = 14
 
-select * from Color
 select * from Anilla
 select * from Anzuelo
 select * from Blister
 select * from Carcasa
 select * from Carton
 select * from Piton
+select * from Color
 select * from ARTIFICIAL
 select * from ARMADO
 select * from Remito
@@ -56,7 +56,8 @@ select * from Standar
 --UPDATE ANZUELO SET  descripcion = 'NO LLEVA' where id = 4
 --UPDATE STANDAR SET idAnillasA = @aniAnzuelo, idAnillasP = @aniPaleta, idAnzueloS = @anzSimple, idAnzueloT = @anzTriple, idBlister = @blister, idCarton = @carton, idPiton = @piton WHERE id = @id
  
---truncate table armado; truncate table remito
+--truncate table armado; truncate table remito; 
+--truncate table anilla; truncate table anzuelo; truncate table blister; truncate table carton; truncate table piton;
 
 --select Cantidad from Armado where Id_artificial = 1 and Id_color = 1 and Id_remito = 14
 
