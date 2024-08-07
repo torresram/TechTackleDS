@@ -402,7 +402,7 @@ namespace negocio
             try
             {
                 AccesoDatos data = new AccesoDatos();
-                data.setConsulta("INSERT INTO STANDAR (modelo,idAnillasA,idAnillasP,idAnzueloS,idAnzueloT, idBlister,idCarton,idPiton) VALUES (@modelo,4,4,4,4,4,4,4)");
+                data.setConsulta("INSERT INTO STANDAR (modelo,idAnillasA,idAnillasP,idAnzueloS,idAnzueloT, idBlister,idCarton,idPiton) VALUES (@modelo,1,1,1,1,1,1,1)");
                 data.setParametro("@modelo", modelo);
                 data.ejecAccion();
                 data.cerrarConexion();
