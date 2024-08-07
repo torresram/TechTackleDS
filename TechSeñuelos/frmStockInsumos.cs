@@ -1,4 +1,5 @@
 ﻿using dominio;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using negocio;
 using System;
 using System.Collections.Generic;
@@ -256,11 +257,14 @@ namespace TechSeñuelos
             {
                 DataGridViewRow row = dgvAnillas.Rows[i];
 
-                string valorCelda = row.Cells[1].Value as string;
+                string valorCelda = row.Cells[2].Value as string;
 
-                if (!string.IsNullOrEmpty(valorCelda) && valorCelda.ToLower() == "vacio")
+                if (!string.IsNullOrEmpty(valorCelda) && valorCelda.ToLower() == "no lleva")
                 {
+                    CurrencyManager currency = (CurrencyManager)BindingContext[dgvAnillas.DataSource];
+                    currency.SuspendBinding();
                     row.Visible = false;
+                    currency.ResumeBinding();
                 }
                 else
                 {
@@ -290,7 +294,10 @@ namespace TechSeñuelos
 
                 if (valorCelda.ToLower() == "no lleva")
                 {
+                    CurrencyManager currency = (CurrencyManager)BindingContext[dgvAnzuelos.DataSource];
+                    currency.SuspendBinding();
                     row.Visible = false;
+                    currency.ResumeBinding();
                 }
                 else
                 {
@@ -320,7 +327,10 @@ namespace TechSeñuelos
 
                 if (valorCelda.ToLower() == "no lleva")
                 {
+                    CurrencyManager currency = (CurrencyManager)BindingContext[dgvBlister.DataSource];
+                    currency.SuspendBinding();
                     row.Visible = false;
+                    currency.ResumeBinding();
                 }
                 else
                 {
@@ -362,7 +372,10 @@ namespace TechSeñuelos
 
                 if (valorCelda.ToLower() == "no lleva")
                 {
+                    CurrencyManager currency = (CurrencyManager)BindingContext[dgvCarton.DataSource];
+                    currency.SuspendBinding();
                     row.Visible = false;
+                    currency.ResumeBinding();
                 }
                 else
                 {
@@ -376,6 +389,8 @@ namespace TechSeñuelos
             dgvPitones.Columns["Id"].Visible = false;
             dgvPitones.Columns["Modelo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvPitones.Columns["Modelo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPitones.Columns["Descripcion"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPitones.Columns["Descripcion"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvPitones.Columns["Cantidad"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvPitones.Columns["Cantidad"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvPitones.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -386,11 +401,14 @@ namespace TechSeñuelos
             {
                 DataGridViewRow row = dgvPitones.Rows[i];
 
-                string valorCelda = row.Cells[1].Value as string;
+                string valorCelda = row.Cells[2].Value as string;
 
                 if (valorCelda.ToLower() == "no lleva")
                 {
+                    CurrencyManager currency = (CurrencyManager)BindingContext[dgvPitones.DataSource];
+                    currency.SuspendBinding();
                     row.Visible = false;
+                    currency.ResumeBinding();
                 }
                 else
                 {

@@ -147,7 +147,7 @@
             this.cboBlister.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBlister.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBlister.FormattingEnabled = true;
-            this.cboBlister.Location = new System.Drawing.Point(453, 244);
+            this.cboBlister.Location = new System.Drawing.Point(29, 373);
             this.cboBlister.Name = "cboBlister";
             this.cboBlister.Size = new System.Drawing.Size(152, 25);
             this.cboBlister.TabIndex = 13;
@@ -156,7 +156,7 @@
             // 
             this.lblBlister.AutoSize = true;
             this.lblBlister.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBlister.Location = new System.Drawing.Point(453, 216);
+            this.lblBlister.Location = new System.Drawing.Point(25, 351);
             this.lblBlister.Name = "lblBlister";
             this.lblBlister.Size = new System.Drawing.Size(61, 19);
             this.lblBlister.TabIndex = 11;
@@ -195,7 +195,7 @@
             this.cboCarton.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCarton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCarton.FormattingEnabled = true;
-            this.cboCarton.Location = new System.Drawing.Point(455, 79);
+            this.cboCarton.Location = new System.Drawing.Point(28, 309);
             this.cboCarton.Name = "cboCarton";
             this.cboCarton.Size = new System.Drawing.Size(152, 25);
             this.cboCarton.TabIndex = 17;
@@ -204,7 +204,7 @@
             // 
             this.lblCarton.AutoSize = true;
             this.lblCarton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarton.Location = new System.Drawing.Point(455, 52);
+            this.lblCarton.Location = new System.Drawing.Point(24, 287);
             this.lblCarton.Name = "lblCarton";
             this.lblCarton.Size = new System.Drawing.Size(74, 19);
             this.lblCarton.TabIndex = 16;
@@ -215,7 +215,7 @@
             this.cboPiton.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPiton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPiton.FormattingEnabled = true;
-            this.cboPiton.Location = new System.Drawing.Point(455, 163);
+            this.cboPiton.Location = new System.Drawing.Point(230, 309);
             this.cboPiton.Name = "cboPiton";
             this.cboPiton.Size = new System.Drawing.Size(152, 25);
             this.cboPiton.TabIndex = 19;
@@ -224,7 +224,7 @@
             // 
             this.lblPiton.AutoSize = true;
             this.lblPiton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPiton.Location = new System.Drawing.Point(455, 135);
+            this.lblPiton.Location = new System.Drawing.Point(226, 287);
             this.lblPiton.Name = "lblPiton";
             this.lblPiton.Size = new System.Drawing.Size(54, 19);
             this.lblPiton.TabIndex = 18;
@@ -233,7 +233,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(630, 52);
+            this.btnAceptar.Location = new System.Drawing.Point(423, 52);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(106, 45);
             this.btnAceptar.TabIndex = 20;
@@ -245,7 +245,7 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(630, 109);
+            this.btnCancelar.Location = new System.Drawing.Point(423, 103);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(106, 45);
             this.btnCancelar.TabIndex = 21;
@@ -259,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(749, 298);
+            this.ClientSize = new System.Drawing.Size(549, 411);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cboPiton);

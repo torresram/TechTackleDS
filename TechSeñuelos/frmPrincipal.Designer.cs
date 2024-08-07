@@ -40,9 +40,9 @@
             // btnRemitir
             // 
             this.btnRemitir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemitir.Location = new System.Drawing.Point(35, 30);
+            this.btnRemitir.Location = new System.Drawing.Point(38, 28);
             this.btnRemitir.Name = "btnRemitir";
-            this.btnRemitir.Size = new System.Drawing.Size(129, 45);
+            this.btnRemitir.Size = new System.Drawing.Size(131, 50);
             this.btnRemitir.TabIndex = 0;
             this.btnRemitir.Text = "REMITO NUEVO";
             this.btnRemitir.UseVisualStyleBackColor = true;
@@ -51,9 +51,9 @@
             // btnStock
             // 
             this.btnStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStock.Location = new System.Drawing.Point(234, 30);
+            this.btnStock.Location = new System.Drawing.Point(219, 28);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(129, 45);
+            this.btnStock.Size = new System.Drawing.Size(131, 50);
             this.btnStock.TabIndex = 1;
             this.btnStock.Text = "INSUMOS";
             this.btnStock.UseVisualStyleBackColor = true;
@@ -62,7 +62,7 @@
             // btnListaRemitos
             // 
             this.btnListaRemitos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaRemitos.Location = new System.Drawing.Point(33, 101);
+            this.btnListaRemitos.Location = new System.Drawing.Point(38, 100);
             this.btnListaRemitos.Name = "btnListaRemitos";
             this.btnListaRemitos.Size = new System.Drawing.Size(131, 50);
             this.btnListaRemitos.TabIndex = 2;
@@ -73,9 +73,9 @@
             // btnSetStandar
             // 
             this.btnSetStandar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetStandar.Location = new System.Drawing.Point(234, 101);
+            this.btnSetStandar.Location = new System.Drawing.Point(219, 244);
             this.btnSetStandar.Name = "btnSetStandar";
-            this.btnSetStandar.Size = new System.Drawing.Size(129, 50);
+            this.btnSetStandar.Size = new System.Drawing.Size(131, 50);
             this.btnSetStandar.TabIndex = 3;
             this.btnSetStandar.Text = "PREDEFINIDOS";
             this.btnSetStandar.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             // btnArtificiales
             // 
             this.btnArtificiales.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArtificiales.Location = new System.Drawing.Point(35, 180);
+            this.btnArtificiales.Location = new System.Drawing.Point(219, 172);
             this.btnArtificiales.Name = "btnArtificiales";
-            this.btnArtificiales.Size = new System.Drawing.Size(129, 50);
+            this.btnArtificiales.Size = new System.Drawing.Size(131, 50);
             this.btnArtificiales.TabIndex = 4;
             this.btnArtificiales.Text = "ARTIFICIALES";
             this.btnArtificiales.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // btnColores
             // 
             this.btnColores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnColores.Location = new System.Drawing.Point(234, 180);
+            this.btnColores.Location = new System.Drawing.Point(219, 100);
             this.btnColores.Name = "btnColores";
-            this.btnColores.Size = new System.Drawing.Size(129, 50);
+            this.btnColores.Size = new System.Drawing.Size(131, 50);
             this.btnColores.TabIndex = 5;
             this.btnColores.Text = "COLORES";
             this.btnColores.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(393, 478);
+            this.ClientSize = new System.Drawing.Size(394, 336);
             this.Controls.Add(this.btnColores);
             this.Controls.Add(this.btnArtificiales);
             this.Controls.Add(this.btnSetStandar);

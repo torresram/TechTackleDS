@@ -224,12 +224,12 @@
             this.dgvPitones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPitones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPitones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPitones.Location = new System.Drawing.Point(0, 0);
+            this.dgvPitones.Location = new System.Drawing.Point(-3, -2);
             this.dgvPitones.Name = "dgvPitones";
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvPitones.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPitones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPitones.Size = new System.Drawing.Size(630, 431);
+            this.dgvPitones.Size = new System.Drawing.Size(634, 431);
             this.dgvPitones.TabIndex = 0;
             // 
             // lblBuscar

@@ -35,16 +35,19 @@ namespace TechSeñuelos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Standar seleccion = (Standar)dgvStandar.CurrentRow.DataBoundItem;
-            frmNuevoStandar modificar = new frmNuevoStandar(seleccion);
-            modificar.ActualizarNuevo += FrmNuevoStandar_ActualizarNuevo;
-            modificar.ShowDialog();
+            if (dgvStandar.RowCount > 0)
+            {
+                Standar seleccion = (Standar)dgvStandar.CurrentRow.DataBoundItem;
+                frmNuevoStandar modificar = new frmNuevoStandar(seleccion);
+                modificar.ActualizarNuevo += FrmNuevoStandar_ActualizarNuevo;
+                modificar.ShowDialog();
+            }
         }
 
         private void FrmNuevoStandar_ActualizarNuevo(object sender, EventArgs e)
         {
             StandarNeg standar = new StandarNeg();
-            List<Standar>lista = standar.listarConId();
+            List<Standar> lista = standar.listarConId();
             dgvStandar.DataSource = lista;
             dgvStandarFormato();
             dgvStandar.Refresh();
@@ -97,14 +100,17 @@ namespace TechSeñuelos
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Quiere eliminar el registro?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (dgvStandar.RowCount > 0)
             {
-                Standar seleccion = new Standar();
-                seleccion = (Standar)dgvStandar.CurrentRow.DataBoundItem;
-                int id = seleccion.Id;
+                if (MessageBox.Show("¿Quiere eliminar el registro?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    Standar seleccion = new Standar();
+                    seleccion = (Standar)dgvStandar.CurrentRow.DataBoundItem;
+                    int id = seleccion.Id;
 
-                StandarNeg negocio = new StandarNeg();
-                negocio.eliminarStandar(id);
+                    StandarNeg negocio = new StandarNeg();
+                    negocio.eliminarStandar(id);
+                }
             }
         }
 

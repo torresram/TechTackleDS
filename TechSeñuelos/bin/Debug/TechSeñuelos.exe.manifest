@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="TechSeñuelos.exe" version="1.0.1.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="TechSeñuelos.exe" version="1.0.1.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="icono.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dominio.dll" size="14336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dominio.dll" size="14848">
       <assemblyIdentity name="dominio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PFpPkEl+Kp3QxydK5w1d79XgQcAAXwZKpjN4UZZJu+w=</dsig:DigestValue>
+        <dsig:DigestValue>Cdy8SWi3ukeyYk+st2Suip27YBtlRFyUjMOyeOah390=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -758,7 +758,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Lhx9dxqb5TzLdCJlIGtpgzWHLGFwoSscmY02+DA4Fos=</dsig:DigestValue>
+        <dsig:DigestValue>vbwd5ebvS5dGYi0wEELmOzdc2h99LbIIA20nYVEoNOk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -787,14 +787,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2145696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2146208">
       <assemblyIdentity name="TechSeñuelos" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rRyhOb8fnKY6KVYg943fUL0TxkylVx8+FcMkA9Rq/kE=</dsig:DigestValue>
+        <dsig:DigestValue>mztAzfKq/nECtWkzA1NwqUP1wro5Mo9jOgMTaqbE+7Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

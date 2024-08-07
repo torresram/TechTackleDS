@@ -77,7 +77,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(681, 361);
+            this.btnAgregar.Location = new System.Drawing.Point(681, 427);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(90, 33);
             this.btnAgregar.TabIndex = 1;
@@ -91,7 +91,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(681, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 262);
+            this.groupBox1.Size = new System.Drawing.Size(405, 296);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -100,7 +100,7 @@
             this.pbImagenArtificial.BackColor = System.Drawing.Color.Transparent;
             this.pbImagenArtificial.Location = new System.Drawing.Point(6, 12);
             this.pbImagenArtificial.Name = "pbImagenArtificial";
-            this.pbImagenArtificial.Size = new System.Drawing.Size(393, 237);
+            this.pbImagenArtificial.Size = new System.Drawing.Size(393, 278);
             this.pbImagenArtificial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenArtificial.TabIndex = 0;
             this.pbImagenArtificial.TabStop = false;
@@ -108,7 +108,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(797, 361);
+            this.btnModificar.Location = new System.Drawing.Point(777, 427);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(90, 33);
             this.btnModificar.TabIndex = 3;
@@ -119,7 +119,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(987, 361);
+            this.btnEliminar.Location = new System.Drawing.Point(873, 427);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 33);
             this.btnEliminar.TabIndex = 4;
@@ -131,7 +131,7 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(987, 427);
+            this.btnSalir.Location = new System.Drawing.Point(1009, 427);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 33);
             this.btnSalir.TabIndex = 5;
