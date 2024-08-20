@@ -101,47 +101,57 @@ namespace TechSeñuelos
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (respuesta == DialogResult.Yes)
+            if (dgvAnillas.Rows.Count > 0)
             {
-                int indice = tbInsumos.SelectedIndex;
-                int id;
-                ;
-                switch (indice)
+                DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "ATENCIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
                 {
-                    case 0:
-                        Anillas anilla = (Anillas)dgvAnillas.CurrentRow.DataBoundItem;
-                        id = anilla.Id;
-                        eliminarItem(indice, id);
-                        break;
-                    case 1:
-                        Anzuelos anzuelo = (Anzuelos)dgvAnzuelos.CurrentRow.DataBoundItem;
-                        id = anzuelo.Id;
-                        eliminarItem(indice, id);
-                        break;
-                    case 2:
-                        Blister blister = (Blister)dgvBlister.CurrentRow.DataBoundItem;
-                        id = blister.Id;
-                        eliminarItem(indice, id);
-                        break;
-                    case 3:
-                        Carcasa carcasa = (Carcasa)dgvCarcasas.CurrentRow.DataBoundItem;
-                        id = carcasa.Id;
-                        eliminarItem(indice, id);
-                        break;
-                    case 4:
-                        Carton carton = (Carton)dgvCarton.CurrentRow.DataBoundItem;
-                        id = carton.Id;
-                        eliminarItem(indice, id);
-                        break;
-                    case 5:
-                        Piton piton = (Piton)dgvPitones.CurrentRow.DataBoundItem;
-                        id = piton.Id;
-                        eliminarItem(indice, id);
-                        break;
+                    try
+                    {
+                        int indice = tbInsumos.SelectedIndex;
+                        int id;
+
+                        switch (indice)
+                        {
+                            case 0:
+                                Anillas anilla = (Anillas)dgvAnillas.CurrentRow.DataBoundItem;
+                                id = anilla.Id;
+                                eliminarItem(indice, id);
+                                break;
+                            case 1:
+                                Anzuelos anzuelo = (Anzuelos)dgvAnzuelos.CurrentRow.DataBoundItem;
+                                id = anzuelo.Id;
+                                eliminarItem(indice, id);
+                                break;
+                            case 2:
+                                Blister blister = (Blister)dgvBlister.CurrentRow.DataBoundItem;
+                                id = blister.Id;
+                                eliminarItem(indice, id);
+                                break;
+                            case 3:
+                                Carcasa carcasa = (Carcasa)dgvCarcasas.CurrentRow.DataBoundItem;
+                                id = carcasa.Id;
+                                eliminarItem(indice, id);
+                                break;
+                            case 4:
+                                Carton carton = (Carton)dgvCarton.CurrentRow.DataBoundItem;
+                                id = carton.Id;
+                                eliminarItem(indice, id);
+                                break;
+                            case 5:
+                                Piton piton = (Piton)dgvPitones.CurrentRow.DataBoundItem;
+                                id = piton.Id;
+                                eliminarItem(indice, id);
+                                break;
+                        }
+                        MessageBox.Show("Eliminado correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Seleccione el registro que desea eliminar","Atención", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    }
                 }
-                MessageBox.Show("Eliminado correctamente", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             cargarDgvs();
             formatoDgvs();
@@ -272,7 +282,7 @@ namespace TechSeñuelos
                 }
             }
 
-            dgvAnzuelos.Font= rowFont;
+            dgvAnzuelos.Font = rowFont;
             dgvAnzuelos.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvAnzuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAnzuelos.Columns["Id"].Visible = false;

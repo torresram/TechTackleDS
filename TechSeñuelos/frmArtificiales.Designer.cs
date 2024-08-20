@@ -72,6 +72,7 @@
             this.dgvArtificiales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArtificiales.Size = new System.Drawing.Size(657, 374);
             this.dgvArtificiales.TabIndex = 0;
+            this.dgvArtificiales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtificiales_CellDoubleClick);
             this.dgvArtificiales.SelectionChanged += new System.EventHandler(this.dgvArtificiales_SelectionChanged);
             // 
             // btnAgregar

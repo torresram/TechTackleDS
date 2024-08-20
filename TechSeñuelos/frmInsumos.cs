@@ -44,14 +44,17 @@ namespace TechSeñuelos
             foreach (Standar supl in lista)
             {
                 int cantidad = supl.Cantidad;
+                string[] propFiltradas = { "AnillaAnz", "AnillaPal", "AnzSimple", "AnzTriple", "Blister", "Carton", "Cantidad" };
+
                 foreach (var prop in typeof(Standar).GetProperties())
                 {
-                    string[] propFiltradas = { "AnillaAnz", "AnillaPal", "AnzSimple", "AnzTriple", "Blister", "Carton", "Cantidad" };
                     string propiedad = prop.Name;
                     int cantFinal = cantidad;
+                    bool control = false;
+
                     if (propFiltradas.Contains(propiedad))
                     {
-                        object valorProp = prop.GetValue(supl).ToString(); 
+                        object valorProp = prop.GetValue(supl).ToString();
                         Insumos insumos = new Insumos();
                         insumos.Id = contadorId; //Asignamos el Id único
                         insumos.Familia = propiedad;
@@ -74,11 +77,13 @@ namespace TechSeñuelos
                             insumos.Cantidad = cantFinal;
                         }
 
-                        if (items.Any(i => i.Item == insumos.Item))
+                        Insumos existente = items.Find(x => x.Item == insumos.Item && x.Familia == insumos.Familia);
+                        
+                        // Si el insumo ya existe, sumamos la cantidad
+                        if (existente != null && control == false)
                         {
-                            // Si el insumo ya existe, sumamos la cantidad
-                            var insumoExistente = items.First(i => i.Item == insumos.Item);
-                            insumoExistente.Cantidad += cantFinal;
+                            existente.Cantidad += cantFinal;
+                            control = true;
                         }
                         else
                         {
@@ -98,10 +103,18 @@ namespace TechSeñuelos
             items.Sort((item1, item2) => item1.Familia.CompareTo(item2.Familia));
             items = buscarPeso(items);
             items = cambioFamilia(items);
+            items = items.GroupBy(x => new {x.Item, x.Familia,}).Select(sel => new Insumos
+            {
+                Id = sel.First().Id,
+                Item = sel.Key.Item,
+                Familia = sel.Key.Familia,
+                Cantidad = sel.Sum(x => x.Cantidad),
+                Peso = sel.Sum(x => x.Peso)
+            }).ToList();
             return items;
         }
         private List<Insumos> buscarPeso(List<Insumos> lista)
-        {
+        { 
             double peso;
             for (int x = 0; x < lista.Count; x++)
             {
@@ -188,8 +201,6 @@ namespace TechSeñuelos
                 datos.Lector.Read();
 
                 peso = (double)datos.Lector["Peso"];
-
-                datos.cerrarConexion();
             }
             catch (Exception ex)
             {

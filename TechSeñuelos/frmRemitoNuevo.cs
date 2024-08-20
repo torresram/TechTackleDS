@@ -44,7 +44,7 @@ namespace TechSeñuelos
         }
         private void btnAddDest_Click(object sender, EventArgs e)
         {
-            string dest = cboDestinoRem.Text.ToUpper();
+            string dest = cboDestinoRem.Text.ToUpper().Trim();
             int num = int.Parse(lblNroRem.Text);
             DateTime fecha = DateTime.Today;
 
@@ -216,7 +216,7 @@ namespace TechSeñuelos
                         {
                             if (codigos.Contains(lista[i].codigoArmado))
                             {
-                                if ((seleccion.Cantidad - lista[i].Cantidad) > cantUpd)
+                                if ((seleccion.Cantidad - lista[i].Cantidad) >= cantUpd)
                                 {
                                     seleccion.Cantidad -= lista[i].Cantidad;
                                     seleccion.codArmado.Remove(lista[i].codigoArmado);
@@ -234,7 +234,7 @@ namespace TechSeñuelos
                     }
                 }
             }
-        }
+         }
         private void dgvRemito_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)//Ingresar solo números en la celda Cantidad
         {
             if (dgvRemito.Columns[e.ColumnIndex].Name == "Cantidad" && e.FormattedValue.ToString() != "")

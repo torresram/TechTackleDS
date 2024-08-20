@@ -139,5 +139,13 @@ namespace TechSeñuelos
                 dgvArtificiales.DataSource = artificiales;
             }
         }
+
+        private void dgvArtificiales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Artificial seleccionado = (Artificial)dgvArtificiales.CurrentRow.DataBoundItem;
+
+            frmArtificialNuevo modificar = new frmArtificialNuevo(seleccionado);
+            modificar.ShowDialog();
+        }
     }
 }

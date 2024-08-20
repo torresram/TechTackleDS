@@ -50,19 +50,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3IdErbfvx+IfLJl0n9D4wRpvs2A9vp36BREqUWSFCMk=</dsig:DigestValue>
+        <dsig:DigestValue>e/BhEiv8cRz2+SDxOPHbTBI94dK2xNDtsmZChQ/zQN4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="256032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="255928">
       <assemblyIdentity name="EnvDTE" version="8.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bQfRnPFp4kK7orS9xQu+dAgRnUBh0oTQX0baxBP44lM=</dsig:DigestValue>
+        <dsig:DigestValue>ap4yvWobTGnSjKFbsk597qpUqfd9loBFqCphEWRRtbQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -758,7 +758,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+OT90MBVGhYckNmmroOdSXzCajHkxhaqQM20xAwz/vg=</dsig:DigestValue>
+        <dsig:DigestValue>vLTdSCnyl8D5qL5aJw2dPAzUG9qNO0rIh2f+Z4wpPAo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -787,14 +787,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2140064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2142624">
       <assemblyIdentity name="TechSeñuelos" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6+pAa0nKhHRE+vfTPiY/6y0OxYknxGlscrGPLHQ9ZE0=</dsig:DigestValue>
+        <dsig:DigestValue>aohRU2hVhaAWJkKLRn8aZKvyoAfz2hj+eA5V55mzd/w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -834,4 +834,4 @@
       <dsig:DigestValue>bNeQA0PY6mYq/JtHgrXmXBRZ4B3GmCeectacSpVP2xg=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=poxi\Chino" issuerKeyHash="b730c9197893ad568c70c612b99a23963318f75d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>JDGo9XuWyQdoqFjoUVmTCu2ortl3OOmOcEUoAMmcDeE=</DigestValue></Reference></SignedInfo><SignatureValue>jrBq419dhhy/rT2Pd9yOf5HYJ/VsTVlVkpDrbV3iJNUgmcg3mS1ISN9UoVl5Sj1+ziwcrblvM1yWs6ulLrBkKGQ5xcc8IaB2KjYHVxDGwtbPolws8YmhCr0SA5XeUs/zvioYIKl9Y2xxyDeF6XzUS/7sL41rmWfUTSKgJ5mDfxA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>8ag0QfTjILZfTozVBk3NVF5caTCFJnabdxpGwswi65Hnem8I8RTtFRnCDyb/Tb4OwvZgZMiGVUJ1CUG46ortsmccIyc5lvbcWmjtCxPAsHlZAV+eQ9w7xyk/QYWsSDjqT7c6bDdwQ89tkEY3xBDI5QSuzmDc2WdPP+7fqh67IzU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="e10d9cc9002845708ee93877d9aea8ed0a935951e858a86807c9967bf5a83124" Description="" Url=""><as:assemblyIdentity name="TechSeñuelos.exe" version="1.0.1.4" publicKeyToken="5e3ffb53a143790b" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=poxi\Chino</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>FOQzROQDf0LYlDUu/n6hXI7WCcgxQLGntrfv28fa8nc=</DigestValue></Reference></SignedInfo><SignatureValue>WvUQvywby+mzdVhVoWDKV7b5HqiFXZ2N7BUwX3wySHMyFUWrAAxGF0hhfu3tjefjzJv643kgkDTAXBkms1vq2L/EFTaOv0EN6PZ8GPtOhPQVzDHQbqNEFGfcQM07jMqZQw8ofnH6x6/3hAU05ik435H3GqasafMYcsYq1adljJc=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8ag0QfTjILZfTozVBk3NVF5caTCFJnabdxpGwswi65Hnem8I8RTtFRnCDyb/Tb4OwvZgZMiGVUJ1CUG46ortsmccIyc5lvbcWmjtCxPAsHlZAV+eQ9w7xyk/QYWsSDjqT7c6bDdwQ89tkEY3xBDI5QSuzmDc2WdPP+7fqh67IzU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQN/2OQzqziZ5A5nC7P1NvYjANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQAcABvAHgAaQBcAEMAaABpAG4AbzAeFw0yNDA4MDQyMzEzMDJaFw0yNTA4MDUwNTEzMDJaMB8xHTAbBgNVBAMeFABwAG8AeABpAFwAQwBoAGkAbgBvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDxqDRB9OMgtl9OjNUGTc1UXlxpMIUmdpt3GkbCzCLrked6bwjxFO0VGcIPJv9Nvg7C9mBkyIZVQnUJQbjqiu2yZxwjJzmW9txaaO0LE8CweVkBX55D3DvHKT9BhaxIOOpPtzpsN3BDz22QRjfEEMjlBK7OYNzZZ08/7t+qHrsjNQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAK3xWc2i4gwG+IM0V6iBWU5exh/pIagLW6Fu7Rd7NmoP/eKT7N+9NNuPJ+pU9QEpug9fUkouN78teth9guNEjanvmaOuvvpTRK+d+r2+p0utHKZqzyeN+QI529TPY4KU4EMk25HUUsNWr/zRZswzlVN2+epQVW4Z76rh73T92rsM</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=poxi\Chino" issuerKeyHash="b730c9197893ad568c70c612b99a23963318f75d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>53BrRixizb7QiZVIBK01uQeyep0NyPQeV43aYwsCWCI=</DigestValue></Reference></SignedInfo><SignatureValue>sG9FIabIYAeF8eGLXwLTbX2fspipVjDKpAKMCK+MAt6gf7si5ThkD0+IdP8Yj4PlHCf4vBe140AzcdZax7Vtl/ZcTjnSCvqz8azfniuMQszOJkiJUwKoUCalJaopwgrdycp7jHlmE/5A6FVSyaX6Oajzbgms737Nv/Kw1bK3/ac=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>8ag0QfTjILZfTozVBk3NVF5caTCFJnabdxpGwswi65Hnem8I8RTtFRnCDyb/Tb4OwvZgZMiGVUJ1CUG46ortsmccIyc5lvbcWmjtCxPAsHlZAV+eQ9w7xyk/QYWsSDjqT7c6bDdwQ89tkEY3xBDI5QSuzmDc2WdPP+7fqh67IzU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="2258020b63da8d571ef4c80d9d7ab207b935ad04489589d0becd622c466b70e7" Description="" Url=""><as:assemblyIdentity name="TechSeñuelos.exe" version="1.0.1.4" publicKeyToken="5e3ffb53a143790b" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=poxi\Chino</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>HNaXWCWbPXujhcZJ9Q7Ms85UhPbliUKOQD4o3Qk1zRM=</DigestValue></Reference></SignedInfo><SignatureValue>PSclTv8Af1y1R6iHFbv89NR7Csc0LWWoTPrEz15Jl6Ok6S1NT6hvRdE0mfrjilFZZtnrgI04tOzY7IqMFK12j0V6Y2c8brrb8bhMYYCJpWiCVSX62TOC2/rGj41iCD/0IlS6+Mjh/ZpV4DpgmD4dL1T6PhcyMymVuj2O7OYoG2Q=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8ag0QfTjILZfTozVBk3NVF5caTCFJnabdxpGwswi65Hnem8I8RTtFRnCDyb/Tb4OwvZgZMiGVUJ1CUG46ortsmccIyc5lvbcWmjtCxPAsHlZAV+eQ9w7xyk/QYWsSDjqT7c6bDdwQ89tkEY3xBDI5QSuzmDc2WdPP+7fqh67IzU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQN/2OQzqziZ5A5nC7P1NvYjANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQAcABvAHgAaQBcAEMAaABpAG4AbzAeFw0yNDA4MDQyMzEzMDJaFw0yNTA4MDUwNTEzMDJaMB8xHTAbBgNVBAMeFABwAG8AeABpAFwAQwBoAGkAbgBvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDxqDRB9OMgtl9OjNUGTc1UXlxpMIUmdpt3GkbCzCLrked6bwjxFO0VGcIPJv9Nvg7C9mBkyIZVQnUJQbjqiu2yZxwjJzmW9txaaO0LE8CweVkBX55D3DvHKT9BhaxIOOpPtzpsN3BDz22QRjfEEMjlBK7OYNzZZ08/7t+qHrsjNQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAK3xWc2i4gwG+IM0V6iBWU5exh/pIagLW6Fu7Rd7NmoP/eKT7N+9NNuPJ+pU9QEpug9fUkouN78teth9guNEjanvmaOuvvpTRK+d+r2+p0utHKZqzyeN+QI529TPY4KU4EMk25HUUsNWr/zRZswzlVN2+epQVW4Z76rh73T92rsM</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

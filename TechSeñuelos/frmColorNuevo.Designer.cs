@@ -55,7 +55,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(408, 33);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(96, 39);
-            this.btnAceptar.TabIndex = 1;
+            this.btnAceptar.TabIndex = 0;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -67,7 +67,7 @@
             this.txtModelo.MaxLength = 3;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(98, 23);
-            this.txtModelo.TabIndex = 2;
+            this.txtModelo.TabIndex = 1;
             this.txtModelo.TextChanged += new System.EventHandler(this.txtModelo_TextChanged);
             // 
             // txtDescripcion
@@ -78,7 +78,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescripcion.Size = new System.Drawing.Size(332, 95);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 2;
             this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // lblDescripcion
@@ -100,7 +100,7 @@
             this.groupBox1.Location = new System.Drawing.Point(16, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 234);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnCancelar
@@ -110,7 +110,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(408, 211);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 39);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

@@ -151,6 +151,7 @@ namespace TechSeñuelos
                     }
                 }
 
+                txtImagen.Text = "";
                 Actualizar?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception)

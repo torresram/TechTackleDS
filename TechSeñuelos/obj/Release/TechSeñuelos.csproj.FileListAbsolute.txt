@@ -93,6 +93,6 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Releas
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.csproj.CoreCompileInputs.cache
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.exe.manifest
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.application
-C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñu.0785D986.Up2Date
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSe_u.0785D986.Up2Date
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.exe
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Release\TechSeñuelos.pdb

@@ -157,6 +157,7 @@ namespace TechSeñuelos
                 armado.nuevoRemArmado(artificial, color, cantidad);
                 AgregarUpd?.Invoke(this, EventArgs.Empty);
                 suplenteRecibido = null;
+                cboArtificialNR.Focus();
                 MessageBox.Show("¡Agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidOperationException)

@@ -50,19 +50,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3IdErbfvx+IfLJl0n9D4wRpvs2A9vp36BREqUWSFCMk=</dsig:DigestValue>
+        <dsig:DigestValue>e/BhEiv8cRz2+SDxOPHbTBI94dK2xNDtsmZChQ/zQN4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="256032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EnvDTE.dll" size="255928">
       <assemblyIdentity name="EnvDTE" version="8.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bQfRnPFp4kK7orS9xQu+dAgRnUBh0oTQX0baxBP44lM=</dsig:DigestValue>
+        <dsig:DigestValue>ap4yvWobTGnSjKFbsk597qpUqfd9loBFqCphEWRRtbQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -758,7 +758,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+OT90MBVGhYckNmmroOdSXzCajHkxhaqQM20xAwz/vg=</dsig:DigestValue>
+        <dsig:DigestValue>vLTdSCnyl8D5qL5aJw2dPAzUG9qNO0rIh2f+Z4wpPAo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -787,14 +787,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2140064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2142624">
       <assemblyIdentity name="TechSeñuelos" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6+pAa0nKhHRE+vfTPiY/6y0OxYknxGlscrGPLHQ9ZE0=</dsig:DigestValue>
+        <dsig:DigestValue>aohRU2hVhaAWJkKLRn8aZKvyoAfz2hj+eA5V55mzd/w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
