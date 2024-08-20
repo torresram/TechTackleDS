@@ -58,7 +58,7 @@ select * from Standar
  
 --truncate table armado; truncate table remito; 
 --truncate table anilla; truncate table anzuelo; truncate table blister; truncate table carton; truncate table piton;
-
+--truncate table color
 --select Cantidad from Armado where Id_artificial = 1 and Id_color = 1 and Id_remito = 14
 
 --delete from Anzuelo where Id = 1007
