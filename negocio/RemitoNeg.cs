@@ -98,7 +98,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -116,8 +115,7 @@ namespace negocio
 
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Ultimo")))//si no es dbnull entonces...
                 {
-                    banRemito = (int)datos.Lector["Ultimo"];
-                    
+                    banRemito = (int)datos.Lector["Ultimo"];                    
                     if(remito == banRemito)
                         return true;
                 }
@@ -125,7 +123,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -138,7 +135,6 @@ namespace negocio
                 datos.setConsulta("SELECT MAX(Numero) AS Ultimo FROM Remito");
                 datos.ejecLectura();
                 datos.Lector.Read();
-
                
                 if (!datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Ultimo")))//si no es dbnull entonces...
                 {
@@ -156,6 +152,7 @@ namespace negocio
 
                 throw ex;
             }
+            finally { datos.cerrarConexion(); }
         }
         public int obtenerId(int idRemito)
         {           
@@ -177,7 +174,7 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-        public List<Remito> cboDestino()//Devuelve solo destinos distintos
+        public List<Remito> cboDestino() //Devuelve solo destinos distintos
         {
             List<Remito> remito = new List<Remito> ();
             
@@ -198,7 +195,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -208,7 +204,6 @@ namespace negocio
             try
             {
                 datos.setConsulta("INSERT INTO Remito (Numero,Destino,FechaCreacion) VALUES (@Numero,@Destino,@Fecha)");
-
                 datos.setParametro("@Numero", numero);
                 datos.setParametro("@Destino", destino);
                 datos.setParametro("@Fecha", fecha);
@@ -217,7 +212,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }

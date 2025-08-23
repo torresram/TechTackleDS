@@ -63,7 +63,6 @@ namespace negocio
 					aux.Remito = new Remito();
 					aux.Remito.Numero = (int)datos.Lector["Numero"];
 					aux.Remito.Fecha = (DateTime)datos.Lector["Fecha"];
-					aux.Remito.Fecha = (DateTime)datos.Lector["Fecha"];
 					aux.Artificial = new Artificial();
 					aux.Artificial.Modelo = (string)datos.Lector["Modelo"];
 					aux.Color = new Color();
@@ -224,7 +223,6 @@ namespace negocio
 			}
 			catch (Exception ex)
 			{
-
 				throw ex;
 			}
 			finally { datos.cerrarConexion();}

@@ -96,7 +96,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("UPDATE Piton SET Modelo = @modelo,descripcion = @descripcion Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
+                datos.setConsulta("UPDATE Piton SET Modelo = @modelo,descripcion = @descripcion, Cantidad = @cantidad, Peso = @peso WHERE Id = @id");
                 datos.setParametro("@id", id);
                 datos.setParametro("@modelo", modelo);
                 datos.setParametro("descripcion", descripcion);

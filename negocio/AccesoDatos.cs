@@ -26,6 +26,7 @@ namespace negocio
 
         public void setConsulta(string consulta)
         {
+            comando.Parameters.Clear();
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
         }

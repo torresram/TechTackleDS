@@ -48,7 +48,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -126,7 +125,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -319,10 +317,10 @@ namespace negocio
                 standar.AnillaAnz.Tamaño = (string)datos.Lector["AnillaA"];
                 standar.AnzSimple = new Anzuelos();
                 standar.AnzTriple = new Anzuelos();
-                standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
                 standar.AnzTriple.Id = (int)datos.Lector["ATId"];
-                standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
+                standar.AnzTriple.Numero = (string)datos.Lector["AnzTriple"];
                 standar.AnzSimple.Id = (int)datos.Lector["ASId"];
+                standar.AnzSimple.Numero = (string)datos.Lector["AnzSimple"];
                 standar.Carton = new Carton();
                 standar.Carton.Id = (int)datos.Lector["idCarton"];
                 standar.Carton.Modelo = (string)datos.Lector["Carton"];
@@ -347,7 +345,6 @@ namespace negocio
         public string obtImg(string color, string model) //pensar bien
         {
             string imagen;
-
             try
             {
                 datos.setConsulta("SELECT A.Id,Imagen FROM Artificial A, Color C WHERE A.Modelo = @model AND C.Color = @color AND A.Id_color = C.Id");
@@ -368,7 +365,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -392,7 +388,6 @@ namespace negocio
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally { datos.cerrarConexion(); }
@@ -411,6 +406,7 @@ namespace negocio
             {
                 throw ex;
             }
+            finally { datos.cerrarConexion(); }
         }
         public void modificarStandar(Dictionary<string, int> valores)
         {
