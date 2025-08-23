@@ -38,18 +38,6 @@
 --select A.Id,R.Numero Remito, S.Modelo, C.Color,A.Cantidad from Armado A,Color C,Artificial S,Remito R
 --where Id_remito = R.Id and A.Id_artificial = S.Id and A.Id_color = C.Id and R.Numero = 14
 
-select * from Anilla
-select * from Anzuelo
-select * from Blister
-select * from Carcasa
-select * from Carton
-select * from Piton
-select * from Color
-select * from ARTIFICIAL
-select * from ARMADO
-select * from Remito
-select * from Standar
-
 --SELECT DISTINCT id, modelo from CARTON ORDER BY modelo 
 --UPDATE Armado SET Cantidad = @Cantidad WHERE Id_artificial = @Art AND Id_color = @Color AND Id_remito = @Remito
 --UPDATE Armado SET Cantidad = @Cantidad WHERE Id = @Id
@@ -140,4 +128,52 @@ select * from Standar
 
 --SELECT A.Id, Codigo, Modelo, C.Color Color, Imagen, Peso, Cantidad, C.Id IdColor, C.Descripcion Descripcion FROM Artificial A, Color C WHERE A.Id_color = C.Id ORDER BY modelo ASC
 
-SELECT A.Id,R.Numero,R.fechaCreacion Fecha, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = 16
+--SELECT A.Id,R.Numero,R.fechaCreacion Fecha, S.Modelo, C.Color,A.Cantidad FROM Armado A,Color C,Artificial S,Remito R WHERE Id_remito = R.Id AND A.Id_artificial = S.Id AND A.Id_color = C.Id AND R.Numero = 16
+
+--SELECT A.Id, Codigo, Modelo, C.Color Color, Imagen, Peso, Cantidad, C.Id IdColor, C.Descripcion Descripcion
+--FROM Artificial A, Color C
+--WHERE A.Id_color = C.Id
+--ORDER BY modelo ASC
+
+--INSERT INTO PRODUCCION (modelo, carcazas, armados, soldados, lijados) VALUES (@modelo,0,0,0,0)
+--UPDATE PRODUCCION SET modelo = @modelo, carcazas = @carcazas, armados = @armados,soldados = @soldados,lijados = @lijados WHERE id = @id
+
+select * from Anilla
+select * from Anzuelo
+select * from Blister
+select * from Carcasa
+select * from Carton
+select * from Piton
+select * from Color
+select * from ARTIFICIAL
+select * from ARMADO
+select * from Remito
+select * from Standar
+select * from talonarios
+select * from trabajos
+select * from PRODUCCION
+
+SELECT DISTINCT Id, modelo FROM CARCASA ORDER BY Modelo ASC
+SELECT id, nombre, prefijo, ultimo FROM TALONARIOS
+
+--INSERT INTO TALONARIOS (nombre, prefijo) VALUES ('Armado', 'A')
+--INSERT INTO TALONARIOS (nombre, prefijo) VALUES ('Soldar', 'S')
+--INSERT INTO TALONARIOS (nombre, prefijo) VALUES ('Lijar', 'L')
+
+--truncate table trabajos
+--truncate table talonarios
+--INSERT INTO trabajos (id_talonario, id_modelo, cantidad, fecha, destino, numero) VALUES (0,0,0, '2025/08/03', 'pedro', 'A-2')
+--TRUNCATE TABLE TRABAJOS
+--DELETE FROM TRABAJOS WHERE numero = @numero
+
+SELECT MAX(ultimo) FROM Talonarios WHERE nombre = 'Armar'
+
+SELECT Prefijo + CAST(Ultimo AS VARCHAR) AS Ultimo FROM Talonarios WHERE Nombre LIKE 'Lijar' AND Ultimo = (SELECT MAX(Ultimo) FROM Talonarios WHERE Nombre LIKE 'Lijar')
+
+SELECT DISTINCT Destino FROM TRABAJOS
+
+SELECT T.id Id, TL.nombre Nombre,TL.prefijo Prefijo, P.modelo Modelo, T.cantidad Cantidad, T.fecha FechaCreacion, T.destino Destino, T.numero
+FROM TRABAJOS T, TALONARIOS TL, PRODUCCION P 
+WHERE T.id_talonario = TL.id AND P.id = T.id_modelo AND T.numero ='S-00001'--TL.ultimo = 0 AND TL.nombre = 'Lijar'
+
+--UPDATE TALONARIOS SET ultimo = @numero WHERE id = @id
