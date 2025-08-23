@@ -21,6 +21,7 @@ namespace TechSeñuelos
         private List<Piton> pitones;
         private List<string> columnas;
         private Type tipo = null;
+        public event EventHandler btnColorUpdate;
 
         public frmStockInsumos()
         {
@@ -35,7 +36,7 @@ namespace TechSeñuelos
         {
             int indice = tbInsumos.SelectedIndex;
 
-            switch (indice)//tengo que hacer esto por no haber hecho herencia con los insumos...
+            switch (indice) //tengo que hacer esto por no haber hecho herencia con los insumos...
             {
                 case 0:
                     filtroDgv<Anillas>(anillas, dgvAnillas, "Marca", "Tamaño");
@@ -70,34 +71,43 @@ namespace TechSeñuelos
             columnas = obtenerColumnas(tabla);
 
             frmGestionInsumo agregar = new frmGestionInsumo(columnas, tabla, indice);
+            agregar.actualizarDgv += frmStockInsumos_ActualizarDgv;
             agregar.ShowDialog();
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int indice = tbInsumos.SelectedIndex;
-            string tabla = DiccionarioTablas.tablaInsumos[indice];
-
-            switch (indice)
+            try
             {
-                case 0:
-                    modificarItem(tabla, dgvAnillas);
-                    break;
-                case 1:
-                    modificarItem(tabla, dgvAnzuelos);
-                    break;
-                case 2:
-                    modificarItem(tabla, dgvBlister);
-                    break;
-                case 3:
-                    modificarItem(tabla, dgvCarcasas);
-                    break;
-                case 4:
-                    modificarItem(tabla, dgvCarton);
-                    break;
-                case 5:
-                    modificarItem(tabla, dgvPitones);
-                    break;
+                int indice = tbInsumos.SelectedIndex;
+                string tabla = DiccionarioTablas.tablaInsumos[indice];
+
+                switch (indice)
+                {
+                    case 0:
+                        modificarItem(tabla, dgvAnillas);
+                        break;
+                    case 1:
+                        modificarItem(tabla, dgvAnzuelos);
+                        break;
+                    case 2:
+                        modificarItem(tabla, dgvBlister);
+                        break;
+                    case 3:
+                        modificarItem(tabla, dgvCarcasas);
+                        break;
+                    case 4:
+                        modificarItem(tabla, dgvCarton);
+                        break;
+                    case 5:
+                        modificarItem(tabla, dgvPitones);
+                        break;
+                }
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No hay datos para modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -149,7 +159,7 @@ namespace TechSeñuelos
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Seleccione el registro que desea eliminar","Atención", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("Seleccione el registro que desea eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -180,7 +190,6 @@ namespace TechSeñuelos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
@@ -429,11 +438,20 @@ namespace TechSeñuelos
         private void modificarItem(string tabla, DataGridView dgv)
         {
             Dictionary<string, string> valoresTxtBoxs = new Dictionary<string, string>();
-
+            Produccion prod = new Produccion();
+            prod = null;
             //obtengo el tipo de objeto que componen el datagrid
             DataGridViewRow seleccionado = dgv.SelectedRows[0];
             object item = seleccionado.DataBoundItem;
             tipo = item.GetType();
+
+            if(dgv.Name == "dgvCarcasas")
+            {
+                Carcasa carcasa = (Carcasa)dgv.CurrentRow.DataBoundItem;
+                prod = new Produccion();
+                prod.Carcasas = carcasa.Cantidad;
+                prod.Modelo = carcasa.Modelo;
+            }
             //MessageBox.Show("El tipo es " + tipo);
 
             //obtengo las propiedades del tipo de objeto y sus valores
@@ -444,10 +462,11 @@ namespace TechSeñuelos
                 string campo = prop.Name.ToString();
                 string valor = prop.GetValue(item).ToString();
 
-                valoresTxtBoxs.Add(campo, valor);//almaceno los valores obtenidos en el diccionario
+                valoresTxtBoxs.Add(campo, valor);//almaceno en el diccionario los valores obtenidos
             }
 
-            frmGestionInsumo modificar = new frmGestionInsumo(tabla, valoresTxtBoxs, tipo);
+            frmGestionInsumo modificar = new frmGestionInsumo(tabla, valoresTxtBoxs, tipo, prod);
+            modificar.actualizarDgv += frmStockInsumos_ActualizarDgv;
             modificar.ShowDialog();
         }
         private void eliminarItem(int indice, int id)
@@ -480,10 +499,21 @@ namespace TechSeñuelos
                     break;
             }
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            btnColorUpdate?.Invoke(this, EventArgs.Empty);
             Close();
+        }
+        private void frmStockInsumos_Shown(object sender, EventArgs e)
+        {            
+            tbInsumos.SelectTab(1);
+            tbInsumos.SelectTab(0);
+        }
+        private void frmStockInsumos_ActualizarDgv (object sender, EventArgs e)
+        {
+            cargarDgvs();
+            formatoDgvs();
+            tbInsumos.Refresh();
         }
     }
 }

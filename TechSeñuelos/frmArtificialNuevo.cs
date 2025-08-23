@@ -36,7 +36,6 @@ namespace TechSeñuelos
             this.artificial = artificial;
             Text = "MODIFICAR ARTIFICIAL";
         }
-
         private void frmArtificialNuevo_Load(object sender, EventArgs e)
         {
             txtCodigo.Focus();
@@ -189,7 +188,6 @@ namespace TechSeñuelos
                 txtImagen.Text = "Sin imágen";
             }
         }
-
         private bool soloNumeros(string cadena)
         {
             foreach (char letra in cadena)
@@ -201,7 +199,6 @@ namespace TechSeñuelos
             }
             return true;
         }
-
         private void btnCargarImg_Click(object sender, EventArgs e)
         {
             archivo = new OpenFileDialog();
@@ -212,12 +209,10 @@ namespace TechSeñuelos
                 cargarImg(archivo.FileName);
             }
         }
-
         private void txtImagen_Leave(object sender, EventArgs e)
         {
             cargarImg(txtImagen.Text);
         }
-
         private void vaciarCampos()
         {
             txtCodigo.Text = txtModelo.Text.Replace(" ", "") + "-";

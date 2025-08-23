@@ -14,11 +14,11 @@ namespace TechSeñuelos
 {
     public partial class frmSetStandar : Form
     {
+        public event EventHandler btnColorUpdate;
         public frmSetStandar()
         {
             InitializeComponent();
         }
-
         private void frmSetStandar_Load(object sender, EventArgs e)
         {
             checkStandar();
@@ -27,12 +27,11 @@ namespace TechSeñuelos
             dgvStandar.DataSource = lista;
             dgvStandarFormato();
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            btnColorUpdate?.Invoke(this, EventArgs.Empty);
             Close();
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dgvStandar.RowCount > 0)
@@ -43,7 +42,6 @@ namespace TechSeñuelos
                 modificar.ShowDialog();
             }
         }
-
         private void FrmNuevoStandar_ActualizarNuevo(object sender, EventArgs e)
         {
             StandarNeg standar = new StandarNeg();
@@ -52,7 +50,6 @@ namespace TechSeñuelos
             dgvStandarFormato();
             dgvStandar.Refresh();
         }
-
         private void checkStandar()
         {
             StandarNeg negocio = new StandarNeg();
@@ -72,7 +69,6 @@ namespace TechSeñuelos
                 }
             }
         }
-
         private void dgvStandarFormato()
         {
             dgvStandar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -97,7 +93,6 @@ namespace TechSeñuelos
             dgvStandar.Columns["Cantidad"].Visible = false;
             dgvStandar.Columns["tipoAnzuelo"].Visible = false;
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvStandar.RowCount > 0)
@@ -113,7 +108,6 @@ namespace TechSeñuelos
                 }
             }
         }
-
         private void dgvStandar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Standar seleccion = (Standar)dgvStandar.CurrentRow.DataBoundItem;

@@ -1,4 +1,5 @@
 ﻿using dominio;
+using Microsoft.SqlServer.Types;
 using negocio;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace TechSeñuelos
         private List<TextBox> txtNombres = new List<TextBox>();
         private Dictionary<string, string> propiedades = null;
         private Type tipo = null;
+        private Produccion prod = new Produccion();
+        public event EventHandler actualizarDgv;
 
         public frmGestionInsumo(List<string> lista, string item, int indiceTabla)
         {
@@ -31,18 +34,17 @@ namespace TechSeñuelos
             tabla = item;
             indice = indiceTabla;
         }
-
-        public frmGestionInsumo(string item, Dictionary<string, string> propiedades, Type tipo)
+        public frmGestionInsumo(string item, Dictionary<string, string> propiedades, Type tipo, Produccion prod)
         {
             InitializeComponent();
             lblNombreTabla.Text = item.ToUpper();
-            Text = "Modificar...";
+            Text = "MODIFICAR";
             tabla = item;
             this.propiedades = propiedades;
             this.tipo = tipo;
+            this.prod = prod;
             //MessageBox.Show("El tipo de tipo es " + tipo);
         }
-
         private void frmGestionInsumo_Load(object sender, EventArgs e)
         {
              try
@@ -72,7 +74,7 @@ namespace TechSeñuelos
                 {
                     string nombre = text.Name;
 
-                    if (nombre.ToUpper() != "ID")
+                    if (nombre.ToUpper() != "ID") // poner todo esto en un método
                     {
                         var valor = text.Text.ToUpper();
 
@@ -172,6 +174,7 @@ namespace TechSeñuelos
                             MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                        prod.Carcasas = int.Parse(valor);
                     }
 
                     datosTextBox.Add(nombre, valor);
@@ -193,7 +196,9 @@ namespace TechSeñuelos
                         break;
                     case "dominio.Carcasa":
                         CarcasaNeg carcasa = new CarcasaNeg();
+                        ProduccionNeg negocio = new ProduccionNeg();
                         carcasa.modificarCarcasa(datosTextBox);
+                        negocio.actualizarValorInsumos(prod);
                         break;
                     case "dominio.Carton":
                         CartonNeg carton = new CartonNeg();
@@ -206,36 +211,35 @@ namespace TechSeñuelos
                 }
 
                 MessageBox.Show("Modificado correctamente", "Éxito");
-
                 Close();
             }
+            actualizarDgv?.Invoke(this, EventArgs.Empty);
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
         private void crearTextBoxs()
         {
+            Font lblFont = new Font("Century Gothic", 10, FontStyle.Bold);
+            Font txtFont = new Font("Century Gothic", 10, FontStyle.Regular);
             int k = 0;
+
             for (int i = 0; i < columnas.Count; i++)
             {
                 Label lbl = new Label();
                 lbl.AutoSize = true;
                 lbl.Location = new Point(19, 94 + (k * 40));
                 lbl.Name = "lbl" + columnas[i];
-                lbl.Text = columnas[i].ToUpper() + ":";
-                Font newFont = new Font("Century Gothic", 10, FontStyle.Bold);
-                lbl.Font = newFont;
+                lbl.Text = columnas[i].ToUpper() + ":";                
+                lbl.Font = lblFont;
 
                 TextBox txt = new TextBox();
                 txt.Location = new Point(150, 94 + (k * 40));
                 txt.Name = columnas[i];
                 txt.Text = "";
-                txt.Size = new Size(150, 20);
-                newFont = new Font("Century Gothic", 10, FontStyle.Regular);
-                txt.Font = newFont;
+                txt.Size = new Size(150, 20);                
+                txt.Font = txtFont;
 
                 txtNombres.Add(txt);
 
@@ -249,24 +253,25 @@ namespace TechSeñuelos
         }
         private void modificarTextBoxs()
         {
+            Font lblFont = new Font("Century Gothic", 10, FontStyle.Bold);
+            Font txtFont = new Font("Century Gothic", 10, FontStyle.Regular);
             int i = 0;
+
             foreach (string campo in propiedades.Keys)
             {
                 Label lbl = new Label();
                 lbl.AutoSize = true;
                 lbl.Location = new Point(19, 94 + (i * 40));
                 lbl.Name = "lbl" + campo;
-                lbl.Text = campo.ToUpper() + ":";
-                Font newFont = new Font("Century Gothic", 10, FontStyle.Bold);
-                lbl.Font = newFont;
+                lbl.Text = campo.ToUpper() + ":";                
+                lbl.Font = lblFont;
 
                 TextBox txt = new TextBox();
                 txt.Location = new Point(150, 94 + (i * 40));
                 txt.Name = campo;
                 txt.Text = propiedades[campo];
-                txt.Size = new Size(150, 20);
-                newFont = new Font("Century Gothic", 10, FontStyle.Regular);
-                txt.Font = newFont;
+                txt.Size = new Size(150, 20);                
+                txt.Font = txtFont;
 
                 txtNombres.Add(txt);
 

@@ -91,7 +91,6 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\System.Configuration.ConfigurationManager.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\Microsoft.Bcl.HashCode.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\EnvDTE.dll
-C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\stdole.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\dominio.pdb
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\negocio.pdb
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\System.Configuration.ConfigurationManager.xml
@@ -148,11 +147,13 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.csproj.AssemblyReference.cache
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.g.resources
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmTrabajosRemitos.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmArtificiales.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmArtificialNuevo.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmColores.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmColorNuevo.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmNuevoStandar.resources
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmProduccion.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmSetStandar.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmGestionInsumo.resources
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.frmInsumos.resources
@@ -171,3 +172,4 @@ C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSe_u.0785D986.Up2Date
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.exe
 C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.pdb
+C:\Users\ramir\Documents\programacion\Practicas\01 Tech\TechSeñuelos\obj\Debug\TechSeñuelos.exe.config

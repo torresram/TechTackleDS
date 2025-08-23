@@ -15,6 +15,7 @@ namespace TechSeñuelos
     public partial class frmColores : Form
     {
         private List<dominio.Color> colores;
+        public event EventHandler btnColorUpdate;
         public frmColores()
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace TechSeñuelos
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            btnColorUpdate?.Invoke(this, EventArgs.Empty);
             Close();    
         }
 

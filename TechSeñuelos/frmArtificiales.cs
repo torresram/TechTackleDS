@@ -18,10 +18,17 @@ namespace TechSeñuelos
     public partial class frmArtificiales : Form
     {
         private List<Artificial> artificiales;
+        public event EventHandler ActualizarMain;
+        public event EventHandler btnColorUpdate;
         public frmArtificiales()
         {
             InitializeComponent();
         }
+        //protected override void OnShown(EventArgs e)
+        //{
+        //    base.OnShown(e);
+        //    WindowState = FormWindowState.Maximized;
+        //}
         private void frmArtificiales_Load(object sender, EventArgs e)
         {
             cargarDGV();
@@ -65,7 +72,6 @@ namespace TechSeñuelos
             formatoDGV();
             dgvArtificiales.Refresh();
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ArtificialNeg negocio = new ArtificialNeg();
@@ -79,9 +85,10 @@ namespace TechSeñuelos
                 cargarDGV();
             }
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            ActualizarMain?.Invoke(this, EventArgs.Empty);
+            btnColorUpdate?.Invoke(this, EventArgs.Empty);
             Close();
         }
         private void cargarDGV()
@@ -109,7 +116,6 @@ namespace TechSeñuelos
             dgvArtificiales.Columns["Peso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvArtificiales.Columns["Peso"].DefaultCellStyle.Format = "0.00gr";
         }
-
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             List<Artificial> listaFiltrada;
@@ -139,13 +145,18 @@ namespace TechSeñuelos
                 dgvArtificiales.DataSource = artificiales;
             }
         }
-
         private void dgvArtificiales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Artificial seleccionado = (Artificial)dgvArtificiales.CurrentRow.DataBoundItem;
 
             frmArtificialNuevo modificar = new frmArtificialNuevo(seleccionado);
             modificar.ShowDialog();
+        }
+
+        private void btnProduccion_Click(object sender, EventArgs e)
+        {
+            frmProduccion produccion = new frmProduccion();
+            produccion.ShowDialog();
         }
     }
 }

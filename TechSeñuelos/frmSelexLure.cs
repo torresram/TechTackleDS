@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -163,6 +164,8 @@ namespace TechSeñuelos
             catch (InvalidOperationException)
             {
                 MessageBox.Show("El señuelo solicitado no se encuentra en la lista.\nAgreguelo antes de continuar", "¡ATENCIÓN!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int listPositionNumber = StandarSuplente.suplentes.Count();
+                StandarSuplente.suplentes.RemoveAt(listPositionNumber -1);
                 return;
             }
         }

@@ -40,6 +40,9 @@
             // 
             // dgvStandar
             // 
+            this.dgvStandar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStandar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -63,41 +66,44 @@
             this.dgvStandar.MultiSelect = false;
             this.dgvStandar.Name = "dgvStandar";
             this.dgvStandar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStandar.Size = new System.Drawing.Size(806, 368);
+            this.dgvStandar.Size = new System.Drawing.Size(1211, 696);
             this.dgvStandar.TabIndex = 0;
             this.dgvStandar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStandar_CellDoubleClick);
             // 
             // btnModificar
             // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(846, 43);
+            this.btnModificar.Location = new System.Drawing.Point(1231, 43);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(103, 45);
+            this.btnModificar.Size = new System.Drawing.Size(123, 53);
             this.btnModificar.TabIndex = 2;
-            this.btnModificar.Text = "&Modificar";
+            this.btnModificar.Text = "&MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(846, 366);
+            this.btnCerrar.Location = new System.Drawing.Point(1231, 686);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(103, 45);
+            this.btnCerrar.Size = new System.Drawing.Size(123, 53);
             this.btnCerrar.TabIndex = 4;
-            this.btnCerrar.Text = "&Cerrar";
+            this.btnCerrar.Text = "&SALIR";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(846, 94);
+            this.btnEliminar.Location = new System.Drawing.Point(1231, 102);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 45);
+            this.btnEliminar.Size = new System.Drawing.Size(123, 53);
             this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminar.Text = "&ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -107,18 +113,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(961, 440);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ControlBox = false;
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dgvStandar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSetStandar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PREDEFINIDOS";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmSetStandar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStandar)).EndInit();
             this.ResumeLayout(false);

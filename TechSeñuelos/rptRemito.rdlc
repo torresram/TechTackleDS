@@ -25,6 +25,10 @@
           <DataField>Cantidad</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="codArmado">
+          <DataField>codArmado</DataField>
+          <rd:TypeName>System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
         <Field Name="Color">
           <DataField>Color</DataField>
           <rd:TypeName>dominio.Color</rd:TypeName>
@@ -54,8 +58,8 @@
           <DataField>Destino</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FechaCreacion">
-          <DataField>FechaCreacion</DataField>
+        <Field Name="Fecha">
+          <DataField>Fecha</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="Id">
@@ -343,7 +347,7 @@
         <Height>2.75in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>6.17708in</Width>
       <Page>
         <PageHeader>
           <Height>2.54cm</Height>
@@ -373,7 +377,7 @@
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.49953cm</Top>
               <Height>0.68792cm</Height>
-              <Width>16.51cm</Width>
+              <Width>15.68978cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -404,7 +408,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.76071cm</Top>
-              <Left>1.87537cm</Left>
+              <Left>10.37731cm</Left>
               <Height>0.63818cm</Height>
               <Width>2.11666cm</Width>
               <ZIndex>1</ZIndex>
@@ -437,8 +441,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>1.79889cm</Top>
-              <Left>8.45908cm</Left>
+              <Top>1.73715cm</Top>
+              <Left>1.87537cm</Left>
               <Height>0.6cm</Height>
               <Width>1.91823cm</Width>
               <ZIndex>2</ZIndex>
@@ -470,9 +474,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.76071cm</Top>
-              <Left>10.62302cm</Left>
-              <Height>0.63818cm</Height>
+              <Top>1.73715cm</Top>
+              <Left>3.89943cm</Left>
+              <Height>0.6cm</Height>
               <Width>4.00526cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -504,7 +508,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>1.73715cm</Top>
-              <Left>4.17159cm</Left>
+              <Left>12.67353cm</Left>
               <Height>0.66174cm</Height>
               <Width>1.95475cm</Width>
               <ZIndex>4</ZIndex>
@@ -525,7 +529,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=CDate(First(Fields!FechaCreacion.Value, "dtFechaDestino"))</Value>
+                      <Value>=FormatDateTime(First(Fields!Fecha.Value, "dtFechaDestino"), DateFormat.ShortDate)</Value>
                       <Style>
                         <FontFamily>Century Gothic</FontFamily>
                       </Style>
@@ -537,10 +541,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FechaCreacion</rd:DefaultName>
-              <Top>0.49953cm</Top>
-              <Left>10.62302cm</Left>
+              <Top>0.58745cm</Top>
+              <Left>10.37731cm</Left>
               <Height>0.6cm</Height>
-              <Width>4.00526cm</Width>
+              <Width>4.25097cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>

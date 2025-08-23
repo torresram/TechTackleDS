@@ -20,6 +20,7 @@ namespace TechSeñuelos
         List<Armado> armado = new List<Armado>();
         private Remito seleccionado;
         bool vacio = true;
+        public EventHandler btnColorUpdate;
 
         public frmListaRemitos()
         {
@@ -42,20 +43,42 @@ namespace TechSeñuelos
         }
         private void dgvListaRemitos_SelectionChanged(object sender, EventArgs e)
         {
-            if (seleccionado == null)
-            {
-                seleccionado = (Remito)dgvListaRemitos.SelectedRows[0].DataBoundItem;
-                obtenerRemito(seleccionado);
-                dgvDetalleRemito.DataSource = armado;
-                dgvDetalleRemito.Refresh();
-            }
-            else
-            {
-                seleccionado = (Remito)dgvListaRemitos.CurrentRow.DataBoundItem;
-                obtenerRemito(seleccionado);
-                dgvDetalleRemito.DataSource = armado;
-                dgvDetalleRemito.Refresh();
-            }
+            // 1) Si no hay filas seleccionadas, salimos sin hacer nada
+            if (dgvListaRemitos.SelectedRows.Count == 0)
+                return;
+
+            // 2) Tomamos la primera fila seleccionada
+            var fila = dgvListaRemitos.SelectedRows[0];
+            if (fila == null)
+                return;
+
+            // 3) Intentamos convertir el DataBoundItem a Remito
+            var rem = fila.DataBoundItem as Remito;
+            if (rem == null)
+                return;
+
+            // 4) Guardamos el seleccionado y recargamos detalles
+            seleccionado = rem;
+            obtenerRemito(seleccionado);
+
+            // 5) Actualizamos el DataGridView de detalle
+            dgvDetalleRemito.DataSource = armado;
+            dgvDetalleRemito.Refresh();
+
+            //if (seleccionado == null)
+            //{
+            //    seleccionado = (Remito)dgvListaRemitos.SelectedRows[0].DataBoundItem;
+            //    obtenerRemito(seleccionado);
+            //    dgvDetalleRemito.DataSource = armado;
+            //    dgvDetalleRemito.Refresh();
+            //}
+            //else
+            //{
+            //    seleccionado = (Remito)dgvListaRemitos.CurrentRow.DataBoundItem;
+            //    obtenerRemito(seleccionado);
+            //    dgvDetalleRemito.DataSource = armado;
+            //    dgvDetalleRemito.Refresh();
+            //}
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -130,7 +153,14 @@ namespace TechSeñuelos
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            btnColorUpdate?.Invoke(this, EventArgs.Empty);
             Close();
+        }
+
+        private void btnRemitir_Click(object sender, EventArgs e)
+        {
+            frmRemitoNuevo nuevoRemito = new frmRemitoNuevo();
+            nuevoRemito.ShowDialog();
         }
     }
 }

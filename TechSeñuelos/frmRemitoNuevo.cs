@@ -11,7 +11,7 @@ namespace TechSeñuelos
 {
     public partial class frmRemitoNuevo : Form
     {
-        private RemitoNeg nuevoRem = new RemitoNeg();
+        private RemitoNeg nuevoRemito = new RemitoNeg();
         private List<Armado> armados;
         private List<Armado> armadoConCodigo = new List<Armado>();
         private Dictionary<int, string> codigos = new Dictionary<int, string>();
@@ -19,7 +19,6 @@ namespace TechSeñuelos
         public frmRemitoNuevo()
         {
             InitializeComponent();
-
             dgvRemito.CellValidating += dgvRemito_CellValidating;
             dgvRemito.CellEndEdit += dgvRemito_CellEndEdit;
             FormClosing += cerrarFrm;
@@ -46,7 +45,7 @@ namespace TechSeñuelos
         {
             string dest = cboDestinoRem.Text.ToUpper().Trim();
             int num = int.Parse(lblNroRem.Text);
-            DateTime fecha = DateTime.Today;
+            DateTime fecha = DateTime.Now.Date;
 
             if (string.IsNullOrEmpty(dest))
             {
@@ -54,7 +53,7 @@ namespace TechSeñuelos
                 return;
             }
 
-            nuevoRem.addDestiNro(dest, num, fecha);
+            nuevoRemito.addDestiNro(dest, num, fecha);
 
             cboDestino();
             detalle(num);
@@ -244,7 +243,7 @@ namespace TechSeñuelos
                 {
                     dgvRemito.Rows[e.RowIndex].ErrorText = "Sólo números";
                     e.Cancel = true;
-                    MessageBox.Show("El valor debe ser sólo numérico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El valor debe ser numérico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -261,7 +260,7 @@ namespace TechSeñuelos
             dgvRemito.Columns["Color"].ReadOnly = true;
             dgvRemito.Columns["Artificial"].ReadOnly = true;
         }
-        public void detalle(int remito)//Detalles remito nuevo
+        public void detalle(int remito) //Detalles remito nuevo
         {
             ArmadoNeg negocio = new ArmadoNeg();
             //int rtoActual = remito;
@@ -329,7 +328,6 @@ namespace TechSeñuelos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -350,10 +348,6 @@ namespace TechSeñuelos
                     remito.eliminarRemito(rto);
                 }
             }
-        }
-        private void descontarStock()
-        {
-            //dejar esto para más adelante...
         }
     }
 }

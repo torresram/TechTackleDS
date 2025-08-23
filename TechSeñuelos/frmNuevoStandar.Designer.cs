@@ -147,7 +147,7 @@
             this.cboBlister.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBlister.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBlister.FormattingEnabled = true;
-            this.cboBlister.Location = new System.Drawing.Point(29, 373);
+            this.cboBlister.Location = new System.Drawing.Point(25, 373);
             this.cboBlister.Name = "cboBlister";
             this.cboBlister.Size = new System.Drawing.Size(152, 25);
             this.cboBlister.TabIndex = 13;
@@ -156,7 +156,7 @@
             // 
             this.lblBlister.AutoSize = true;
             this.lblBlister.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBlister.Location = new System.Drawing.Point(25, 351);
+            this.lblBlister.Location = new System.Drawing.Point(21, 351);
             this.lblBlister.Name = "lblBlister";
             this.lblBlister.Size = new System.Drawing.Size(61, 19);
             this.lblBlister.TabIndex = 11;
@@ -195,7 +195,7 @@
             this.cboCarton.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCarton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCarton.FormattingEnabled = true;
-            this.cboCarton.Location = new System.Drawing.Point(28, 309);
+            this.cboCarton.Location = new System.Drawing.Point(24, 309);
             this.cboCarton.Name = "cboCarton";
             this.cboCarton.Size = new System.Drawing.Size(152, 25);
             this.cboCarton.TabIndex = 17;
@@ -204,7 +204,7 @@
             // 
             this.lblCarton.AutoSize = true;
             this.lblCarton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarton.Location = new System.Drawing.Point(24, 287);
+            this.lblCarton.Location = new System.Drawing.Point(20, 287);
             this.lblCarton.Name = "lblCarton";
             this.lblCarton.Size = new System.Drawing.Size(74, 19);
             this.lblCarton.TabIndex = 16;
