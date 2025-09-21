@@ -128,8 +128,9 @@ namespace TechSeñuelos
         }
         private void frmPrincipalReload()
         {
+            var estadoOriginal = WindowState;
             WindowState = FormWindowState.Minimized;
-            WindowState = FormWindowState.Normal;
+            WindowState = estadoOriginal;
         }
 
         public void FormBtnColor_btnColorUpdate(object sender, EventArgs e)
@@ -162,6 +163,12 @@ namespace TechSeñuelos
         private void tlmiSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStockUpdate stock = new frmStockUpdate();
+            stock.ShowDialog();
         }
 
         //private void cargarDGV()

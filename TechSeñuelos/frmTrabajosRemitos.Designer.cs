@@ -56,7 +56,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(477, 365);
+            this.btnSalir.Location = new System.Drawing.Point(477, 377);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(105, 53);
             this.btnSalir.TabIndex = 20;
@@ -69,7 +69,7 @@
             this.cboDestinoRem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboDestinoRem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDestinoRem.FormattingEnabled = true;
-            this.cboDestinoRem.Location = new System.Drawing.Point(83, 59);
+            this.cboDestinoRem.Location = new System.Drawing.Point(83, 71);
             this.cboDestinoRem.Name = "cboDestinoRem";
             this.cboDestinoRem.Size = new System.Drawing.Size(144, 24);
             this.cboDestinoRem.TabIndex = 10;
@@ -78,7 +78,7 @@
             // 
             this.btnAddDest.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddDest.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDest.Location = new System.Drawing.Point(233, 59);
+            this.btnAddDest.Location = new System.Drawing.Point(233, 71);
             this.btnAddDest.Name = "btnAddDest";
             this.btnAddDest.Size = new System.Drawing.Size(129, 24);
             this.btnAddDest.TabIndex = 14;
@@ -89,7 +89,7 @@
             // lblDestRem
             // 
             this.lblDestRem.AutoSize = true;
-            this.lblDestRem.Location = new System.Drawing.Point(368, 63);
+            this.lblDestRem.Location = new System.Drawing.Point(368, 75);
             this.lblDestRem.Name = "lblDestRem";
             this.lblDestRem.Size = new System.Drawing.Size(0, 13);
             this.lblDestRem.TabIndex = 12;
@@ -98,7 +98,7 @@
             // 
             this.lblDestinoRem.AutoSize = true;
             this.lblDestinoRem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDestinoRem.Location = new System.Drawing.Point(9, 63);
+            this.lblDestinoRem.Location = new System.Drawing.Point(9, 75);
             this.lblDestinoRem.Name = "lblDestinoRem";
             this.lblDestinoRem.Size = new System.Drawing.Size(68, 17);
             this.lblDestinoRem.TabIndex = 19;
@@ -108,7 +108,7 @@
             // 
             this.btnContinuar.BackColor = System.Drawing.Color.White;
             this.btnContinuar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuar.Location = new System.Drawing.Point(477, 253);
+            this.btnContinuar.Location = new System.Drawing.Point(477, 265);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(105, 53);
             this.btnContinuar.TabIndex = 18;
@@ -120,7 +120,7 @@
             // 
             this.btnEliminarTodo.BackColor = System.Drawing.Color.White;
             this.btnEliminarTodo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTodo.Location = new System.Drawing.Point(477, 173);
+            this.btnEliminarTodo.Location = new System.Drawing.Point(477, 185);
             this.btnEliminarTodo.Name = "btnEliminarTodo";
             this.btnEliminarTodo.Size = new System.Drawing.Size(105, 37);
             this.btnEliminarTodo.TabIndex = 17;
@@ -132,7 +132,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.White;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(477, 130);
+            this.btnEliminar.Location = new System.Drawing.Point(477, 142);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(105, 37);
             this.btnEliminar.TabIndex = 16;
@@ -144,7 +144,7 @@
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(477, 90);
+            this.btnAgregar.Location = new System.Drawing.Point(477, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(105, 34);
             this.btnAgregar.TabIndex = 15;
@@ -156,7 +156,7 @@
             // 
             this.lblNroRem.AutoSize = true;
             this.lblNroRem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroRem.Location = new System.Drawing.Point(387, 17);
+            this.lblNroRem.Location = new System.Drawing.Point(387, 29);
             this.lblNroRem.Name = "lblNroRem";
             this.lblNroRem.Size = new System.Drawing.Size(11, 17);
             this.lblNroRem.TabIndex = 13;
@@ -167,7 +167,7 @@
             // 
             this.lblNumeroRemito.AutoSize = true;
             this.lblNumeroRemito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroRemito.Location = new System.Drawing.Point(9, 17);
+            this.lblNumeroRemito.Location = new System.Drawing.Point(9, 29);
             this.lblNumeroRemito.Name = "lblNumeroRemito";
             this.lblNumeroRemito.Size = new System.Drawing.Size(80, 17);
             this.lblNumeroRemito.TabIndex = 11;
@@ -193,12 +193,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvRemito.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRemito.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgvRemito.Location = new System.Drawing.Point(12, 90);
+            this.dgvRemito.Location = new System.Drawing.Point(12, 102);
             this.dgvRemito.MultiSelect = false;
             this.dgvRemito.Name = "dgvRemito";
             this.dgvRemito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRemito.Size = new System.Drawing.Size(434, 328);
             this.dgvRemito.TabIndex = 9;
+            this.dgvRemito.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRemito_CellEndEdit);
+            this.dgvRemito.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvRemito_CellValidating);
+            this.dgvRemito.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRemito_CellValueChanged);
             // 
             // gbAgregar
             // 
@@ -221,7 +224,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(156, 49);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(82, 23);
-            this.btnAceptar.TabIndex = 22;
+            this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Ace&ptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -233,7 +236,7 @@
             this.btnTerminar.Location = new System.Drawing.Point(70, 88);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(105, 34);
-            this.btnTerminar.TabIndex = 22;
+            this.btnTerminar.TabIndex = 3;
             this.btnTerminar.Text = "&Terminar";
             this.btnTerminar.UseVisualStyleBackColor = false;
             this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
@@ -244,7 +247,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(6, 50);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(144, 22);
-            this.txtCantidad.TabIndex = 23;
+            this.txtCantidad.TabIndex = 1;
             this.txtCantidad.Text = "Cantidad...";
             this.txtCantidad.Enter += new System.EventHandler(this.txtCantidad_Enter);
             this.txtCantidad.Leave += new System.EventHandler(this.txtCantidad_Leave);
@@ -256,7 +259,7 @@
             this.cboModelo.Location = new System.Drawing.Point(6, 19);
             this.cboModelo.Name = "cboModelo";
             this.cboModelo.Size = new System.Drawing.Size(232, 25);
-            this.cboModelo.TabIndex = 22;
+            this.cboModelo.TabIndex = 0;
             this.cboModelo.Text = "Modelo...";
             // 
             // frmTrabajosRemitos
@@ -264,7 +267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(859, 442);
+            this.ClientSize = new System.Drawing.Size(600, 442);
             this.Controls.Add(this.gbAgregar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cboDestinoRem);

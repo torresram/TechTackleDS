@@ -174,6 +174,7 @@ namespace TechSeñuelos
                             MessageBox.Show("La cantidad debe ser un valor numérico solamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                        //mientras que el tipo no sea dominio.Carcasas no se realiza ninguna acción con esta línea
                         prod.Carcasas = int.Parse(valor);
                     }
 

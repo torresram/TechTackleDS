@@ -439,7 +439,7 @@ namespace TechSeñuelos
         {
             Dictionary<string, string> valoresTxtBoxs = new Dictionary<string, string>();
             Produccion prod = new Produccion();
-            prod = null;
+            //prod = null;
             //obtengo el tipo de objeto que componen el datagrid
             DataGridViewRow seleccionado = dgv.SelectedRows[0];
             object item = seleccionado.DataBoundItem;
@@ -448,7 +448,7 @@ namespace TechSeñuelos
             if(dgv.Name == "dgvCarcasas")
             {
                 Carcasa carcasa = (Carcasa)dgv.CurrentRow.DataBoundItem;
-                prod = new Produccion();
+                //prod = new Produccion();
                 prod.Carcasas = carcasa.Cantidad;
                 prod.Modelo = carcasa.Modelo;
             }

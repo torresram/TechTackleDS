@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TechSeñuelos.exe.manifest" size="49191">
+    <dependentAssembly dependencyType="install" codebase="TechSeñuelos.exe.manifest" size="56783">
       <assemblyIdentity name="TechSeñuelos.exe" version="1.0.1.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>K1BkjorVce3shcueMW5QIqvtK+7oG/YUmhDPLSldugo=</dsig:DigestValue>
+        <dsig:DigestValue>A1JNmCpb2xr7OYbZ0qXkgw77ShaMRz0JC3Yv9CZcvUU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

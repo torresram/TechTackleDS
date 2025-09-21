@@ -3,31 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmtrabajosremitos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmtrabajosremitos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmstockupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmstockupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmtrabajosremitos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmtrabajosremitos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmstockupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmstockupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmremitonuevo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\techse\u00F1uelos\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1F6216C-7EC0-4604-942B-9D6476AB62E6}|..\\negocio\\negocio.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\negocio\\trabajosneg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9559E742-DCBD-43AE-BBC3-B6DDD2A042F8}|TechSe\u00F1uelos.csproj|solutionrelative:frmproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F1F6216C-7EC0-4604-942B-9D6476AB62E6}|..\\negocio\\negocio.csproj|c:\\users\\ramir\\documents\\programacion\\practicas\\01 tech\\negocio\\artificialneg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,28 +33,30 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmProduccion.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmProduccion.cs",
-              "RelativeDocumentMoniker": "frmProduccion.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmProduccion.cs [Design]",
-              "RelativeToolTip": "frmProduccion.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "frmPrincipal.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "frmPrincipal.cs",
+              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmPrincipal.cs [Design]",
+              "RelativeToolTip": "frmPrincipal.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T00:31:21.278Z",
-              "IsPinned": true
+              "WhenOpened": "2025-09-20T21:06:36.918Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmProduccion.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmProduccion.cs",
-              "RelativeDocumentMoniker": "frmProduccion.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmProduccion.cs",
-              "RelativeToolTip": "frmProduccion.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAQwLcAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "frmPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "frmPrincipal.cs",
+              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmPrincipal.cs",
+              "RelativeToolTip": "frmPrincipal.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAwGMAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T00:40:55.332Z",
-              "IsPinned": true
+              "WhenOpened": "2025-09-20T23:48:36.459Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -71,62 +65,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmTrabajosRemitos.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmTrabajosRemitos.cs",
-              "RelativeDocumentMoniker": "frmTrabajosRemitos.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmTrabajosRemitos.cs [Design]",
-              "RelativeToolTip": "frmTrabajosRemitos.cs [Design]",
+              "Title": "frmStockUpdate.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmStockUpdate.cs",
+              "RelativeDocumentMoniker": "frmStockUpdate.cs",
+              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmStockUpdate.cs [Design]",
+              "RelativeToolTip": "frmStockUpdate.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T00:31:21.077Z",
+              "WhenOpened": "2025-09-20T21:09:36.595Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmTrabajosRemitos.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmTrabajosRemitos.cs",
-              "RelativeDocumentMoniker": "frmTrabajosRemitos.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmTrabajosRemitos.cs",
-              "RelativeToolTip": "frmTrabajosRemitos.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAmwM0AAAA4AAAAAAAAAA==",
+              "Title": "frmStockUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmStockUpdate.cs",
+              "RelativeDocumentMoniker": "frmStockUpdate.cs",
+              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmStockUpdate.cs",
+              "RelativeToolTip": "frmStockUpdate.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAcwCQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T00:36:55.195Z",
+              "WhenOpened": "2025-09-20T21:17:26.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TrabajosNeg.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\TrabajosNeg.cs",
-              "RelativeDocumentMoniker": "..\\negocio\\TrabajosNeg.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\TrabajosNeg.cs",
-              "RelativeToolTip": "..\\negocio\\TrabajosNeg.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAA7wJgAAAAUAAAAAAAAAA==",
+              "Title": "ArtificialNeg.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\ArtificialNeg.cs",
+              "RelativeDocumentMoniker": "..\\negocio\\ArtificialNeg.cs",
+              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\negocio\\ArtificialNeg.cs",
+              "RelativeToolTip": "..\\negocio\\ArtificialNeg.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAuwHoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T02:31:13.04Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmRemitoNuevo.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
-              "RelativeDocumentMoniker": "frmRemitoNuevo.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs [Design]",
-              "RelativeToolTip": "frmRemitoNuevo.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T23:35:12.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmRemitoNuevo.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
-              "RelativeDocumentMoniker": "frmRemitoNuevo.cs",
-              "ToolTip": "C:\\Users\\ramir\\Documents\\programacion\\Practicas\\01 Tech\\TechSe\u00F1uelos\\frmRemitoNuevo.cs",
-              "RelativeToolTip": "frmRemitoNuevo.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAADwv2oAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T23:35:15.053Z"
+              "WhenOpened": "2025-09-20T21:57:22.198Z",
+              "EditorCaption": ""
             }
           ]
         }

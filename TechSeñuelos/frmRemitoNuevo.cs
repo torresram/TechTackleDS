@@ -233,13 +233,12 @@ namespace TechSeñuelos
                     }
                 }
             }
-         }
+        }
         private void dgvRemito_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)//Ingresar solo números en la celda Cantidad
         {
             if (dgvRemito.Columns[e.ColumnIndex].Name == "Cantidad" && e.FormattedValue.ToString() != "")
             {
-                int cantidad;
-                if (!int.TryParse(e.FormattedValue.ToString(), out cantidad))
+                if (!int.TryParse(e.FormattedValue.ToString(), out int cantidad))
                 {
                     dgvRemito.Rows[e.RowIndex].ErrorText = "Sólo números";
                     e.Cancel = true;
@@ -339,7 +338,6 @@ namespace TechSeñuelos
         {
             RemitoNeg remito = new RemitoNeg();
             int rto = int.Parse(lblNroRem.Text);
-
 
             if (remito.existe(rto))
             {

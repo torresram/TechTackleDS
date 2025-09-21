@@ -68,11 +68,11 @@ namespace TechSeñuelos
             dgvProduccion.Columns["Lijados"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProduccion.Columns["Lijados"].ReadOnly = true;
         }
-        
+
         private void checkModelos()
         {
             ProduccionNeg negocio = new ProduccionNeg();
-            Produccion producccion= new Produccion();
+            Produccion producccion = new Produccion();
             List<Produccion> modelos = negocio.obtModelo();
             List<Produccion> lista = negocio.listar();
 
@@ -117,8 +117,7 @@ namespace TechSeñuelos
         {
             if (!(dgvProduccion.Columns[e.ColumnIndex].Name == "Modelo") && e.FormattedValue.ToString() != "")
             {
-                int cantidad;
-                if (!int.TryParse(e.FormattedValue.ToString(), out cantidad))
+                if (!int.TryParse(e.FormattedValue.ToString(), out int cantidad))
                 {
                     dgvProduccion.Rows[e.RowIndex].ErrorText = "Sólo números";
                     e.Cancel = true;
@@ -158,7 +157,7 @@ namespace TechSeñuelos
         private void dgvProduccion_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Índices de las columnas que contienen enteros
-            var columnasEnteras = new List<int> {2, 3, 4, 5 };
+            var columnasEnteras = new List<int> { 2, 3, 4, 5 };
 
             // Verificamos si la celda pertenece a una de esas columnas
             if (columnasEnteras.Contains(e.ColumnIndex))
@@ -197,10 +196,22 @@ namespace TechSeñuelos
             }
         }
         private void btnAceptar_Click(object sender, EventArgs e)
-        {               
+        {
             Talonarios talonario = (Talonarios)cboTareas.SelectedItem;
-            frmTrabajosRemitos trabajos = new frmTrabajosRemitos(talonario.Nombre);
-            trabajos.ShowDialog();
+            if (talonario != null)
+            {
+                frmTrabajosRemitos trabajos = new frmTrabajosRemitos(talonario.Nombre);
+                trabajos.actualizarProduccion += frmTrabajosRemitos_actualizarValores;
+                trabajos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Ninguna tarea seleccionada","Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void frmTrabajosRemitos_actualizarValores(object sender, EventArgs e)
+        {
+            cargarDgv();
         }
     }
 }

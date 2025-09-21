@@ -66,7 +66,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvRemito.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRemito.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgvRemito.Location = new System.Drawing.Point(29, 90);
+            this.dgvRemito.Location = new System.Drawing.Point(12, 102);
             this.dgvRemito.MultiSelect = false;
             this.dgvRemito.Name = "dgvRemito";
             this.dgvRemito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -78,7 +78,7 @@
             // 
             this.lblNumeroRemito.AutoSize = true;
             this.lblNumeroRemito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroRemito.Location = new System.Drawing.Point(26, 17);
+            this.lblNumeroRemito.Location = new System.Drawing.Point(9, 29);
             this.lblNumeroRemito.Name = "lblNumeroRemito";
             this.lblNumeroRemito.Size = new System.Drawing.Size(80, 17);
             this.lblNumeroRemito.TabIndex = 1;
@@ -88,7 +88,7 @@
             // 
             this.lblNroRem.AutoSize = true;
             this.lblNroRem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroRem.Location = new System.Drawing.Point(430, 17);
+            this.lblNroRem.Location = new System.Drawing.Point(413, 29);
             this.lblNroRem.Name = "lblNroRem";
             this.lblNroRem.Size = new System.Drawing.Size(11, 17);
             this.lblNroRem.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(494, 90);
+            this.btnAgregar.Location = new System.Drawing.Point(477, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(105, 34);
             this.btnAgregar.TabIndex = 3;
@@ -110,7 +110,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.White;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(494, 130);
+            this.btnEliminar.Location = new System.Drawing.Point(477, 142);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(105, 37);
             this.btnEliminar.TabIndex = 4;
@@ -122,7 +122,7 @@
             // 
             this.btnEliminarTodo.BackColor = System.Drawing.Color.White;
             this.btnEliminarTodo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTodo.Location = new System.Drawing.Point(494, 173);
+            this.btnEliminarTodo.Location = new System.Drawing.Point(477, 185);
             this.btnEliminarTodo.Name = "btnEliminarTodo";
             this.btnEliminarTodo.Size = new System.Drawing.Size(105, 37);
             this.btnEliminarTodo.TabIndex = 5;
@@ -134,7 +134,7 @@
             // 
             this.btnContinuar.BackColor = System.Drawing.Color.White;
             this.btnContinuar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuar.Location = new System.Drawing.Point(494, 253);
+            this.btnContinuar.Location = new System.Drawing.Point(477, 265);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(105, 53);
             this.btnContinuar.TabIndex = 6;
@@ -146,7 +146,7 @@
             // 
             this.lblDestinoRem.AutoSize = true;
             this.lblDestinoRem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDestinoRem.Location = new System.Drawing.Point(26, 63);
+            this.lblDestinoRem.Location = new System.Drawing.Point(9, 75);
             this.lblDestinoRem.Name = "lblDestinoRem";
             this.lblDestinoRem.Size = new System.Drawing.Size(68, 17);
             this.lblDestinoRem.TabIndex = 7;
@@ -155,7 +155,7 @@
             // lblDestRem
             // 
             this.lblDestRem.AutoSize = true;
-            this.lblDestRem.Location = new System.Drawing.Point(385, 63);
+            this.lblDestRem.Location = new System.Drawing.Point(368, 75);
             this.lblDestRem.Name = "lblDestRem";
             this.lblDestRem.Size = new System.Drawing.Size(0, 13);
             this.lblDestRem.TabIndex = 2;
@@ -164,7 +164,7 @@
             // 
             this.btnAddDest.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddDest.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDest.Location = new System.Drawing.Point(250, 59);
+            this.btnAddDest.Location = new System.Drawing.Point(233, 71);
             this.btnAddDest.Name = "btnAddDest";
             this.btnAddDest.Size = new System.Drawing.Size(129, 24);
             this.btnAddDest.TabIndex = 3;
@@ -177,7 +177,7 @@
             this.cboDestinoRem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboDestinoRem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDestinoRem.FormattingEnabled = true;
-            this.cboDestinoRem.Location = new System.Drawing.Point(100, 59);
+            this.cboDestinoRem.Location = new System.Drawing.Point(83, 71);
             this.cboDestinoRem.Name = "cboDestinoRem";
             this.cboDestinoRem.Size = new System.Drawing.Size(144, 24);
             this.cboDestinoRem.TabIndex = 1;
@@ -186,7 +186,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(494, 365);
+            this.btnSalir.Location = new System.Drawing.Point(477, 377);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(105, 53);
             this.btnSalir.TabIndex = 8;
@@ -200,7 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(625, 453);
+            this.ClientSize = new System.Drawing.Size(600, 442);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cboDestinoRem);
             this.Controls.Add(this.btnAddDest);
