@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("SELECT id,modelo,carcasas, armados, soldados, lijados FROM PRODUCCION");
+                datos.setConsulta("SELECT id, modelo, carcasas, armados, soldados, lijados FROM PRODUCCION ORDER BY modelo ASC");
                 datos.ejecLectura();
 
                 while (datos.Lector.Read())
@@ -76,7 +76,7 @@ namespace negocio
             try
             {
                 datos.setConsulta("UPDATE PRODUCCION SET carcasas = @cantidad WHERE modelo = @modelo");
-                datos.setParametro("@modelo",modelo);
+                datos.setParametro("@modelo", modelo);
                 datos.setParametro("@cantidad", cantidad);
                 datos.ejecAccion();
             }
@@ -84,7 +84,7 @@ namespace negocio
             {
                 throw ex;
             }
-            finally{ datos.cerrarConexion(); }
+            finally { datos.cerrarConexion(); }
         }
         public List<Produccion> obtModelo()
         {

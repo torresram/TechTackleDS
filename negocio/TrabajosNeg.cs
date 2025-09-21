@@ -10,7 +10,7 @@ namespace negocio
     public class TrabajosNeg
     {
         AccesoDatos datos = new AccesoDatos();
-        
+
         public List<TrabajosRemitos> cboDestino() //Devuelve solo destinos distintos
         {
             List<TrabajosRemitos> remito = new List<TrabajosRemitos>();
@@ -81,7 +81,7 @@ namespace negocio
         public void nuevoRemito(string numero, DateTime fecha, Talonarios talonario, int cantidad, int idModelo)
         {
             try
-            {                
+            {
                 datos.setConsulta("INSERT INTO trabajos (id_talonario, id_modelo, cantidad, fecha, destino, numero) VALUES (@idTalonario, @idModelo, @Cantidad, @Fecha, 'ninguno', @Numero)");
                 datos.setParametro("@idTalonario", talonario.Id);
                 datos.setParametro("@idModelo", idModelo);
@@ -137,10 +137,43 @@ namespace negocio
         {
             try
             {
-                datos.setConsulta("UPDATE TRABAJOS SET id_modelo = @idModelo, cantidad = @Cantidad WHERE numero = @Numero");                
+                datos.setConsulta("UPDATE TRABAJOS SET id_modelo = @idModelo, cantidad = @Cantidad WHERE numero = @Numero");
                 datos.setParametro("@idModelo", idModelo);
-                datos.setParametro("@Numero", numero);                
-                datos.setParametro("@Cantidad", cantidad);                
+                datos.setParametro("@Numero", numero);
+                datos.setParametro("@Cantidad", cantidad);
+
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void modificarCant(int id, int cantidad)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE TRABAJOS SET Cantidad = @cantidad WHERE Id = @Id");
+                datos.setParametro("@Id", id);
+                datos.setParametro("@Cantidad", cantidad);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void cantidadUpd(string numero, int cantidad, int idModelo)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE TRABAJOS SET cantidad = @Cantidad WHERE numero = @Numero AND id_modelo = @idModelo");
+                datos.setParametro("@idModelo", idModelo);
+                datos.setParametro("@Numero", numero);
+                datos.setParametro("@Cantidad", cantidad);
 
                 datos.ejecAccion();
             }

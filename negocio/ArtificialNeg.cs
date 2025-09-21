@@ -61,7 +61,7 @@ namespace negocio
                 datos.setParametro("@IdCol", nuevo.Color.Id);
                 datos.setParametro("@Img", nuevo.Imagen);
                 datos.setParametro("@Cant", nuevo.Cantidad);
-                datos.setParametro("@Pes",nuevo.Peso);
+                datos.setParametro("@Pes", nuevo.Peso);
 
                 datos.ejecAccion();
             }
@@ -100,6 +100,25 @@ namespace negocio
             catch (Exception)
             {
                 throw;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void actualizarStockArtificial(Artificial artificial)
+        {
+            int id = artificial.Id;
+            int cantidad = artificial.Cantidad;
+
+            try
+            {
+                datos.setConsulta("UPDATE ARTIFICIAL SET cantidad = @cantidad WHERE id = @id");
+                datos.setParametro("@id", id);
+                datos.setParametro("@cantidad", cantidad);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
             finally { datos.cerrarConexion(); }
         }
@@ -143,7 +162,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public bool validarCodigo(string codigo)
         {
             try
