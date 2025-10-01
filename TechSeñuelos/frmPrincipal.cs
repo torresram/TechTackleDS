@@ -1,4 +1,5 @@
-﻿using dominio;
+﻿using DocumentFormat.OpenXml.Office2021.MipLabelMetaData;
+using dominio;
 using Microsoft.Reporting.WinForms;
 using negocio;
 using System;
@@ -8,8 +9,10 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace TechSeñuelos
@@ -28,17 +31,15 @@ namespace TechSeñuelos
 
         }
         private void btnStock_Click(object sender, EventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
+        {            
+            frmStockInsumos stock = new frmStockInsumos();
+
+            if (formularioActivoCheck(stock))
             {
-                if (form is frmStockInsumos)
-                {
-                    form.BringToFront();
-                    return;
-                }
+                stock.BringToFront();
+                return;
             }
 
-            frmStockInsumos stock = new frmStockInsumos();
             stock.MdiParent = this;
             stock.btnColorUpdate += FormBtnColor_btnColorUpdate;
             stock.Show();
@@ -48,16 +49,14 @@ namespace TechSeñuelos
         }
         private void btnListaRemitos_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
+            frmListaRemitos remitos = new frmListaRemitos();
+
+            if (formularioActivoCheck(remitos))
             {
-                if (form is frmListaRemitos)
-                {
-                    form.BringToFront();
-                    return;
-                }
+                remitos.BringToFront();
+                return;
             }
 
-            frmListaRemitos remitos = new frmListaRemitos();
             remitos.MdiParent = this;
             remitos.btnColorUpdate += FormBtnColor_btnColorUpdate;
             remitos.Show();
@@ -67,16 +66,14 @@ namespace TechSeñuelos
         }
         private void btnSetStandar_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
+            frmSetStandar predefinidos = new frmSetStandar();
+
+            if (formularioActivoCheck(predefinidos))
             {
-                if (form is frmSetStandar)
-                {
-                    form.BringToFront();
-                    return;
-                }
+                predefinidos.BringToFront();
+                return;
             }
 
-            frmSetStandar predefinidos = new frmSetStandar();
             predefinidos.MdiParent = this;
             predefinidos.btnColorUpdate += FormBtnColor_btnColorUpdate;
             predefinidos.Show();
@@ -85,17 +82,15 @@ namespace TechSeñuelos
             btnSetStandar.BackColor = System.Drawing.Color.MistyRose;
         }
         private void btnArtificiales_Click(object sender, EventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
+        {   
+            frmArtificiales artificiales = new frmArtificiales();
+
+            if (formularioActivoCheck(artificiales))
             {
-                if (form is frmArtificiales)
-                {
-                    form.BringToFront();
-                    return;
-                }
+                artificiales.BringToFront();
+                return;
             }
 
-            frmArtificiales artificiales = new frmArtificiales();
             artificiales.MdiParent = this;
             artificiales.btnColorUpdate += FormBtnColor_btnColorUpdate;
             artificiales.Show();
@@ -105,22 +100,32 @@ namespace TechSeñuelos
         }
         private void btnColores_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
+            frmColores colores = new frmColores();
+
+            if (formularioActivoCheck(colores))
             {
-                if (form is frmColores)
-                {
-                    form.BringToFront();
-                    return;
-                }
+                colores.BringToFront();
+                return;
             }
 
-            frmColores colores = new frmColores();
             colores.MdiParent = this;
             colores.btnColorUpdate += FormBtnColor_btnColorUpdate;
             colores.Show();
             colores.WindowState = FormWindowState.Maximized;
             frmPrincipalReload();
             btnColores.BackColor = System.Drawing.Color.MistyRose;
+        }
+        private bool formularioActivoCheck(Form form)
+        {
+            foreach (Form activo in Application.OpenForms)
+            {
+                if(activo.Name == form.Name)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
         }
         private void frmPrincipal_Resize(object sender, EventArgs e)
         {

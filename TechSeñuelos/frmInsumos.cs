@@ -78,7 +78,7 @@ namespace TechSeñuelos
                         }
 
                         Insumos existente = items.Find(x => x.Item == insumos.Item && x.Familia == insumos.Familia);
-                        
+
                         // Si el insumo ya existe, sumamos la cantidad
                         if (existente != null && control == false)
                         {
@@ -103,7 +103,7 @@ namespace TechSeñuelos
             items.Sort((item1, item2) => item1.Familia.CompareTo(item2.Familia));
             items = buscarPeso(items);
             items = cambioFamilia(items);
-            items = items.GroupBy(x => new {x.Item, x.Familia,}).Select(sel => new Insumos
+            items = items.GroupBy(x => new { x.Item, x.Familia, }).Select(sel => new Insumos
             {
                 Id = sel.First().Id,
                 Item = sel.Key.Item,
@@ -111,10 +111,11 @@ namespace TechSeñuelos
                 Cantidad = sel.Sum(x => x.Cantidad),
                 Peso = sel.Sum(x => x.Peso)
             }).ToList();
+            descontarStock(items);
             return items;
         }
         private List<Insumos> buscarPeso(List<Insumos> lista)
-        { 
+        {
             double peso;
             for (int x = 0; x < lista.Count; x++)
             {
@@ -259,6 +260,40 @@ namespace TechSeñuelos
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void descontarStock(List<Insumos> lista)
+        {
+            foreach (Insumos item in lista)
+            {
+                string tabla = item.Familia;
+                string modelo = item.Item;
+                int cantidad = item.Cantidad;
+
+                switch (tabla)
+                {
+                    case "Anillas":
+                        AnillaNeg anilla = new AnillaNeg();
+                        anilla.descontarStock(modelo, cantidad);
+                        break;
+                    case "Simples":
+                        AnzueloNeg anzueloS = new AnzueloNeg();
+                        anzueloS.descontarStock(modelo, cantidad);
+                        break;
+                    case "Triples":
+                        AnzueloNeg anzueloT = new AnzueloNeg();
+                        anzueloT.descontarStock(modelo, cantidad);
+                        break;
+                    case "Blister":
+                        BlisterNeg blister = new BlisterNeg();
+                        blister.descontarStock(modelo, cantidad);
+                        break;
+                    case "Carton":
+                        CartonNeg carton = new CartonNeg();
+                        carton.descontarStock(modelo, cantidad);
+                        break;                    
+                }
+            }
         }
     }
 }

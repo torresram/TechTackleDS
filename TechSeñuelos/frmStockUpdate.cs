@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Packaging;
 using dominio;
 using negocio;
@@ -31,19 +32,34 @@ namespace TechSeñuelos
             {
                 string ruta = ofd.FileName;
                 txtRuta.Text = ruta;
+                prbBarra.Visible = true;
+                lblPorcentaje.Visible = true;
 
                 using (var workbook = new XLWorkbook(ruta))
                 {
-                    var worksheet= workbook.Worksheet(1);
+                    var worksheet = workbook.Worksheet(1);
                     var rows = worksheet.RangeUsed().RowsUsed().Skip(1);
-
+                    int cantidadfilas = rows.Count();
                     ArtificialNeg negocio = new ArtificialNeg();
                     List<Artificial> lista = negocio.listar();
+
+                    prbBarra.Minimum = 1;
+                    // Set Maximum to the total number of files to copy.
+                    prbBarra.Maximum = cantidadfilas;
+                    // Set the initial value of the ProgressBar.
+                    prbBarra.Value = 1;
+                    // Set the Step property to a value of 1 to represent each file being copied.
+                    prbBarra.Step = 1;                                        
 
                     foreach (var row in rows)
                     {
                         string modeloExcel = row.Cell(1).GetValue<string>(); //columna modelo
                         string stock = row.Cell(5).GetValue<string>(); //columna stock
+
+                        // Perform the increment on the ProgressBar.
+                        prbBarra.PerformStep();
+
+                        lblPorcentaje.Text = prbBarra.Value / cantidadfilas * 100 + "%";
 
                         if (!string.IsNullOrEmpty(modeloExcel) && int.TryParse(stock, out int cantidad))
                         {
@@ -57,11 +73,10 @@ namespace TechSeñuelos
                         }
                     }
                 }
-                
-                MessageBox.Show("¡Stock actualizado correctamente!", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                lblExito.Visible = true;
             }
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Close();

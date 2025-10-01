@@ -811,14 +811,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="negocio.dll" size="53248">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="negocio.dll" size="54272">
       <assemblyIdentity name="negocio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LToGG++/V6b4Da6p2/REGqR2S4/3fHEiL3jKC6P/Bow=</dsig:DigestValue>
+        <dsig:DigestValue>bt4+BeZBC9KcZdWqLcTf/MhrmkQYCkJ5K6AS48UaLDU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -907,14 +907,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2678784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TechSeñuelos.exe" size="2679808">
       <assemblyIdentity name="TechSeñuelos" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bqsSWsi66So9EgPRwfckBHgFkxuxsxhGjvGjN9g7C3s=</dsig:DigestValue>
+        <dsig:DigestValue>1Mer2aAd3GcbfxPbxOCtfl8JuRDu212BPn24FQexGso=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
