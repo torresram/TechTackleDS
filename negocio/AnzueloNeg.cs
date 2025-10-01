@@ -1,11 +1,12 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio;
 
 namespace negocio
 {
@@ -115,6 +116,21 @@ namespace negocio
                 throw ex;
             }
             finally { datos.cerrarConexion();}
+        }
+        public void descontarStock(string modelo, int cantidad)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE Anzuelo SET cantidad = cantidad - @cantidad WHERE numero = @modelo");
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@modelo", modelo);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace negocio
         public List<Anillas> listar()
         {
             List<Anillas> lista = new List<Anillas>();
-            
+
             try
             {
                 datos.setConsulta("SELECT Id, Marca,Tamaño,Cantidad,Peso FROM Anilla");
@@ -45,14 +45,13 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        
-        public void agregarAnilla(Dictionary<string,string> valoresParametros)
+        public void agregarAnilla(Dictionary<string, string> valoresParametros)
         {
             string marca = valoresParametros["marca"];
             string tamaño = valoresParametros["tamaño"];
             int cantidad = int.Parse(valoresParametros["cantidad"]);
             double peso = double.Parse(valoresParametros["peso"]);
-            
+
             try
             {
                 datos.setConsulta("INSERT INTO Anilla(Marca,Tamaño,Cantidad,Peso) VALUES (@Marca,@Tamaño,@Cantidad,@Peso)");
@@ -72,7 +71,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
         public void eliminarAnilla(int id)
         {
             try
@@ -86,10 +84,9 @@ namespace negocio
 
                 throw ex;
             }
-            finally { datos.cerrarConexion();}
+            finally { datos.cerrarConexion(); }
         }
-
-        public void modificarAnilla(Dictionary<string,string> valoresParametros)
+        public void modificarAnilla(Dictionary<string, string> valoresParametros)
         {
             int id = int.Parse(valoresParametros["Id"]);
             string marca = valoresParametros["Marca"];
@@ -111,7 +108,22 @@ namespace negocio
             {
                 throw ex;
             }
-            finally { datos.cerrarConexion();}
+            finally { datos.cerrarConexion(); }
+        }
+        public void descontarStock(string modelo, int cantidad)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE ANILLA SET cantidad = cantidad - @cantidad WHERE tamaño = @modelo");
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@modelo", modelo);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
         }
     }
 }

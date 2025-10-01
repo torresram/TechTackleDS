@@ -111,6 +111,20 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
+        public void descontarStock(string modelo, int cantidad)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE Carton SET cantidad = cantidad - @cantidad WHERE modelo = @modelo");
+                datos.setParametro("@cantidad", cantidad);
+                datos.setParametro("@modelo", modelo);
+                datos.ejecAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
     }
 }
